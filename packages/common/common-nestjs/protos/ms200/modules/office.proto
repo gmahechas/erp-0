@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package office;
+
+message Office {
+  string id = 1;
+  string officeName = 2;
+  string companyId = 3;
+  string addressId = 4;
+}
+
+// *********** One ***********
+message IEntityOne {
+  Office entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated Office entities = 1;
+}
+
+service OfficeService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

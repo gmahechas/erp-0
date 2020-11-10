@@ -1,0 +1,31 @@
+{
+  "name": "@gmahechas/common-nestjs",
+  "version": "0.0.23",
+  "description": "Common tools for ERP",
+  "author": "gmahechas",
+  "private": false,
+  "license": "UNLICENSED",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "mongoose": "^5.10.11"
+  },
+  "devDependencies": {
+    "@hapi/joi": "^17.1.1",
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
+    "@nestjs/graphql": "^7.7.0",
+    "@nestjs/microservices": "^7.5.1",
+    "@types/hapi__joi": "^17.1.4",
+    "@types/mongoose": "^5.7.37",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.4",
+    "typescript": "^3.9.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

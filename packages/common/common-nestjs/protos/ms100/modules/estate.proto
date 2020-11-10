@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package estate;
+
+message Estate {
+  string id = 1;
+  string estateName = 2;
+  string estateCode = 3;
+  string countryId = 4;
+}
+
+// *********** One ***********
+message IEntityOne {
+  Estate entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated Estate entities = 1;
+}
+
+service EstateService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}
+

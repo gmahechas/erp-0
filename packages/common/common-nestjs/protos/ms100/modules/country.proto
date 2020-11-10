@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package country;
+
+message Country {
+  string id = 1;
+  string countryName = 2;
+  string countryCode = 3;
+}
+
+// *********** One ***********
+message IEntityOne {
+  Country entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated Country entities = 1;
+}
+
+service CountryService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}
+

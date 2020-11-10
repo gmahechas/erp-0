@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+import public "modules/menu.proto";
+import public "modules/profile.proto";
+import public "modules/profile-menu.proto";
+import public "modules/user.proto";
+import public "modules/user-profile.proto";

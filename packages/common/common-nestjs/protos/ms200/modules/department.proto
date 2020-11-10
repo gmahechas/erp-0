@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package department;
+
+message Department {
+  string id = 1;
+  string departmentName = 2;
+  string companyId = 3;
+}
+
+// *********** One ***********
+message IEntityOne {
+  Department entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated Department entities = 1;
+}
+
+service DepartmentService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

@@ -1,0 +1,1 @@
+export { GraphQLExceptionsFilter, GrpcExceptionFilter } from './exceptions.filter';

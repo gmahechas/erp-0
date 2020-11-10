@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms200-deployment
+  namespace: ms200-namespace
+  annotations:
+    kubernetes.io/change-cause: "Initial Deploy"
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: ms200-pod
+  template:
+    metadata:
+      labels:
+        app: ms200-pod
+    spec:
+      containers:
+        - name: ms200-container
+          image: gmahechas/ms200-nestjs
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: MS200_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: ms200-secret
+                  key: MS200_PORT
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: ms200-secret
+                  key: MONGODB_URI
+            - name: MONGODB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ms200-secret
+                  key: MONGODB_USER
+            - name: MONGODB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: ms200-secret
+                  key: MONGODB_PASS
+          ports:  
+            - containerPort: 50100
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms200-service
+  namespace: ms200-namespace
+spec:
+  type: ClusterIP
+  selector:
+    app: ms200-pod
+  ports:
+    - protocol: TCP
+      port: 50200
+      targetPort: 50200

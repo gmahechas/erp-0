@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package office_department;
+
+message OffficeDepartment {
+  string id = 1;
+  bool officeDepartmentStatus = 2;
+  string officeId = 3;
+  string departmentId = 4;
+}
+
+// *********** One ***********
+message IEntityOne {
+  OffficeDepartment entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated OffficeDepartment entities = 1;
+}
+
+service OfficeDepartmentService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

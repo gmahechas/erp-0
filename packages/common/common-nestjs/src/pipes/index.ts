@@ -1,0 +1,1 @@
+export { GraphQLJoiValidationPipe, GrpcJoiValidationPipe } from './joi-validation.pipe';

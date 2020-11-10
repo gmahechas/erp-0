@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+import public "modules/type-person.proto";
+import public "modules/type-identification.proto";
+import public "modules/person.proto";

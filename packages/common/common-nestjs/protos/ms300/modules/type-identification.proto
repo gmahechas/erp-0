@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package type_identification;
+
+message TypeIdentification {
+  string id = 1;
+  string typeIdentificationDescription = 2;
+  string typeIdentificationCode = 3;
+}
+
+// *********** One ***********
+message IEntityOne {
+  TypeIdentification entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated TypeIdentification entities = 1;
+}
+
+service TypeIdentificationService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

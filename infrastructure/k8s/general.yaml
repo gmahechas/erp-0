@@ -1,0 +1,197 @@
+############################# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: api-gateway-namespace
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ms100-namespace
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ms200-namespace
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ms300-namespace
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ms400-namespace
+---
+############################# ResourceQuota
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: api-gateway-resource-quota
+  namespace: api-gateway-namespace
+spec:
+  hard:
+    limits.cpu: "4"
+    limits.memory: 4Gi
+    requests.cpu: "2"
+    requests.memory: 2Gi
+    pods: "2"
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: ms100-resource-quota
+  namespace: ms100-namespace
+spec:
+  hard:
+    limits.cpu: "4"
+    limits.memory: 4Gi
+    requests.cpu: "2"
+    requests.memory: 2Gi
+    pods: "2"
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: ms200-resource-quota
+  namespace: ms200-namespace
+spec:
+  hard:
+    limits.cpu: "4"
+    limits.memory: 4Gi
+    requests.cpu: "2"
+    requests.memory: 2Gi
+    pods: "2"
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: ms300-resource-quota
+  namespace: ms300-namespace
+spec:
+  hard:
+    limits.cpu: "4"
+    limits.memory: 4Gi
+    requests.cpu: "2"
+    requests.memory: 2Gi
+    pods: "2"
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: ms400-resource-quota
+  namespace: ms400-namespace
+spec:
+  hard:
+    limits.cpu: "4"
+    limits.memory: 4Gi
+    requests.cpu: "2"
+    requests.memory: 2Gi
+    pods: "2"
+---
+############################# LimitRange
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: api-gateway-limit-range
+  namespace: api-gateway-namespace
+spec:
+  limits:
+  - max:
+      cpu: "4"
+      memory: "4Gi"
+    min:
+      cpu: "1"
+      memory: "1Gi"
+    default:
+      cpu: "2"
+      memory: "2Gi"
+    defaultRequest:
+      cpu: "1"
+      memory: "1Gi"
+    type: Container
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: ms100-limit-range
+  namespace: ms100-namespace
+spec:
+  limits:
+  - max:
+      cpu: "4"
+      memory: "4Gi"
+    min:
+      cpu: "1"
+      memory: "1Gi"
+    default:
+      cpu: "2"
+      memory: "2Gi"
+    defaultRequest:
+      cpu: "1"
+      memory: "1Gi"
+    type: Container
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: ms200-limit-range
+  namespace: ms200-namespace
+spec:
+  limits:
+  - max:
+      cpu: "4"
+      memory: "4Gi"
+    min:
+      cpu: "1"
+      memory: "1Gi"
+    default:
+      cpu: "2"
+      memory: "2Gi"
+    defaultRequest:
+      cpu: "1"
+      memory: "1Gi"
+    type: Container
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: ms300-limit-range
+  namespace: ms300-namespace
+spec:
+  limits:
+  - max:
+      cpu: "4"
+      memory: "4Gi"
+    min:
+      cpu: "1"
+      memory: "1Gi"
+    default:
+      cpu: "2"
+      memory: "2Gi"
+    defaultRequest:
+      cpu: "1"
+      memory: "1Gi"
+    type: Container
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: ms400-limit-range
+  namespace: ms400-namespace
+spec:
+  limits:
+  - max:
+      cpu: "4"
+      memory: "4Gi"
+    min:
+      cpu: "1"
+      memory: "1Gi"
+    default:
+      cpu: "2"
+      memory: "2Gi"
+    defaultRequest:
+      cpu: "1"
+      memory: "1Gi"
+    type: Container

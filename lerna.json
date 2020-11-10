@@ -1,0 +1,17 @@
+{
+  "version": "independent",
+  "npmClient": "yarn",
+  "command": {
+    "version": {
+      "allowBranch": "master",
+      "changelogPreset": {
+        "name": "conventional-changelog"
+      },
+      "conventionalCommits": true,
+      "message": "chore(release): publish"
+    }
+  },
+  "packages": [
+    "packages/*/*"
+  ]
+}

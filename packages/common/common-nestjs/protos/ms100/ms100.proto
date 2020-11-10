@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+import public "modules/country.proto";
+import public "modules/estate.proto";
+import public "modules/city.proto";
+import public "modules/address.proto";

@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms300-deployment
+  namespace: ms300-namespace
+  annotations:
+    kubernetes.io/change-cause: "Initial Deploy"
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: ms300-pod
+  template:
+    metadata:
+      labels:
+        app: ms300-pod
+    spec:
+      containers:
+        - name: ms300-container
+          image: gmahechas/ms300-nestjs
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: MS300_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: ms300-secret
+                  key: MS300_PORT
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: ms300-secret
+                  key: MONGODB_URI
+            - name: MONGODB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ms300-secret
+                  key: MONGODB_USER
+            - name: MONGODB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: ms300-secret
+                  key: MONGODB_PASS
+          ports:  
+            - containerPort: 50100
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms300-service
+  namespace: ms300-namespace
+spec:
+  type: ClusterIP
+  selector:
+    app: ms300-pod
+  ports:
+    - protocol: TCP
+      port: 50100
+      targetPort: 50100

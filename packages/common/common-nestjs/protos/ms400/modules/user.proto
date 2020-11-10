@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package user;
+
+message User {
+  string id = 1;
+  string userName = 2;
+  string userPassword = 3;
+  string personId = 4;
+}
+
+// *********** One ***********
+message IEntityOne {
+  User entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated User entities = 1;
+}
+
+service UserService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}
