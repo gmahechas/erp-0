@@ -1,6 +1,6 @@
 {
   "name": "ms200-nestjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Microservice 200",
   "author": "gmahechas",
   "private": true,
