@@ -1,6 +1,6 @@
 {
   "name": "@gmahechas/common-nestjs",
-  "version": "0.0.23",
+  "version": "0.0.0",
   "description": "Common tools for ERP",
   "author": "gmahechas",
   "private": false,

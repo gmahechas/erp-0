@@ -1,6 +1,6 @@
 {
   "name": "api-gateway-nestjs",
-  "version": "0.0.22",
+  "version": "0.0.0",
   "description": "Microservice 100",
   "author": "gmahechas",
   "private": true,

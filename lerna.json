@@ -3,7 +3,7 @@
   "npmClient": "yarn",
   "command": {
     "version": {
-      "allowBranch": "master",
+      "allowBranch": "main",
       "changelogPreset": {
         "name": "conventional-changelog"
       },
