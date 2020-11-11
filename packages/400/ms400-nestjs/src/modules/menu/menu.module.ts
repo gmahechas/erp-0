@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SchemaDefinition } from 'mongoose';
 
-import { MenuDocument, MenuSchema } from '@ms400/modules/menu/client/mongodb/menu.schema';
+import { MenuDocument, MenuSchema } from '@gmahechas/common-nestjs';
 
 import { MenuGrpcController } from '@ms400/modules/menu/server/grpc/menu-grpc.controller';
 import { MenuMongodbService } from '@ms400/modules/menu/client/mongodb/menu-mongodb.service';

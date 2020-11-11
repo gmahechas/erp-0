@@ -2,11 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
-import { AddressDocument } from '@ms100/modules/address/client/mongodb/address.schema';
 
 import { Observable, from } from 'rxjs';
 
-import { IEntityMany, IAddress , BaseMongodbService } from '@gmahechas/common-nestjs';
+import { IEntityMany, IAddress , BaseMongodbService, AddressDocument } from '@gmahechas/common-nestjs';
 
 @Injectable()
 export class AddressMongodbService extends BaseMongodbService() {

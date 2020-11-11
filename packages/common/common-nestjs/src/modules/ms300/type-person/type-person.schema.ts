@@ -2,7 +2,7 @@ import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 
 import { Document } from 'mongoose';
 
-import { ITypePerson } from '@gmahechas/common-nestjs';
+import { ITypePerson } from './type-person.interface';
 
 @Schema({
   versionKey: false,

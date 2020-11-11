@@ -2,7 +2,7 @@ import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 
 import { Document } from 'mongoose';
 
-import { ITypeIdentification } from '@gmahechas/common-nestjs';
+import { ITypeIdentification } from './type-identification.interface';
 
 @Schema({
   versionKey: false,

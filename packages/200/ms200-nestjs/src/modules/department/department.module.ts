@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SchemaDefinition } from 'mongoose';
 
-import { DepartmentDocument, DepartmentSchema } from '@ms200/modules/department/client/mongodb/department.schema';
+import { DepartmentDocument, DepartmentSchema } from '@gmahechas/common-nestjs';
 
 import { DepartmentGrpcController } from '@ms200/modules/department/server/grpc/department-grpc.controller';
 import { DepartmentMongodbService } from '@ms200/modules/department/client/mongodb/department-mongodb.service';

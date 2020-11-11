@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SchemaDefinition } from 'mongoose';
 
-import { PersonDocument, PersonSchema } from '@ms300/modules/person/client/mongodb/person.schema';
+import { PersonDocument, PersonSchema } from '@gmahechas/common-nestjs';
 
 import { PersonGrpcController } from '@ms300/modules/person/server/grpc/person-grpc.controller';
 import { PersonMongodbService } from '@ms300/modules/person/client/mongodb/person-mongodb.service';

@@ -2,7 +2,7 @@ import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 
 import { Document } from 'mongoose';
 
-import { IAddress } from '@gmahechas/common-nestjs';
+import { IAddress } from './address.interface';
 
 @Schema({
   versionKey: false,

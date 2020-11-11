@@ -2,11 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
-import { ProfileMenuDocument } from '@ms400/modules/profile-menu/client/mongodb/profile-menu.schema';
 
 import { Observable, from } from 'rxjs';
 
-import { IEntityMany, IProfileMenu , BaseMongodbService } from '@gmahechas/common-nestjs';
+import { IEntityMany, IProfileMenu , BaseMongodbService, ProfileMenuDocument } from '@gmahechas/common-nestjs';
 
 @Injectable()
 export class ProfileMenuMongodbService extends BaseMongodbService() {

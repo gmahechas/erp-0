@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SchemaDefinition } from 'mongoose';
 
-import { ProfileMenuDocument, ProfileMenuSchema } from '@ms400/modules/profile-menu/client/mongodb/profile-menu.schema';
+import { ProfileMenuDocument, ProfileMenuSchema } from '@gmahechas/common-nestjs';
 
 import { ProfileMenuGrpcController } from '@ms400/modules/profile-menu/server/grpc/profile-menu-grpc.controller';
 import { ProfileMenuMongodbService } from '@ms400/modules/profile-menu/client/mongodb/profile-menu-mongodb.service';

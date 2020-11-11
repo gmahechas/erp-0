@@ -2,7 +2,7 @@ import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 
 import { Document } from 'mongoose';
 
-import { IOfficeDepartment } from '@gmahechas/common-nestjs';
+import { IOfficeDepartment } from './office-department.interface';
 
 @Schema({
   versionKey: false,

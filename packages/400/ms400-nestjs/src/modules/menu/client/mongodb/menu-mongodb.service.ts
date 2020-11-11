@@ -2,11 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
-import { MenuDocument } from '@ms400/modules/menu/client/mongodb/menu.schema';
 
 import { Observable, from } from 'rxjs';
 
-import { IEntityMany, IMenu , BaseMongodbService } from '@gmahechas/common-nestjs';
+import { IEntityMany, IMenu , BaseMongodbService, MenuDocument } from '@gmahechas/common-nestjs';
 
 @Injectable()
 export class MenuMongodbService extends BaseMongodbService() {

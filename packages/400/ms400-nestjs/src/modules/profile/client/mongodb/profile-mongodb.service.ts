@@ -2,11 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
-import { ProfileDocument } from '@ms400/modules/profile/client/mongodb/profile.schema';
 
 import { Observable, from } from 'rxjs';
 
-import { IEntityMany, IProfile , BaseMongodbService } from '@gmahechas/common-nestjs';
+import { IEntityMany, IProfile , BaseMongodbService, ProfileDocument } from '@gmahechas/common-nestjs';
 
 @Injectable()
 export class ProfileMongodbService extends BaseMongodbService() {

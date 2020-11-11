@@ -2,11 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
-import { TypePersonDocument } from '@ms300/modules/type-person/client/mongodb/type-person.schema';
 
 import { Observable, from } from 'rxjs';
 
-import { IEntityMany, ITypePerson , BaseMongodbService } from '@gmahechas/common-nestjs';
+import { IEntityMany, ITypePerson , BaseMongodbService, TypePersonDocument } from '@gmahechas/common-nestjs';
 
 @Injectable()
 export class TypePersonMongodbService extends BaseMongodbService() {

@@ -2,7 +2,7 @@ import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 
 import { Document } from 'mongoose';
 
-import { IOffice } from '@gmahechas/common-nestjs';
+import { IDepartment } from './department.interface';
 
 @Schema({
   versionKey: false,
@@ -13,10 +13,9 @@ import { IOffice } from '@gmahechas/common-nestjs';
     }
   }
 })
-export class OfficeDocument extends Document implements Partial<IOffice> {
-  @Prop() officeName: string;
+export class DepartmentDocument extends Document implements Partial<IDepartment> {
+  @Prop() departmentName: string;
   @Prop() companyId: string;
-  @Prop() addressId: string;
 }
 
-export const OfficeSchema = SchemaFactory.createForClass(OfficeDocument);
+export const DepartmentSchema = SchemaFactory.createForClass(DepartmentDocument);
