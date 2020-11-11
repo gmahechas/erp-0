@@ -5,21 +5,17 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { officeJoiSchema, ICompany, IOfficeDepartment, IAddress, BaseResolver } from '@gmahechas/common-nestjs';
-
-import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms200/office/client/grpc/office-grpc.service'
-import { OfficeType } from '@api-gateway-nestjs/modules/ms200/office/server/graphql/office.type';
-import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/client/grpc/company-grpc.service';
-import { CompanyType } from '@api-gateway-nestjs/modules/ms200/company/server/graphql/company.type';
-import { OfficeDepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/office-department/client/grpc/office-department-grpc.service';
-import { OfficeDepartmentType } from '@api-gateway-nestjs/modules/ms200/office-department/server/graphql/office-department.type';
-import { AddressGrpcService } from '@api-gateway-nestjs/modules/ms100/address/client/grpc/address-grpc.service';
-import { AddressType } from '@api-gateway-nestjs/modules/ms100/address/server/graphql/address.type';
-
 import {
+  OfficeType, CompanyType, OfficeDepartmentType, AddressType,
+  officeJoiSchema, ICompany, IOfficeDepartment, IAddress, BaseResolver,
   OfficeCreateInput, OfficeSearchInput,
   OfficeUpdateInput, OfficeDeleteInput
-} from '@api-gateway-nestjs/modules/ms200/office/server/graphql/office.input';
+} from '@gmahechas/common-nestjs';
+
+import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms200/office/client/grpc/office-grpc.service'
+import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/client/grpc/company-grpc.service';
+import { OfficeDepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/office-department/client/grpc/office-department-grpc.service';
+import { AddressGrpcService } from '@api-gateway-nestjs/modules/ms100/address/client/grpc/address-grpc.service';
 
 @Resolver(() => OfficeType)
 export class OfficeResolver extends BaseResolver(

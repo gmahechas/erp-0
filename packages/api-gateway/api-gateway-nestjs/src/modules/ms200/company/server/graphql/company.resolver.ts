@@ -5,23 +5,18 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { companyJoiSchema, IOffice, IDepartment, ICity, IAddress, BaseResolver } from '@gmahechas/common-nestjs';
-
-import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/client/grpc/company-grpc.service'
-import { CompanyType } from '@api-gateway-nestjs/modules/ms200/company/server/graphql/company.type';
-import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms200/office/client/grpc/office-grpc.service';
-import { OfficeType } from '@api-gateway-nestjs/modules/ms200/office/server/graphql/office.type';
-import { DepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/department/client/grpc/department-grpc.service';
-import { DepartmentType } from '@api-gateway-nestjs/modules/ms200/department/server/graphql/department.type';
-import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
-import { CityType } from '@api-gateway-nestjs/modules/ms100/city/server/graphql/city.type';
-import { AddressGrpcService } from '@api-gateway-nestjs/modules/ms100/address/client/grpc/address-grpc.service';
-import { AddressType } from '@api-gateway-nestjs/modules/ms100/address/server/graphql/address.type';
-
 import {
+  CompanyType, OfficeType, DepartmentType, CityType, AddressType,
+  companyJoiSchema, IOffice, IDepartment, ICity, IAddress, BaseResolver,
   CompanyCreateInput, CompanySearchInput,
   CompanyUpdateInput, CompanyDeleteInput
-} from '@api-gateway-nestjs/modules/ms200/company/server/graphql/company.input';
+} from '@gmahechas/common-nestjs';
+
+import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/client/grpc/company-grpc.service'
+import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms200/office/client/grpc/office-grpc.service';
+import { DepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/department/client/grpc/department-grpc.service';
+import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
+import { AddressGrpcService } from '@api-gateway-nestjs/modules/ms100/address/client/grpc/address-grpc.service';
 
 @Resolver(() => CompanyType)
 export class CompanyResolver extends BaseResolver(

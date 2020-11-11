@@ -5,17 +5,15 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { addressJoiSchema, ICity, BaseResolver } from '@gmahechas/common-nestjs';
-
-import { AddressGrpcService } from '@api-gateway-nestjs/modules/ms100/address/client/grpc/address-grpc.service';
-import { AddressType } from '@api-gateway-nestjs/modules/ms100/address/server/graphql/address.type';
-import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
-import { CityType } from '@api-gateway-nestjs/modules/ms100/city/server/graphql/city.type';
-
 import {
+  AddressType, CityType,
+  addressJoiSchema, ICity, BaseResolver,
   AddressCreateInput, AddressSearchInput,
   AddressUpdateInput, AddressDeleteInput
-} from '@api-gateway-nestjs/modules/ms100/address/server/graphql/address.input';
+} from '@gmahechas/common-nestjs';
+
+import { AddressGrpcService } from '@api-gateway-nestjs/modules/ms100/address/client/grpc/address-grpc.service';
+import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
 
 @Resolver(() => AddressType)
 export class AddressResolver extends BaseResolver(

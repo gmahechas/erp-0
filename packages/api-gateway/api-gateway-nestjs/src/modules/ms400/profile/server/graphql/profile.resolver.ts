@@ -5,17 +5,15 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { profileJoiSchema, IProfileMenu, BaseResolver } from '@gmahechas/common-nestjs';
-
-import { ProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/profile/client/grpc/profile-grpc.service'
-import { ProfileType } from '@api-gateway-nestjs/modules/ms400/profile/server/graphql/profile.type';
-import { ProfileMenuGrpcService } from '@api-gateway-nestjs/modules/ms400/profile-menu/client/grpc/profile-menu-grpc.service';
-import { ProfileMenuType } from '@api-gateway-nestjs/modules/ms400/profile-menu/server/graphql/profile-menu.type';
-
 import {
+  ProfileType, ProfileMenuType,
+  profileJoiSchema, IProfileMenu, BaseResolver,
   ProfileCreateInput, ProfileSearchInput,
   ProfileUpdateInput, ProfileDeleteInput
-} from '@api-gateway-nestjs/modules/ms400/profile/server/graphql/profile.input';
+} from '@gmahechas/common-nestjs';
+
+import { ProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/profile/client/grpc/profile-grpc.service'
+import { ProfileMenuGrpcService } from '@api-gateway-nestjs/modules/ms400/profile-menu/client/grpc/profile-menu-grpc.service';
 
 @Resolver(() => ProfileType)
 export class ProfileResolver extends BaseResolver(

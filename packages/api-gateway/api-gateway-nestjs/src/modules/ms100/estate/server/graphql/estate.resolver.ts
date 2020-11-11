@@ -5,19 +5,16 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { estateJoiSchema, ICountry, ICity, BaseResolver } from '@gmahechas/common-nestjs';
-
-import { EstateGrpcService } from '@api-gateway-nestjs/modules/ms100/estate/client/grpc/estate-grpc.service';
-import { EstateType } from '@api-gateway-nestjs/modules/ms100/estate/server/graphql/estate.type';
-import { CountryGrpcService } from '@api-gateway-nestjs/modules/ms100/country/client/grpc/country-grpc.service';
-import { CountryType } from '@api-gateway-nestjs/modules/ms100/country/server/graphql/country.type';
-import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
-import { CityType } from '@api-gateway-nestjs/modules/ms100/city/server/graphql/city.type';
-
 import {
+  EstateType, CountryType, CityType,
+  estateJoiSchema, ICountry, ICity, BaseResolver,
   EstateCreateInput, EstateSearchInput,
   EstateUpdateInput, EstateDeleteInput
-} from '@api-gateway-nestjs/modules/ms100/estate/server/graphql/estate.input';
+} from '@gmahechas/common-nestjs';
+
+import { EstateGrpcService } from '@api-gateway-nestjs/modules/ms100/estate/client/grpc/estate-grpc.service';
+import { CountryGrpcService } from '@api-gateway-nestjs/modules/ms100/country/client/grpc/country-grpc.service';
+import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
 
 @Resolver(() => EstateType)
 export class EstateResolver extends BaseResolver(
