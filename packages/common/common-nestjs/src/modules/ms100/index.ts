@@ -1,5 +1,5 @@
-export { ICountry } from './country.interface';
-export { IEstate } from './estate.interface';
-export { ICity } from './city.interface';
-export { IAddress } from './address.interface';
+export * from './country';
+export * from './estate';
+export * from './city';
+export * from './address';
 
