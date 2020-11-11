@@ -2,11 +2,12 @@ import Joi, { object } from '@hapi/joi';
 import { JoiSchema } from '../../validations/joi-schema.interface';
 
 const createPersonSchema = object({
-  personFirstName: Joi.string().min(3).max(30).required(),
-  personSecondName: Joi.string().min(3).max(30),
-  personFirstSurname: Joi.string().min(3).max(30).required(),
-  personSecondSurname: Joi.string().min(3).max(30),
-  personCompanyName: Joi.string().min(3).max(30),
+  personIdentification: Joi.string().min(2).max(64).required(),
+  personFirstName: Joi.string().min(2).max(64).allow(null),
+  personSecondName: Joi.string().min(2).max(64).allow(null),
+  personFirstSurname: Joi.string().min(2).max(64).allow(null),
+  personSecondSurname: Joi.string().min(2).max(64).allow(null),
+  personCompanyName: Joi.string().min(2).max(128).allow(null),
   companyId: Joi.string().required(),
   typePersonId: Joi.string().required(),
   typeIdentificationId: Joi.string().required()
@@ -14,7 +15,8 @@ const createPersonSchema = object({
 
 const searchPersonSchema = object({
   id: Joi.string(),
-  personCompanyName: Joi.string().min(3).max(30),
+  personIdentification: Joi.string().min(2).max(64),
+  personCompanyName: Joi.string().min(2).max(128),
   companyId: Joi.string(),
   typePersonId: Joi.string(),
   typeIdentificationId: Joi.string()
@@ -22,7 +24,12 @@ const searchPersonSchema = object({
 
 const updatePersonSchema = object({
   id: Joi.string().required(),
-  personCompanyName: Joi.string().min(3).max(30),
+  personIdentification: Joi.string().min(2).max(64),
+  personFirstName: Joi.string().min(2).max(64).allow(null),
+  personSecondName: Joi.string().min(2).max(64).allow(null),
+  personFirstSurname: Joi.string().min(2).max(64).allow(null),
+  personSecondSurname: Joi.string().min(2).max(64).allow(null),
+  personCompanyName: Joi.string().min(2).max(128).allow(null),
   companyId: Joi.string(),
   typePersonId: Joi.string(),
   typeIdentificationId: Joi.string()

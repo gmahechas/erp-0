@@ -4,11 +4,12 @@ import { IPerson } from '@gmahechas/common-nestjs';
 
 @InputType()
 export class PersonCreateInput implements Partial<IPerson> {
+  @Field() personIdentification: string;
   @Field() personFirstName: string;
-  @Field() personSecondName: string;
+  @Field({ nullable: true }) personSecondName: string;
   @Field() personFirstSurname: string;
-  @Field() personSecondSurname: string;
-  @Field() personCompanyName: string;
+  @Field({ nullable: true }) personSecondSurname: string;
+  @Field({ nullable: true }) personCompanyName: string;
   @Field() companyId: string;
   @Field() typePersonId: string;
   @Field() typeIdentificationId: string;
@@ -17,6 +18,7 @@ export class PersonCreateInput implements Partial<IPerson> {
 @InputType()
 export class PersonSearchInput implements Partial<IPerson> {
   @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) personIdentification: string;
   @Field({ nullable: true }) personCompanyName: string;
   @Field({ nullable: true }) companyId: string;
   @Field({ nullable: true }) typePersonId: string;
@@ -26,8 +28,12 @@ export class PersonSearchInput implements Partial<IPerson> {
 @InputType()
 export class PersonUpdateInput implements Partial<IPerson> {
   @Field(() => ID) id: string;
+  @Field() personIdentification: string;
+  @Field() personFirstName: string;
+  @Field({ nullable: true }) personSecondName: string;
+  @Field() personFirstSurname: string;
+  @Field({ nullable: true }) personSecondSurname: string;
   @Field({ nullable: true }) personCompanyName: string;
-  @Field({ nullable: true }) companyId: string;
   @Field({ nullable: true }) typePersonId: string;
   @Field({ nullable: true }) typeIdentificationId: string;
 }

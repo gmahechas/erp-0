@@ -8,11 +8,12 @@ import { TypeIdentificationType } from '@api-gateway-nestjs/modules/ms300/type-i
 @ObjectType()
 export class PersonType implements IPerson {
   @Field(() => ID) id: string;
-  @Field() personFirstName: string;
-  @Field() personSecondName: string;
-  @Field() personFirstSurname: string;
-  @Field() personSecondSurname: string;
-  @Field() personCompanyName: string;
+  @Field() personIdentification: string;
+  @Field({ nullable: true }) personFirstName: string;
+  @Field({ nullable: true }) personSecondName: string;
+  @Field({ nullable: true }) personFirstSurname: string;
+  @Field({ nullable: true }) personSecondSurname: string;
+  @Field({ nullable: true }) personCompanyName: string;
   @Field() companyId: string;
   @Field() typePersonId: string;
   @Field() typeIdentificationId: string;

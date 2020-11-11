@@ -8,7 +8,7 @@ import { UserProfileType } from '@api-gateway-nestjs/modules/ms400/user-profile/
 export class UserType implements IUser {
   @Field(() => ID) id: string;
   @Field() userName: string;
-  @Field() userPassword: string;
+  userPassword: string;
   @Field() personId: string;
   @Field(() => PersonType) person: PersonType;
   @Field(() => [UserProfileType], { nullable: 'itemsAndList' }) userProfiles: UserProfileType[];

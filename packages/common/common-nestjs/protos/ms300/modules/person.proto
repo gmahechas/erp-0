@@ -4,14 +4,15 @@ package person;
 
 message Person {
   string id = 1;
-  string personFirstName = 2;
-  string personSecondName = 3;
-  string personFirstSurname = 4;
-  string personSecondSurname = 5;
-  string personCompanyName = 6;
-  string companyId = 7;
-  string typePersonId = 8;
-  string typeIdentificationId = 9;
+  string personIdentification = 2;
+  string personFirstName = 3;
+  string personSecondName = 4;
+  string personFirstSurname = 5;
+  string personSecondSurname = 6;
+  string personCompanyName = 7;
+  string companyId = 8;
+  string typePersonId = 9;
+  string typeIdentificationId = 10;
 }
 
 // *********** One ***********
