@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { Injectable, PipeTransform } from '@nestjs/common';
 import { RpcException } from '@nestjs/microservices';
 
