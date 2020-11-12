@@ -6,7 +6,6 @@ export const cityProviders = [
   {
     provide: CityDocument.name,
     useFactory: (connection: Connection) => connection.model('City', citySchema, 'city'),
-    inject: ['MONGODB_CONNECTION'],
-
+    inject: ['MONGODB_CONNECTION']
   },
 ];

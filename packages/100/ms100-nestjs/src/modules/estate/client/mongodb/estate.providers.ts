@@ -6,7 +6,6 @@ export const estateProviders = [
   {
     provide: EstateDocument.name,
     useFactory: (connection: Connection) => connection.model('Estate', estateSchema, 'estate'),
-    inject: ['MONGODB_CONNECTION'],
-
+    inject: ['MONGODB_CONNECTION']
   },
 ];

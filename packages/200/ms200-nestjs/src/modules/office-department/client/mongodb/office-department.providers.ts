@@ -6,7 +6,6 @@ export const officeDepartmentProviders = [
   {
     provide: OfficeDepartmentDocument.name,
     useFactory: (connection: Connection) => connection.model('OfficeDepartment', officeDepartmentSchema, 'officeDepartment'),
-    inject: ['MONGODB_CONNECTION'],
-
+    inject: ['MONGODB_CONNECTION']
   },
 ];

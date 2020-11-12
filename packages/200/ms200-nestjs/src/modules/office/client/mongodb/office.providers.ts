@@ -6,7 +6,6 @@ export const officeProviders = [
   {
     provide: OfficeDocument.name,
     useFactory: (connection: Connection) => connection.model('Office', officeSchema, 'office'),
-    inject: ['MONGODB_CONNECTION'],
-
+    inject: ['MONGODB_CONNECTION']
   },
 ];

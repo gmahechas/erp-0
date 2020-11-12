@@ -6,7 +6,6 @@ export const departmentProviders = [
   {
     provide: DepartmentDocument.name,
     useFactory: (connection: Connection) => connection.model('Department', departmentSchema, 'department'),
-    inject: ['MONGODB_CONNECTION'],
-
+    inject: ['MONGODB_CONNECTION']
   },
 ];
