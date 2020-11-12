@@ -13,70 +13,66 @@ export function BaseMongodbService<A extends Document>(): any {
     ) { }
 
     createOne(data: IEntityOne<A>): Observable<IEntityOne<A>> {
-      return from(this._createOneAsync(data));
+      const createOneAsync = async (): Promise<IEntityOne<A>> => {
+        const { ...dataEntity } = data.entity;
+        const model = new this.entityModel(dataEntity);
+        return { entity: await model.save() };
+      };
+      return from(createOneAsync());
     }
 
     updateOne(data: IEntityOne<A>): Observable<IEntityOne<A>> {
-      return from(this._updateOneAsync(data));
+      const updateOneAsync = async (): Promise<IEntityOne<A>> => {
+        const { ...dataEntity } = data.entity;
+        const entity = await this.entityModel.findById(dataEntity.id);
+        if (entity) {
+          Object.assign(entity, dataEntity);
+          const result = await this.entityModel.updateOne({ _id: dataEntity.id }, entity);
+          if (result.ok) {
+            return { entity };
+          } else {
+            return { entity: null };
+          }
+        } else {
+          return { entity: null };
+        }
+      };
+      return from(updateOneAsync());
     }
 
     deleteOne(data: IEntityOne<A>): Observable<IEntityOne<A>> {
-      return from(this._deleteOneAsync(data));
+      const deleteOneAsync = async (): Promise<IEntityOne<A>> => {
+        const { ...dataEntity } = data.entity;
+        const entity = await this.entityModel.findById(dataEntity.id);
+        if (entity) {
+          const result = await this.entityModel.deleteOne({ _id: dataEntity.id });
+          if (result.ok) {
+            return { entity };
+          } else {
+            return { entity: null };
+          }
+        } else {
+          return { entity: null };
+        }
+      }
+      return from(deleteOneAsync());
     }
 
     searchById(data: IEntityOne<A>): Observable<IEntityOne<A>> {
-      return from(this._searchByIdAsync(data));
+      const searchByIdAsync = async (): Promise<IEntityOne<A>> => {
+        const { ...dataEntity } = data.entity;
+        return { entity: await this.entityModel.findById({ _id: dataEntity.id }) };
+      };
+      return from(searchByIdAsync());
     }
 
     /*     searchMany(data: IEntityMany<A>): Observable<IEntityMany<A>> {
-          return from(this._searchManyAsync(data));
-        } */
-
-    async _createOneAsync(data: IEntityOne<A>): Promise<IEntityOne<A>> {
-      const { ...dataEntity } = data.entity;
-      const model = new this.entityModel(dataEntity);
-      return { entity: await model.save() };
-    }
-
-    async _updateOneAsync(data: IEntityOne<A>): Promise<IEntityOne<A>> {
-      const { ...dataEntity } = data.entity;
-      const entity = await this.entityModel.findById(dataEntity.id);
-      if (entity) {
-        Object.assign(entity, dataEntity);
-        const result = await this.entityModel.updateOne({ _id: dataEntity.id }, entity);
-        if (result.ok) {
-          return { entity };
-        } else {
-          return { entity: null };
-        }
-      } else {
-        return { entity: null };
-      }
-    }
-
-    async _deleteOneAsync(data: IEntityOne<A>): Promise<IEntityOne<A>> {
-      const { ...dataEntity } = data.entity;
-      const entity = await this.entityModel.findById(dataEntity.id);
-      if (entity) {
-        const result = await this.entityModel.deleteOne({ _id: dataEntity.id });
-        if (result.ok) {
-          return { entity };
-        } else {
-          return { entity: null };
-        }
-      } else {
-        return { entity: null };
-      }
-    }
-
-    async _searchByIdAsync(data: IEntityOne<A>): Promise<IEntityOne<A>> {
-      const { ...dataEntity } = data.entity;
-      return { entity: await this.entityModel.findById({ _id: dataEntity.id }) };
-    }
-
-    /*     async _searchManyAsync(data: IEntityMany<A>): Promise<IEntityMany<A>> {
-          const dataEntities = data.entities ? data.entities : [{}];
-          return { entities: await this.entityModel.find({ $or: dataEntities }) };
+          const searchManyAsync = async (): Promise<IEntityOne<A>> => {
+            const dataEntities = data.entities ? data.entities : [{}];
+            return { entities: await this.entityModel.find({ $or: dataEntities }) };
+          };
+    
+          return from(searchManyAsync());
         } */
 
   }

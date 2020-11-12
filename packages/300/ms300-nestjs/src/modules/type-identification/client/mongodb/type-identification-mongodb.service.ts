@@ -14,12 +14,11 @@ export class TypeIdentificationMongodbService extends BaseMongodbService() {
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<ITypeIdentification>): Observable<IEntityMany<ITypeIdentification>> {
-    return from(this._searchManyAsync(data));
-  }
-
-  async _searchManyAsync(data: IEntityMany<ITypeIdentification>): Promise<IEntityMany<ITypeIdentification>> {
-    const dataEntities = data.entities ? data.entities : [{}];
-    return { entities: await this.entityModel.find({ $or: dataEntities }) };
+    const searchManyAsync = async(): Promise<IEntityMany<ITypeIdentification>> => {
+      const dataEntities = data.entities ? data.entities : [{}];
+      return { entities: await this.entityModel.find({ $or: dataEntities }) };
+    };
+    return from(searchManyAsync());
   }
 
 }

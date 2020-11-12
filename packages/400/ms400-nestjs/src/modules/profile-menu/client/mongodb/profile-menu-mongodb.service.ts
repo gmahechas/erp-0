@@ -14,12 +14,11 @@ export class ProfileMenuMongodbService extends BaseMongodbService() {
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<IProfileMenu>): Observable<IEntityMany<IProfileMenu>> {
-    return from(this._searchManyAsync(data));
-  }
-
-  async _searchManyAsync(data: IEntityMany<IProfileMenu>): Promise<IEntityMany<IProfileMenu>> {
-    const dataEntities = data.entities ? data.entities : [{}];
-    return { entities: await this.entityModel.find({ $or: dataEntities }) };
+    const searchManyAsync = async(): Promise<IEntityMany<IProfileMenu>> => {
+      const dataEntities = data.entities ? data.entities : [{}];
+      return { entities: await this.entityModel.find({ $or: dataEntities }) };
+    };
+    return from(searchManyAsync());
   }
 
 }

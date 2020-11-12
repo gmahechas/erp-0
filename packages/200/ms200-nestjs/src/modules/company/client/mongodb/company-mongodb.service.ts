@@ -14,12 +14,11 @@ export class CompanyMongodbService extends BaseMongodbService() {
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<ICompany>): Observable<IEntityMany<ICompany>> {
-    return from(this._searchManyAsync(data));
-  }
-
-  async _searchManyAsync(data: IEntityMany<ICompany>): Promise<IEntityMany<ICompany>> {
-    const dataEntities = data.entities ? data.entities : [{}];
-    return { entities: await this.entityModel.find({ $or: dataEntities }) };
+    const searchManyAsync = async(): Promise<IEntityMany<ICompany>> => {
+      const dataEntities = data.entities ? data.entities : [{}];
+      return { entities: await this.entityModel.find({ $or: dataEntities }) };
+    };
+    return from(searchManyAsync());
   }
 
 }
