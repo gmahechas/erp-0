@@ -20,7 +20,6 @@ export const menuSchema = new Schema({
     type: String
   }
 }, {
-  versionKey: false,
   toObject: {
     transform(doc, ret) {
       ret.id = ret._id.toString();

@@ -12,7 +12,6 @@ export const officeSchema = new Schema({
     require: true
   }
 }, {
-  versionKey: false,
   toObject: {
     transform(doc, ret) {
       ret.id = ret._id.toString();
