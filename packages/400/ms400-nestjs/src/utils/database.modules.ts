@@ -1,9 +1,16 @@
-import { Module } from '@nestjs/common';
+import { DynamicModule } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { databaseProviders } from '@ms400/utils/database.providers';
+import config from '@ms400/utils/config';
 
-@Module({
-  providers: [...databaseProviders],
-  exports: [...databaseProviders],
-})
-export class DatabaseModule { }
+export const databasesModules: DynamicModule[] = [
+  MongooseModule.forRootAsync({
+    useFactory: async () => ({
+      uri: await config.mongodb_uri,
+      user: await config.mongodb_user,
+      pass: await config.mongodb_pass,
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+  })
+];

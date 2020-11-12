@@ -1,17 +1,22 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { DatabaseModule } from '@ms100/utils/database.modules';
+import { CountryDocument, countrySchema } from '@gmahechas/common-nestjs';
 
 import { CountryGrpcController } from '@ms100/modules/country/server/grpc/country-grpc.controller';
 import { CountryMongodbService } from '@ms100/modules/country/client/mongodb/country-mongodb.service';
-import { countryProviders } from '@ms100/modules/country/client/mongodb/country.providers';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        collection: 'country',
+        name: CountryDocument.name,
+        schema: countrySchema
+      }
+    ])
+  ],
   controllers: [CountryGrpcController],
-  providers: [
-    CountryMongodbService,
-    ...countryProviders
-  ]
+  providers: [CountryMongodbService]
 })
 export class CountryModule { }

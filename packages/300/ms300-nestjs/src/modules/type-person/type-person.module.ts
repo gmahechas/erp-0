@@ -1,17 +1,22 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { DatabaseModule } from '@ms300/utils/database.modules';
+import { TypePersonDocument, typePersonSchema } from '@gmahechas/common-nestjs';
 
 import { TypePersonGrpcController } from '@ms300/modules/type-person/server/grpc/type-person-grpc.controller';
 import { TypePersonMongodbService } from '@ms300/modules/type-person/client/mongodb/type-person-mongodb.service';
-import { typePersonProviders } from '@ms300/modules/type-person/client/mongodb/type-person.providers';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        collection: 'typePerson',
+        name: TypePersonDocument.name,
+        schema: typePersonSchema
+      }
+    ])
+  ],
   controllers: [TypePersonGrpcController],
-  providers: [
-    TypePersonMongodbService,
-    ...typePersonProviders
-  ]
+  providers: [TypePersonMongodbService]
 })
-export class TypePersonModule {}
+export class TypePersonModule { }

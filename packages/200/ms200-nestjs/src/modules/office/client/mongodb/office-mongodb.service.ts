@@ -1,4 +1,5 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
 import { Observable, from } from 'rxjs';
@@ -9,7 +10,7 @@ import { IEntityMany, IOffice , BaseMongodbService, OfficeDocument } from '@gmah
 export class OfficeMongodbService extends BaseMongodbService() {
 
   constructor(
-    @Inject(OfficeDocument.name) private readonly entityModel: Model<OfficeDocument>
+    @InjectModel(OfficeDocument.name) private readonly entityModel: Model<OfficeDocument>
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<IOffice>): Observable<IEntityMany<IOffice>> {

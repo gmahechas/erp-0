@@ -1,4 +1,5 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
 import { Observable, from } from 'rxjs';
@@ -9,7 +10,7 @@ import { IEntityMany, ITypeIdentification , BaseMongodbService, TypeIdentificati
 export class TypeIdentificationMongodbService extends BaseMongodbService() {
 
   constructor(
-    @Inject(TypeIdentificationDocument.name) private readonly entityModel: Model<TypeIdentificationDocument>
+    @InjectModel(TypeIdentificationDocument.name) private readonly entityModel: Model<TypeIdentificationDocument>
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<ITypeIdentification>): Observable<IEntityMany<ITypeIdentification>> {

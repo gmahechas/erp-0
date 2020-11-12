@@ -1,4 +1,5 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
 import { Observable, from } from 'rxjs';
@@ -9,7 +10,7 @@ import { IEntityMany, IPerson , BaseMongodbService, PersonDocument } from '@gmah
 export class PersonMongodbService extends BaseMongodbService() {
 
   constructor(
-    @Inject(PersonDocument.name) private readonly entityModel: Model<PersonDocument>
+    @InjectModel(PersonDocument.name) private readonly entityModel: Model<PersonDocument>
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<IPerson>): Observable<IEntityMany<IPerson>> {

@@ -1,17 +1,22 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { DatabaseModule } from '@ms100/utils/database.modules';
+import { AddressDocument, addressSchema } from '@gmahechas/common-nestjs';
 
 import { AddressGrpcController } from '@ms100/modules/address/server/grpc/address-grpc.controller';
 import { AddressMongodbService } from '@ms100/modules/address/client/mongodb/address-mongodb.service';
-import { addressProviders } from '@ms100/modules/address/client/mongodb/address.providers';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        collection: 'address',
+        name: AddressDocument.name,
+        schema: addressSchema
+      }
+    ])
+  ],
   controllers: [AddressGrpcController],
-  providers: [
-    AddressMongodbService,
-    ...addressProviders
-  ]
+  providers: [AddressMongodbService]
 })
 export class AddressModule { }

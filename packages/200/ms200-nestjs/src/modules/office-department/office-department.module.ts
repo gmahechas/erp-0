@@ -1,17 +1,22 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { DatabaseModule } from '@ms200/utils/database.modules';
+import { OfficeDepartmentDocument, officeDepartmentSchema } from '@gmahechas/common-nestjs';
 
 import { OfficeDepartmentGrpcController } from '@ms200/modules/office-department/server/grpc/office-department-grpc.controller';
 import { OfficeDepartmentMongodbService } from '@ms200/modules/office-department/client/mongodb/office-department-mongodb.service';
-import { officeDepartmentProviders } from '@ms200/modules/office-department/client/mongodb/office-department.providers';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        collection: 'officeDepartment',
+        name: OfficeDepartmentDocument.name,
+        schema: officeDepartmentSchema
+      }
+    ])
+  ],
   controllers: [OfficeDepartmentGrpcController],
-  providers: [
-    OfficeDepartmentMongodbService,
-    ...officeDepartmentProviders
-  ]
+  providers: [OfficeDepartmentMongodbService]
 })
-export class OfficeDepartmentModule {}
+export class OfficeDepartmentModule { }

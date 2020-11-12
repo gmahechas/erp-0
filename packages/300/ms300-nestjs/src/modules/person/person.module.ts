@@ -1,17 +1,22 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { DatabaseModule } from '@ms300/utils/database.modules';
+import { PersonDocument, personSchema } from '@gmahechas/common-nestjs';
 
 import { PersonGrpcController } from '@ms300/modules/person/server/grpc/person-grpc.controller';
 import { PersonMongodbService } from '@ms300/modules/person/client/mongodb/person-mongodb.service';
-import { personProviders } from '@ms300/modules/person/client/mongodb/person.providers';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        collection: 'person',
+        name: PersonDocument.name,
+        schema: personSchema
+      }
+    ])
+  ],
   controllers: [PersonGrpcController],
-  providers: [
-    PersonMongodbService,
-    ...personProviders
-  ]
+  providers: [PersonMongodbService]
 })
-export class PersonModule {}
+export class PersonModule { }

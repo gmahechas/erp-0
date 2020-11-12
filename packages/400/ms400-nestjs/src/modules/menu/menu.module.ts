@@ -1,17 +1,22 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { DatabaseModule } from '@ms400/utils/database.modules';
+import { MenuDocument, menuSchema } from '@gmahechas/common-nestjs';
 
 import { MenuGrpcController } from '@ms400/modules/menu/server/grpc/menu-grpc.controller';
 import { MenuMongodbService } from '@ms400/modules/menu/client/mongodb/menu-mongodb.service';
-import { menuProviders } from '@ms400/modules/menu/client/mongodb/menu.providers';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        collection: 'menu',
+        name: MenuDocument.name,
+        schema: menuSchema
+      }
+    ])
+  ],
   controllers: [MenuGrpcController],
-  providers: [
-    MenuMongodbService,
-    ...menuProviders
-  ]
+  providers: [MenuMongodbService]
 })
 export class MenuModule { }

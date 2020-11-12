@@ -1,17 +1,22 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 
-import { DatabaseModule } from '@ms100/utils/database.modules';
+import { EstateDocument, estateSchema } from '@gmahechas/common-nestjs';
 
 import { EstateGrpcController } from '@ms100/modules/estate/server/grpc/estate-grpc.controller';
 import { EstateMongodbService } from '@ms100/modules/estate/client/mongodb/estate-mongodb.service';
-import { estateProviders } from '@ms100/modules/estate/client/mongodb/estate.providers';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        collection: 'estate',
+        name: EstateDocument.name,
+        schema: estateSchema
+      }
+    ])
+  ],
   controllers: [EstateGrpcController],
-  providers: [
-    EstateMongodbService,
-    ...estateProviders
-  ]
+  providers: [EstateMongodbService]
 })
 export class EstateModule { }
