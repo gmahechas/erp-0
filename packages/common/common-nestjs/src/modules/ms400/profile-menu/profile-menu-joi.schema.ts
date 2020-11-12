@@ -22,7 +22,7 @@ const updateProfileMenuSchema = object({
 });
 
 const deleteProfileMenuSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const profileMenuJoiSchema: JoiSchema = ({

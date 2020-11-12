@@ -1,26 +1,17 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { SchemaDefinition } from 'mongoose';
 
-import { OfficeDepartmentDocument, OfficeDepartmentSchema } from '@gmahechas/common-nestjs';
+import { DatabaseModule } from '@ms200/utils/database.modules';
 
 import { OfficeDepartmentGrpcController } from '@ms200/modules/office-department/server/grpc/office-department-grpc.controller';
 import { OfficeDepartmentMongodbService } from '@ms200/modules/office-department/client/mongodb/office-department-mongodb.service';
+import { officeDepartmentProviders } from '@ms200/modules/office-department/client/mongodb/office-department.providers';
 
 @Module({
-  imports: [
-    MongooseModule.forFeatureAsync([
-      {
-        collection: 'officeDepartment',
-        name: OfficeDepartmentDocument.name,
-        useFactory: (): SchemaDefinition => {
-          const schema = OfficeDepartmentSchema;
-          return schema;
-        }
-      }
-    ])
-  ],
+  imports: [DatabaseModule],
   controllers: [OfficeDepartmentGrpcController],
-  providers: [OfficeDepartmentMongodbService]
+  providers: [
+    OfficeDepartmentMongodbService,
+    ...officeDepartmentProviders
+  ]
 })
 export class OfficeDepartmentModule {}

@@ -1,10 +1,25 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { ICompany } from './company.interface';
 
-@Schema({
+export const companySchema = new Schema({
+  companyName: {
+    type: String,
+    required: true
+  },
+  companyIdentification: {
+    type: String,
+    required: true
+  },
+  companyKey: {
+    type: String,
+    required: true
+  },
+  cityId: {
+    type: String,
+    require: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,13 +27,11 @@ import { ICompany } from './company.interface';
       delete ret._id;
     }
   }
-})
-export class CompanyDocument extends Document implements Partial<ICompany> {
-  @Prop() companyName: string;
-  @Prop() companyIdentification: string;
-  @Prop() companyKey: string;
-  @Prop() cityId: string;
-  @Prop() addressId: string;
-}
+});
 
-export const CompanySchema = SchemaFactory.createForClass(CompanyDocument);
+export class CompanyDocument extends Document implements Partial<ICompany> {
+  companyName: string;
+  companyIdentification: string;
+  companyKey: string;
+  cityId: string;
+}

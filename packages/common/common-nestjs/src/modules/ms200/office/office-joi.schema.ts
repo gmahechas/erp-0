@@ -21,7 +21,7 @@ const updateOfficeSchema = object({
 });
 
 const deleteOfficeSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const officeJoiSchema: JoiSchema = ({

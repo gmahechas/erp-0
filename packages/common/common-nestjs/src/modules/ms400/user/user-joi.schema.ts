@@ -21,7 +21,7 @@ const updateUserSchema = object({
 });
 
 const deleteUserSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const userJoiSchema: JoiSchema = ({

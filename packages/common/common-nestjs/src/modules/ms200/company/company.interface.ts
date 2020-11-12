@@ -4,5 +4,4 @@ export interface ICompany {
   companyIdentification: string;
   companyKey: string;
   cityId: string;
-  addressId: string;
 }

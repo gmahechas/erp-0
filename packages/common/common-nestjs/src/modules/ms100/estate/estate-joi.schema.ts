@@ -22,7 +22,7 @@ const updateEstateSchema = object({
 });
 
 const deleteEstateSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const estateJoiSchema: JoiSchema = ({

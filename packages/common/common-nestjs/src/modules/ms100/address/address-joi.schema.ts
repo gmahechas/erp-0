@@ -25,7 +25,7 @@ const updateAddressSchema = object({
 });
 
 const deleteAddressSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const addressJoiSchema: JoiSchema = ({

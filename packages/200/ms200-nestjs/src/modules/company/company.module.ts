@@ -1,26 +1,17 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { SchemaDefinition } from 'mongoose';
 
-import { CompanyDocument, CompanySchema } from '@gmahechas/common-nestjs';
+import { DatabaseModule } from '@ms200/utils/database.modules';
 
 import { CompanyGrpcController } from '@ms200/modules/company/server/grpc/company-grpc.controller';
 import { CompanyMongodbService } from '@ms200/modules/company/client/mongodb/company-mongodb.service';
+import { companyProviders } from '@ms200/modules/company/client/mongodb/company.providers';
 
 @Module({
-  imports: [
-    MongooseModule.forFeatureAsync([
-      {
-        collection: 'company',
-        name: CompanyDocument.name,
-        useFactory: (): SchemaDefinition => {
-          const schema = CompanySchema;
-          return schema;
-        }
-      }
-    ])
-  ],
+  imports: [DatabaseModule],
   controllers: [CompanyGrpcController],
-  providers: [CompanyMongodbService],
+  providers: [
+    CompanyMongodbService,
+    ...companyProviders
+  ],
 })
 export class CompanyModule {}

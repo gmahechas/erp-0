@@ -1,10 +1,21 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { IOfficeDepartment } from './office-department.interface';
 
-@Schema({
+export const officeDepartmentSchema = new Schema({
+  officeDepartmentStatus: {
+    type: Boolean,
+    required: true
+  },
+  officeId: {
+    type: String,
+    require: true
+  },
+  departmentId: {
+    type: String,
+    require: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,11 +23,10 @@ import { IOfficeDepartment } from './office-department.interface';
       delete ret._id;
     }
   }
-})
-export class OfficeDepartmentDocument extends Document implements Partial<IOfficeDepartment> {
-  @Prop() officeDepartmentStatus: boolean;
-  @Prop() officeId: string;
-  @Prop() departmentId: string;
-}
+});
 
-export const OfficeDepartmentSchema = SchemaFactory.createForClass(OfficeDepartmentDocument);
+export class OfficeDepartmentDocument extends Document implements Partial<IOfficeDepartment> {
+  officeDepartmentStatus: boolean;
+  officeId: string;
+  departmentId: string;
+}

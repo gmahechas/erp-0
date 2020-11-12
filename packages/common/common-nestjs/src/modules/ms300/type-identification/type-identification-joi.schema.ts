@@ -19,7 +19,7 @@ const updateTypeIdentificationSchema = object({
 });
 
 const deleteTypeIdentificationSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const typeIdentificationJoiSchema: JoiSchema = ({

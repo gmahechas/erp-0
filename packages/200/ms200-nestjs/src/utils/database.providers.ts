@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-import config from '@ms100/utils/config';
+import config from '@ms200/utils/config';
 
 export const databaseProviders = [
   {

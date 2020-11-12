@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
 import {
-  CompanyType, OfficeType, DepartmentType, CityType, AddressType,
-  companyJoiSchema, IOffice, IDepartment, ICity, IAddress, BaseResolver,
+  CompanyType, OfficeType, DepartmentType, CityType,
+  companyJoiSchema, IOffice, IDepartment, ICity, BaseResolver,
   CompanyCreateInput, CompanySearchInput,
   CompanyUpdateInput, CompanyDeleteInput
 } from '@gmahechas/common-nestjs';
@@ -16,7 +16,6 @@ import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/cl
 import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms200/office/client/grpc/office-grpc.service';
 import { DepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/department/client/grpc/department-grpc.service';
 import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
-import { AddressGrpcService } from '@api-gateway-nestjs/modules/ms100/address/client/grpc/address-grpc.service';
 
 @Resolver(() => CompanyType)
 export class CompanyResolver extends BaseResolver(
@@ -27,7 +26,6 @@ export class CompanyResolver extends BaseResolver(
   ) implements OnModuleInit {
 
   private cityGrpcService: CityGrpcService;
-  private addressGrpcService: AddressGrpcService;
   private officeGrpcService: OfficeGrpcService;
   private departmentGrpcService: DepartmentGrpcService;
 
@@ -38,7 +36,6 @@ export class CompanyResolver extends BaseResolver(
 
   onModuleInit(): void {
     this.cityGrpcService = this.moduleRef.get(CityGrpcService, { strict: false });
-    this.addressGrpcService = this.moduleRef.get(AddressGrpcService, { strict: false });
     this.officeGrpcService = this.moduleRef.get(OfficeGrpcService, { strict: false });
     this.departmentGrpcService = this.moduleRef.get(DepartmentGrpcService, { strict: false });
   }
@@ -46,11 +43,6 @@ export class CompanyResolver extends BaseResolver(
   @ResolveField(() => CityType)
   city(@Parent() entity: CompanyType): Observable<Partial<ICity>> {
     return this.cityGrpcService.searchById({ entity: { id: entity.cityId } }).pipe(pluck('entity'));
-  }
-
-  @ResolveField(() => AddressType)
-  address(@Parent() entity: CompanyType): Observable<Partial<IAddress>> {
-    return this.addressGrpcService.searchById({ entity: { id: entity.addressId } }).pipe(pluck('entity'));
   }
 
   @ResolveField(() => [OfficeType])

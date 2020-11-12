@@ -9,7 +9,7 @@ import { IEntityMany, IAddress , BaseMongodbService, AddressDocument } from '@gm
 export class AddressMongodbService extends BaseMongodbService() {
 
   constructor(
-    @Inject('ADDRESS_MODEL') private readonly entityModel: Model<AddressDocument>
+    @Inject(AddressDocument.name) private readonly entityModel: Model<AddressDocument>
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<IAddress>): Observable<IEntityMany<IAddress>> {

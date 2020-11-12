@@ -24,7 +24,7 @@ const updateMenuSchema = object({
 });
 
 const deleteMenuSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const menuJoiSchema: JoiSchema = ({

@@ -22,7 +22,7 @@ const updateUserProfileSchema = object({
 });
 
 const deleteUserProfileSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const userProfileJoiSchema: JoiSchema = ({

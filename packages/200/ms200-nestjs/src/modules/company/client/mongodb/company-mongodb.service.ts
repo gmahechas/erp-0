@@ -1,8 +1,6 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
+import { Injectable, Inject } from '@nestjs/common';
 
 import { Model } from 'mongoose';
-
 import { Observable, from } from 'rxjs';
 
 import { IEntityMany, ICompany , BaseMongodbService, CompanyDocument } from '@gmahechas/common-nestjs';
@@ -11,10 +9,11 @@ import { IEntityMany, ICompany , BaseMongodbService, CompanyDocument } from '@gm
 export class CompanyMongodbService extends BaseMongodbService() {
 
   constructor(
-    @InjectModel(CompanyDocument.name) private readonly entityModel: Model<CompanyDocument>
+    @Inject(CompanyDocument.name) private readonly entityModel: Model<CompanyDocument>
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<ICompany>): Observable<IEntityMany<ICompany>> {
+    console.log(CompanyDocument.name);
     return from(this._searchManyAsync(data));
   }
 

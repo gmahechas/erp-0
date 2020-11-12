@@ -1,10 +1,10 @@
 import { Connection } from 'mongoose';
 
-import { citySchema } from '@gmahechas/common-nestjs';
+import { citySchema, CityDocument } from '@gmahechas/common-nestjs';
 
 export const cityProviders = [
   {
-    provide: 'CITY_MODEL',
+    provide: CityDocument.name,
     useFactory: (connection: Connection) => connection.model('City', citySchema, 'city'),
     inject: ['MONGODB_CONNECTION'],
 

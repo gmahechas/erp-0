@@ -17,7 +17,7 @@ const updateDepartmentSchema = object({
 });
 
 const deleteDepartmentSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const departmentJoiSchema: JoiSchema = ({

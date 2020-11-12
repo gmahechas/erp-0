@@ -22,7 +22,7 @@ const updateOfficeDepartmentSchema = object({
 });
 
 const deleteOfficeDepartmentSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const officeDepartmentJoiSchema: JoiSchema = ({

@@ -1,10 +1,17 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { IDepartment } from './department.interface';
 
-@Schema({
+export const departmentSchema = new Schema({
+  departmentName: {
+    type: String,
+    required: true
+  },
+  companyId: {
+    type: String,
+    require: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,10 +19,9 @@ import { IDepartment } from './department.interface';
       delete ret._id;
     }
   }
-})
-export class DepartmentDocument extends Document implements Partial<IDepartment> {
-  @Prop() departmentName: string;
-  @Prop() companyId: string;
-}
+});
 
-export const DepartmentSchema = SchemaFactory.createForClass(DepartmentDocument);
+export class DepartmentDocument extends Document implements Partial<IDepartment> {
+  departmentName: string;
+  companyId: string;
+}

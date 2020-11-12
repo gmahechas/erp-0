@@ -9,7 +9,7 @@ import { IEntityMany, ICountry, BaseMongodbService, CountryDocument } from '@gma
 export class CountryMongodbService extends BaseMongodbService() {
 
   constructor(
-    @Inject('COUNTRY_MODEL') private readonly entityModel: Model<CountryDocument>
+    @Inject(CountryDocument.name) private readonly entityModel: Model<CountryDocument>
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<ICountry>): Observable<IEntityMany<ICountry>> {

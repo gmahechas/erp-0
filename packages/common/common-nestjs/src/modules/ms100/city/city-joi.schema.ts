@@ -22,7 +22,7 @@ const updateCitySchema = object({
 });
 
 const deleteCitySchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const cityJoiSchema: JoiSchema = ({

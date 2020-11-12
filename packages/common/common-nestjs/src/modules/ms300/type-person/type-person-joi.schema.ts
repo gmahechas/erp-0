@@ -19,7 +19,7 @@ const updateTypePersonSchema = object({
 });
 
 const deleteTypePersonSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const typePersonJoiSchema: JoiSchema = ({

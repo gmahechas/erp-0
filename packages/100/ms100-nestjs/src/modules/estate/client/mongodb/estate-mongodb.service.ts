@@ -9,7 +9,7 @@ import { IEntityMany, IEstate, BaseMongodbService, EstateDocument } from '@gmahe
 export class EstateMongodbService extends BaseMongodbService() {
 
   constructor(
-    @Inject('ESTATE_MODEL') private readonly entityModel: Model<EstateDocument>
+    @Inject(EstateDocument.name) private readonly entityModel: Model<EstateDocument>
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<IEstate>): Observable<IEntityMany<IEstate>> {

@@ -1,4 +1,4 @@
-import { InputType, Field, ID } from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql';
 
 import { ICompany } from './company.interface';
 
@@ -8,7 +8,6 @@ export class CompanyCreateInput implements Partial<ICompany> {
   @Field() companyIdentification: string;
   @Field() companyKey: string;
   @Field() cityId: string;
-  @Field() addressId: string;
 }
 
 @InputType()

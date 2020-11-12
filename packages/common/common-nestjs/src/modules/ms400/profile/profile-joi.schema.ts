@@ -18,7 +18,7 @@ const updateProfileSchema = object({
 });
 
 const deleteProfileSchema = object({
-  _id: Joi.string().required()
+  id: Joi.string().required()
 });
 
 export const profileJoiSchema: JoiSchema = ({
