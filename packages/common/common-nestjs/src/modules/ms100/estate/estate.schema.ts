@@ -1,10 +1,21 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { IEstate } from './estate.interface';
 
-@Schema({
+export const estateSchema = new Schema({
+  estateName: {
+    type: String,
+    required: true
+  },
+  estateCode: {
+    type: String,
+    required: true
+  },
+  countryId: {
+    type: String,
+    required: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,11 +23,10 @@ import { IEstate } from './estate.interface';
       delete ret._id;
     }
   }
-})
-export class EstateDocument extends Document implements Partial<IEstate> {
-  @Prop() estateName: string;
-  @Prop() estateCode: string;
-  @Prop() countryId: string;
-}
+});
 
-export const EstateSchema = SchemaFactory.createForClass(EstateDocument);
+export class EstateDocument extends Document implements Partial<IEstate> {
+  estateName: string;
+  estateCode: string;
+  countryId: string;
+}

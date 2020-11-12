@@ -9,8 +9,6 @@ export class AddressType implements IAddress {
   @Field() addressLine1: string;
   @Field() addressLine2: string;
   @Field() addressZipCode: string;
-  @Field() addressFullName: string;
-  @Field() addressPhone: string;
   @Field() cityId: string;
   @Field(() => CityType) city: CityType;
 }

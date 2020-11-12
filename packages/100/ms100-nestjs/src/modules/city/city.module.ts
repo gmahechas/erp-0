@@ -1,26 +1,17 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { SchemaDefinition } from 'mongoose';
 
-import { CityDocument, CitySchema } from '@gmahechas/common-nestjs';
+import { DatabaseModule } from '@ms100/utils/database.modules';
 
 import { CityGrpcController } from '@ms100/modules/city/server/grpc/city-grpc.controller';
 import { CityMongodbService } from '@ms100/modules/city/client/mongodb/city-mongodb.service';
+import { cityProviders } from '@ms100/modules/city/client/mongodb/city.providers';
 
 @Module({
-  imports: [
-    MongooseModule.forFeatureAsync([
-      {
-        collection: 'city',
-        name: CityDocument.name,
-        useFactory: (): SchemaDefinition => {
-          const schema = CitySchema;
-          return schema;
-        }
-      }
-    ])
-  ],
+  imports: [DatabaseModule],
   controllers: [CityGrpcController],
-  providers: [CityMongodbService],
+  providers: [
+    CityMongodbService,
+    ...cityProviders
+  ],
 })
 export class CityModule { }

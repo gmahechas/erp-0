@@ -1,10 +1,17 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { ICountry } from './country.interface';
 
-@Schema({
+export const countrySchema = new Schema({
+  countryName: {
+    type: String,
+    required: true
+  },
+  countryCode: {
+    type: String,
+    required: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,10 +19,9 @@ import { ICountry } from './country.interface';
       delete ret._id;
     }
   }
-})
-export class CountryDocument extends Document implements Partial<ICountry> {
-  @Prop() countryName: string;
-  @Prop() countryCode: string;
-}
+});
 
-export const CountrySchema = SchemaFactory.createForClass(CountryDocument);
+export class CountryDocument extends Document implements Partial<ICountry> {
+  countryName: string;
+  countryCode: string;
+}

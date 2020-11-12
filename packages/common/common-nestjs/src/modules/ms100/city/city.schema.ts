@@ -1,10 +1,21 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { ICity } from './city.interface';
 
-@Schema({
+export const citySchema = new Schema({
+  cityName: {
+    type: String,
+    required: true
+  },
+  cityCode: {
+    type: String,
+    required: true
+  },
+  estateId: {
+    type: String,
+    required: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,11 +23,10 @@ import { ICity } from './city.interface';
       delete ret._id;
     }
   }
-})
-export class CityDocument extends Document implements Partial<ICity> {
-  @Prop() cityName: string;
-  @Prop() cityCode: string;
-  @Prop() estateId: string;
-}
+});
 
-export const CitySchema = SchemaFactory.createForClass(CityDocument);
+export class CityDocument extends Document implements Partial<ICity> {
+  cityName: string;
+  cityCode: string;
+  estateId: string;
+}

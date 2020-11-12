@@ -5,8 +5,6 @@ const createAddressSchema = object({
   addressLine1: Joi.string().required(),
   addressLine2: Joi.string(),
   addressZipCode: Joi.string(),
-  addressFullName: Joi.string(),
-  addressPhone: Joi.string(),
   cityId: Joi.string().required()
 });
 
@@ -15,8 +13,6 @@ const searchAddressSchema = object({
   addressLine1: Joi.string(),
   addressLine2: Joi.string(),
   addressZipCode: Joi.string(),
-  addressFullName: Joi.string(),
-  addressPhone: Joi.string(),
   cityId: Joi.string()
 });
 
@@ -25,8 +21,6 @@ const updateAddressSchema = object({
   addressLine1: Joi.string(),
   addressLine2: Joi.string(),
   addressZipCode: Joi.string(),
-  addressFullName: Joi.string(),
-  addressPhone: Joi.string(),
   cityId: Joi.string()
 });
 
