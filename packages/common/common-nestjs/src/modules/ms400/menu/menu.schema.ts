@@ -1,10 +1,25 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { IMenu } from './menu.interface';
 
-@Schema({
+export const menuSchema = new Schema({
+  menuName: {
+    type: String,
+    required: true
+  },
+  menuDescription: {
+    type: String
+  },
+  menuUri: {
+    type: String
+  },
+  menuOrder: {
+    type: Number
+  },
+  menuIdParent: {
+    type: String
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,13 +27,12 @@ import { IMenu } from './menu.interface';
       delete ret._id;
     }
   }
-})
-export class MenuDocument extends Document implements Partial<IMenu> {
-  @Prop() menuName: string;
-  @Prop() menuDescription: string;
-  @Prop() menuUri: string;
-  @Prop() menuOrder: number;
-  @Prop() menuIdParent: string;
-}
+});
 
-export const MenuSchema = SchemaFactory.createForClass(MenuDocument);
+export class MenuDocument extends Document implements Partial<IMenu> {
+  menuName: string;
+  menuDescription: string;
+  menuUri: string;
+  menuOrder: number;
+  menuIdParent: string;
+}

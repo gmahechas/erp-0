@@ -1,10 +1,21 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { IUserProfile } from './user-profile.interface';
 
-@Schema({
+export const userProfileSchema = new Schema({
+  userProfileStatus: {
+    type: Boolean,
+    required: true
+  },
+  userId: {
+    type: String,
+    required: true
+  },
+  profileId: {
+    type: String,
+    required: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,11 +23,10 @@ import { IUserProfile } from './user-profile.interface';
       delete ret._id;
     }
   }
-})
-export class UserProfileDocument extends Document implements Partial<IUserProfile> {
-  @Prop() userProfileStatus: boolean;
-  @Prop() userId: string;
-  @Prop() profileId: string;
-}
+});
 
-export const UserProfileSchema = SchemaFactory.createForClass(UserProfileDocument);
+export class UserProfileDocument extends Document implements Partial<IUserProfile> {
+  userProfileStatus: boolean;
+  userId: string;
+  profileId: string;
+}

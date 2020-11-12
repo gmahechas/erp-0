@@ -1,10 +1,21 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { IProfileMenu } from './profile-menu.interface';
 
-@Schema({
+export const profileMenuSchema = new Schema({
+  profileMenuStatus: {
+    type: Boolean,
+    required: true
+  },
+  menuId: {
+    type: String,
+    required: true
+  },
+  profileId: {
+    type: String,
+    required: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,11 +23,10 @@ import { IProfileMenu } from './profile-menu.interface';
       delete ret._id;
     }
   }
-})
-export class ProfileMenuDocument extends Document implements Partial<IProfileMenu> {
-  @Prop() profileMenuStatus: boolean;
-  @Prop() menuId: string;
-  @Prop() profileId: string;
-}
+});
 
-export const ProfileMenuSchema = SchemaFactory.createForClass(ProfileMenuDocument);
+export class ProfileMenuDocument extends Document implements Partial<IProfileMenu> {
+  profileMenuStatus: boolean;
+  menuId: string;
+  profileId: string;
+}

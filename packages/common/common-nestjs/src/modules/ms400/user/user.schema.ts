@@ -1,10 +1,21 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { IUser } from './user.interface';
 
-@Schema({
+export const userSchema = new Schema({
+  userName: {
+    type: String,
+    required: true
+  },
+  userPassword: {
+    type: String,
+    required: true
+  },
+  personId: {
+    type: String,
+    required: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,11 +23,10 @@ import { IUser } from './user.interface';
       delete ret._id;
     }
   }
-})
-export class UserDocument extends Document implements Partial<IUser> {
-  @Prop() userName: string;
-  @Prop() userPassword: string;
-  @Prop() personId: string;
-}
+});
 
-export const UserSchema = SchemaFactory.createForClass(UserDocument);
+export class UserDocument extends Document implements Partial<IUser> {
+  userName: string;
+  userPassword: string;
+  personId: string;
+}

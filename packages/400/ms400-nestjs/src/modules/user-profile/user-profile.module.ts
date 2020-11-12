@@ -1,26 +1,17 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { SchemaDefinition } from 'mongoose';
 
-import { UserProfileDocument, UserProfileSchema } from '@gmahechas/common-nestjs';
+import { DatabaseModule } from '@ms400/utils/database.modules';
 
 import { UserProfileGrpcController } from '@ms400/modules/user-profile/server/grpc/user-profile-grpc.controller';
 import { UserProfileMongodbService } from '@ms400/modules/user-profile/client/mongodb/user-profile-mongodb.service';
+import { userProfileProviders } from '@ms400/modules/user-profile/client/mongodb/user-profile.providers';
 
 @Module({
-  imports: [
-    MongooseModule.forFeatureAsync([
-      {
-        collection: 'userProfile',
-        name: UserProfileDocument.name,
-        useFactory: (): SchemaDefinition => {
-          const schema = UserProfileSchema;
-          return schema;
-        }
-      }
-    ])
-  ],
+  imports: [DatabaseModule],
   controllers: [UserProfileGrpcController],
-  providers: [UserProfileMongodbService]
+  providers: [
+    UserProfileMongodbService,
+    ...userProfileProviders
+  ]
 })
 export class UserProfileModule {}
