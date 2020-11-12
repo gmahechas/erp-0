@@ -1,10 +1,17 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { ITypePerson } from './type-person.interface';
 
-@Schema({
+export const typePersonSchema = new Schema({
+  typePersonDescription: {
+    type: String,
+    required: true
+  },
+  typePersonCode: {
+    type: String,
+    required: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,10 +19,9 @@ import { ITypePerson } from './type-person.interface';
       delete ret._id;
     }
   }
-})
-export class TypePersonDocument extends Document implements Partial<ITypePerson> {
-  @Prop() typePersonDescription: string;
-  @Prop() typePersonCode: string;
-}
+});
 
-export const TypePersonSchema = SchemaFactory.createForClass(TypePersonDocument);
+export class TypePersonDocument extends Document implements Partial<ITypePerson> {
+  typePersonDescription: string;
+  typePersonCode: string;
+}

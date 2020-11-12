@@ -1,10 +1,40 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { IPerson } from './person.interface';
 
-@Schema({
+export const personSchema = new Schema({
+  personIdentification: {
+    type: String,
+    required: true
+  },
+  personFirstName: {
+    type: String
+  },
+  personSecondName: {
+    type: String
+  },
+  personFirstSurname: {
+    type: String
+  },
+  personSecondSurname: {
+    type: String
+  },
+  personCompanyName: {
+    type: String
+  },
+  companyId: {
+    type: String,
+    required: true
+  },
+  typePersonId: {
+    type: String,
+    required: true
+  },
+  typeIdentificationId: {
+    type: String,
+    required: true
+  },
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,16 +42,16 @@ import { IPerson } from './person.interface';
       delete ret._id;
     }
   }
-})
-export class PersonDocument extends Document implements Partial<IPerson> {
-  @Prop() personFirstName: string;
-  @Prop() personSecondName: string;
-  @Prop() personFirstSurname: string;
-  @Prop() personSecondSurname: string;
-  @Prop() personCompanyName: string;
-  @Prop() companyId: string;
-  @Prop() typePersonId: string;
-  @Prop() typeIdentificationId: string;
-}
+});
 
-export const PersonSchema = SchemaFactory.createForClass(PersonDocument);
+export class PersonDocument extends Document implements Partial<IPerson> {
+  personIdentification: string;
+  personFirstName: string;
+  personSecondName: string;
+  personFirstSurname: string;
+  personSecondSurname: string;
+  personCompanyName: string;
+  companyId: string;
+  typePersonId: string;
+  typeIdentificationId: string;
+}

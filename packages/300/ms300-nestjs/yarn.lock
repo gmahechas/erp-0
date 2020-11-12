@@ -312,6 +312,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@gmahechas/common-nestjs@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@gmahechas/common-nestjs/-/common-nestjs-0.0.1.tgz#8271f3b5605ce5581f6db5a789a1dc2e69a09d23"
+  integrity sha512-moNfBXtLLjMIVe5+J+sLVH0hvwnENiI8BroxaO/yi7iLgvPXHqOnlsFXfLs+epRwDuAGAWl2UWVrDAYK4XM7iw==
+  dependencies:
+    mongoose "^5.10.11"
+
 "@grpc/proto-loader@^0.5.5":
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.5.5.tgz#6725e7a1827bdf8e92e29fbf4e9ef0203c0906a9"
@@ -576,11 +583,6 @@
     iterare "1.2.1"
     json-socket "0.3.0"
     tslib "2.0.3"
-
-"@nestjs/mongoose@^7.0.2":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-7.0.2.tgz#cfb087de6e75e3fdc2e3a490abfa737009128da0"
-  integrity sha512-EXTLgZ3OuzE7ZDH628+otNxzKTaoQmgEC/KeUc/k1Na96BfTT1IUqMWaWEnzkI1ALLJQOsjKKDc0RgJ0nebZPg==
 
 "@nestjs/platform-express@^7.0.0":
   version "7.5.1"

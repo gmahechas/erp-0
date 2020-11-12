@@ -1,26 +1,17 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { SchemaDefinition } from 'mongoose';
 
-import { TypeIdentificationDocument, TypeIdentificationSchema } from '@gmahechas/common-nestjs';
+import { DatabaseModule } from '@ms300/utils/database.modules';
 
 import { TypeIdentificationGrpcController } from '@ms300/modules/type-identification/server/grpc/type-identification-grpc.controller';
 import { TypeIdentificationMongodbService } from '@ms300/modules/type-identification/client/mongodb/type-identification-mongodb.service';
+import { typeIdentificationProviders } from '@ms300/modules/type-identification/client/mongodb/type-identification.providers';
 
 @Module({
-  imports: [
-    MongooseModule.forFeatureAsync([
-      {
-        collection: 'typeIdentification',
-        name: TypeIdentificationDocument.name,
-        useFactory: (): SchemaDefinition => {
-          const schema = TypeIdentificationSchema;
-          return schema;
-        }
-      }
-    ])
-  ],
+  imports: [DatabaseModule],
   controllers: [TypeIdentificationGrpcController],
-  providers: [TypeIdentificationMongodbService]
+  providers: [
+    TypeIdentificationMongodbService,
+    ...typeIdentificationProviders
+  ]
 })
 export class TypeIdentificationModule {}

@@ -5,9 +5,9 @@ import { IPerson } from './person.interface';
 @InputType()
 export class PersonCreateInput implements Partial<IPerson> {
   @Field() personIdentification: string;
-  @Field() personFirstName: string;
+  @Field({ nullable: true }) personFirstName: string;
   @Field({ nullable: true }) personSecondName: string;
-  @Field() personFirstSurname: string;
+  @Field({ nullable: true }) personFirstSurname: string;
   @Field({ nullable: true }) personSecondSurname: string;
   @Field({ nullable: true }) personCompanyName: string;
   @Field() companyId: string;
@@ -29,9 +29,9 @@ export class PersonSearchInput implements Partial<IPerson> {
 export class PersonUpdateInput implements Partial<IPerson> {
   @Field() id: string;
   @Field() personIdentification: string;
-  @Field() personFirstName: string;
+  @Field({ nullable: true }) personFirstName: string;
   @Field({ nullable: true }) personSecondName: string;
-  @Field() personFirstSurname: string;
+  @Field({ nullable: true }) personFirstSurname: string;
   @Field({ nullable: true }) personSecondSurname: string;
   @Field({ nullable: true }) personCompanyName: string;
   @Field({ nullable: true }) typePersonId: string;

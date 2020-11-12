@@ -1,10 +1,17 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-
-import { Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 import { ITypeIdentification } from './type-identification.interface';
 
-@Schema({
+export const typeIdentificationSchema = new Schema({
+  typeIdentificationDescription: {
+    type: String,
+    required: true
+  },
+  typeIdentificationCode: {
+    type: String,
+    required: true
+  }
+}, {
   versionKey: false,
   toObject: {
     transform(doc, ret) {
@@ -12,10 +19,9 @@ import { ITypeIdentification } from './type-identification.interface';
       delete ret._id;
     }
   }
-})
-export class TypeIdentificationDocument extends Document implements Partial<ITypeIdentification> {
-  @Prop() typeIdentificationDescription: string;
-  @Prop() typeIdentificationCode: string;
-}
+});
 
-export const TypeIdentificationSchema = SchemaFactory.createForClass(TypeIdentificationDocument);
+export class TypeIdentificationDocument extends Document implements Partial<ITypeIdentification> {
+  typeIdentificationDescription: string;
+  typeIdentificationCode: string;
+}

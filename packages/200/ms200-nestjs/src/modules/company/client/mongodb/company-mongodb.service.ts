@@ -13,7 +13,6 @@ export class CompanyMongodbService extends BaseMongodbService() {
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<ICompany>): Observable<IEntityMany<ICompany>> {
-    console.log(CompanyDocument.name);
     return from(this._searchManyAsync(data));
   }
 
