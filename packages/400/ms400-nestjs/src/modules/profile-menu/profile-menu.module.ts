@@ -1,22 +1,22 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { ProfileDocument, profileSchema } from '@gmahechas/common-nestjs';
+import { ProfileMenuDocument, profileMenuSchema } from '@gmahechas/common-nestjs';
 
-import { ProfileGrpcController } from '@ms400/modules/profile/server/grpc/profile-grpc.controller';
-import { ProfileMongodbService } from '@ms400/modules/profile/client/mongodb/profile-mongodb.service';
+import { ProfileMenuGrpcController } from '@ms400/modules/profile-menu/server/grpc/profile-menu-grpc.controller';
+import { ProfileMenuMongodbService } from '@ms400/modules/profile-menu/client/mongodb/profile-menu-mongodb.service';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       {
-        collection: 'profile',
-        name: ProfileDocument.name,
-        schema: profileSchema
+        collection: 'profileMenu',
+        name: ProfileMenuDocument.name,
+        schema: profileMenuSchema
       }
     ])
   ],
-  controllers: [ProfileGrpcController],
-  providers: [ProfileMongodbService]
+  controllers: [ProfileMenuGrpcController],
+  providers: [ProfileMenuMongodbService]
 })
-export class ProfileModule { }
+export class ProfileMenuModule { }
