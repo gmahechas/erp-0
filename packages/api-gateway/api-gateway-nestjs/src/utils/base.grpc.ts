@@ -7,7 +7,7 @@ export const baseGrpc = (provide: string, { options }: GrpcOptions): Provider =>
   useFactory: (): ClientProxyFactory => {
     return ClientProxyFactory.create({
       transport: Transport.GRPC,
-      options: { ...options, protoPath: join(__dirname, '../../node_modules/@gmahechas/common-nestjs/protos/', options.protoPath.toString()) }
+      options: { ...options, protoPath: join(__dirname, '../../node_modules/@gmahechas/common-nestjs/src/grpc/protos/', options.protoPath.toString()) }
     });
   }
 })
