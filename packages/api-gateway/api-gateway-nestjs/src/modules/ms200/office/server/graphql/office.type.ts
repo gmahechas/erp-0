@@ -9,7 +9,6 @@ export class OfficeType implements IOffice {
   @Field() id: string;
   @Field() officeName: string;
   @Field() companyId: string;
-  @Field() addressId: string;
   @Field(() => CompanyType) company: CompanyType;
   @Field(() => [OfficeDepartmentType], { nullable: 'itemsAndList' }) officeDepartments: OfficeDepartmentType[];
 }

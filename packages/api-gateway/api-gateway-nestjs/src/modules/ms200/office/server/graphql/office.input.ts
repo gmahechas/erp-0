@@ -6,7 +6,6 @@ import { IOffice } from '@gmahechas/common-nestjs';
 export class OfficeCreateInput implements Partial<IOffice> {
   @Field() officeName: string;
   @Field() companyId: string;
-  @Field() addressId: string;
 }
 
 @InputType()
