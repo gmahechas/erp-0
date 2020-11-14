@@ -1,4 +1,4 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 
 import { IMenu } from '@gmahechas/common-nestjs';
 import { ProfileMenuType } from '@api-gateway-nestjs/modules/ms400/profile-menu/server/graphql/profile-menu.type';

@@ -1,4 +1,4 @@
-import { InputType, Field, ID } from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql';
 
 import { ITypeIdentification } from '@gmahechas/common-nestjs';
 

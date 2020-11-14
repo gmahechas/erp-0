@@ -15,11 +15,13 @@ import { PersonModule } from '@api-gateway-nestjs/modules/ms300/person/person.mo
 import { MenuModule } from '@api-gateway-nestjs/modules/ms400/menu/menu.module'; /* ms400 */
 import { ProfileModule } from '@api-gateway-nestjs/modules/ms400/profile/profile.module';
 import { ProfileMenuModule } from '@api-gateway-nestjs/modules/ms400/profile-menu/profile-menu.module';
-import { UserModule } from '@api-gateway-nestjs/modules/ms400/user/user.module';
-import { UserProfileModule } from '@api-gateway-nestjs/modules/ms400/user-profile/user-profile.module';
+import { UserModule } from '@api-gateway-nestjs/modules/auth/user/user.module';
+import { UserProfileModule } from '@api-gateway-nestjs/modules/auth/user-profile/user-profile.module';
 
 @Module({
   imports: [
+    UserModule, /* auth */
+    UserProfileModule,
     GraphqlModule,
     CountryModule, /* ms100 */
     EstateModule,
@@ -34,9 +36,7 @@ import { UserProfileModule } from '@api-gateway-nestjs/modules/ms400/user-profil
     PersonModule,
     MenuModule, /* ms400 */
     ProfileModule,
-    ProfileMenuModule,
-    UserModule,
-    UserProfileModule
+    ProfileMenuModule
   ]
 })
 export class AppModule { }

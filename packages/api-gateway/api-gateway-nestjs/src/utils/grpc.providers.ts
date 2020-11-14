@@ -1,6 +1,15 @@
 import { Provider } from "@nestjs/common";
 import { baseGrpc } from '@api-gateway-nestjs/utils/base.grpc';
 
+export const grpcAuth: Provider =
+  baseGrpc('AUTH_PACKAGE', {
+    options: {
+      url: 'auth-service.auth-namespace.svc.cluster.local:50001',
+      package: ['user', 'user_profile'],
+      protoPath: 'auth/auth.proto'
+    }
+  });
+
 export const grpcMs100: Provider =
   baseGrpc('MS100_PACKAGE', {
     options: {
@@ -32,7 +41,7 @@ export const grpcMs400: Provider =
   baseGrpc('MS400_PACKAGE', {
     options: {
       url: 'ms400-service.ms400-namespace.svc.cluster.local:50400',
-      package: ['menu', 'profile', 'profile_menu', 'user', 'user_profile'],
+      package: ['menu', 'profile', 'profile_menu'],
       protoPath: 'ms400/ms400.proto'
     }
   });

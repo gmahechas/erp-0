@@ -1,4 +1,4 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 
 import { ICompany } from '@gmahechas/common-nestjs';
 import { CityType } from '@api-gateway-nestjs/modules/ms100/city/server/graphql/city.type';

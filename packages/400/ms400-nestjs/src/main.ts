@@ -10,7 +10,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       url: '0.0.0.0:'.concat(config.port),
-      package: ['menu', 'profile', 'profile_menu', 'user', 'user_profile'],
+      package: ['menu', 'profile', 'profile_menu'],
       protoPath: join(__dirname, '../node_modules/@gmahechas/common-nestjs/src/grpc/protos/ms400/ms400.proto'),
     },
   });
