@@ -1,4 +1,5 @@
 import { Schema, Document } from 'mongoose';
+import { Password } from '../../../utils/password';
 
 import { IUser } from './user.interface';
 
@@ -23,6 +24,14 @@ export const userSchema = new Schema({
       delete ret.__v;
     }
   }
+});
+
+userSchema.pre('save', async function (next) {
+  if (this.isModified('userPassword')) {
+    const hashed = await Password.toHash(this.get('userPassword'));
+    this.set('userPassword', hashed);
+  }
+  next();
 });
 
 export class UserDocument extends Document implements Partial<IUser> {
