@@ -5,7 +5,7 @@ export const grpcAuth: Provider =
   baseGrpc('AUTH_PACKAGE', {
     options: {
       url: 'auth-service.auth-namespace.svc.cluster.local:50001',
-      package: ['user', 'user_profile'],
+      package: [],
       protoPath: 'auth/auth.proto'
     }
   });
@@ -41,7 +41,7 @@ export const grpcMs400: Provider =
   baseGrpc('MS400_PACKAGE', {
     options: {
       url: 'ms400-service.ms400-namespace.svc.cluster.local:50400',
-      package: ['menu', 'profile', 'profile_menu'],
+      package: ['menu', 'profile', 'profile_menu', 'user', 'user_profile'],
       protoPath: 'ms400/ms400.proto'
     }
   });

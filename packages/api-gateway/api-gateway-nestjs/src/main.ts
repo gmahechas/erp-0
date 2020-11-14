@@ -16,7 +16,7 @@ async function bootstrap() {
     cert: fs.readFileSync(__dirname + '/../src/utils/ssl/cert.pem'),
     passphrase: 'Analu'
   }
-  const app = await NestFactory.create<NestExpressApplication>(AppModule, { httpsOptions, cors: true });
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, { cors: true });
   app.set('trust proxy', 1);
   //app.use(helmet());
   //app.use(csurf());
