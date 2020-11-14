@@ -5,16 +5,20 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
+import { profileMenuJoiSchema, IProfile, IMenu } from '@gmahechas/common-nestjs';
+
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
+import { ProfileMenuGrpcService } from '@api-gateway-nestjs/modules/ms400/profile-menu/client/grpc/profile-menu-grpc.service';
+import { ProfileMenuType } from '@api-gateway-nestjs/modules/ms400/profile-menu/server/graphql/profile-menu.type';
+import { ProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/profile/client/grpc/profile-grpc.service';
+import { ProfileType } from '@api-gateway-nestjs/modules/ms400/profile/server/graphql/profile.type';
+import { MenuGrpcService } from '@api-gateway-nestjs/modules/ms400/menu/client/grpc/menu-grpc.service';
+import { MenuType } from '@api-gateway-nestjs/modules/ms400/menu/server/graphql/menu.type';
+
 import {
-  ProfileMenuType, ProfileType, MenuType,
-  profileMenuJoiSchema, IProfile, IMenu, BaseResolver,
   ProfileMenuCreateInput, ProfileMenuSearchInput,
   ProfileMenuUpdateInput, ProfileMenuDeleteInput
-} from '@gmahechas/common-nestjs';
-
-import { ProfileMenuGrpcService } from '@api-gateway-nestjs/modules/ms400/profile-menu/client/grpc/profile-menu-grpc.service'
-import { ProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/profile/client/grpc/profile-grpc.service';
-import { MenuGrpcService } from '@api-gateway-nestjs/modules/ms400/menu/client/grpc/menu-grpc.service';
+} from '@api-gateway-nestjs/modules/ms400/profile-menu/server/graphql/profile-menu.input';
 
 @Resolver(() => ProfileMenuType)
 export class ProfileMenuResolver extends BaseResolver(

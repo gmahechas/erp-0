@@ -5,16 +5,20 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
+import { departmentJoiSchema, ICompany, IOfficeDepartment } from '@gmahechas/common-nestjs';
+
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
+import { DepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/department/client/grpc/department-grpc.service';
+import { DepartmentType } from '@api-gateway-nestjs/modules/ms200/department/server/graphql/department.type';
+import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/client/grpc/company-grpc.service';
+import { CompanyType } from '@api-gateway-nestjs/modules/ms200/company/server/graphql/company.type';
+import { OfficeDepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/office-department/client/grpc/office-department-grpc.service';
+import { OfficeDepartmentType } from '@api-gateway-nestjs/modules/ms200/office-department/server/graphql/office-department.type';
+
 import {
-  DepartmentType, CompanyType, OfficeDepartmentType,
-  departmentJoiSchema, ICompany, IOfficeDepartment, BaseResolver,
   DepartmentCreateInput, DepartmentSearchInput,
   DepartmentUpdateInput, DepartmentDeleteInput
-} from '@gmahechas/common-nestjs';
-
-import { DepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/department/client/grpc/department-grpc.service';
-import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/client/grpc/company-grpc.service';
-import { OfficeDepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/office-department/client/grpc/office-department-grpc.service';
+} from '@api-gateway-nestjs/modules/ms200/department/server/graphql/department.input';
 
 @Resolver(() => DepartmentType)
 export class DepartmentResolver extends BaseResolver(

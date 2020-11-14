@@ -1,13 +1,15 @@
 import { Resolver } from '@nestjs/graphql';
 
+import { typePersonJoiSchema } from '@gmahechas/common-nestjs';
+
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
+import { TypePersonGrpcService } from '@api-gateway-nestjs/modules/ms300/type-person/client/grpc/type-person-grpc.service';
+import { TypePersonType } from '@api-gateway-nestjs/modules/ms300/type-person/server/graphql/type-person.type';
+
 import {
-  TypePersonType,
-  typePersonJoiSchema, BaseResolver,
   TypePersonCreateInput, TypePersonSearchInput,
   TypePersonUpdateInput, TypePersonDeleteInput
-} from '@gmahechas/common-nestjs';
-
-import { TypePersonGrpcService } from '@api-gateway-nestjs/modules/ms300/type-person/client/grpc/type-person-grpc.service';
+} from '@api-gateway-nestjs/modules/ms300/type-person/server/graphql/type-person.input';
 
 @Resolver(() => TypePersonType)
 export class TypePersonResolver extends BaseResolver(

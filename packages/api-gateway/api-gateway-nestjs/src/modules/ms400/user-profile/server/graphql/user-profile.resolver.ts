@@ -5,16 +5,20 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
+import { userProfileJoiSchema, IUser, IProfile } from '@gmahechas/common-nestjs';
+
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
+import { UserProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/user-profile/client/grpc/user-profile-grpc.service';
+import { UserProfileType } from '@api-gateway-nestjs/modules/ms400/user-profile/server/graphql/user-profile.type';
+import { UserGrpcService } from '@api-gateway-nestjs/modules/ms400/user/client/grpc/user-grpc.service';
+import { UserType } from '@api-gateway-nestjs/modules/ms400/user/server/graphql/user.type';
+import { ProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/profile/client/grpc/profile-grpc.service';
+import { ProfileType } from '@api-gateway-nestjs/modules/ms400/profile/server/graphql/profile.type';
+
 import {
-  UserProfileType, UserType, ProfileType,
-  userProfileJoiSchema, IUser, IProfile, BaseResolver,
   UserProfileCreateInput, UserProfileSearchInput,
   UserProfileUpdateInput, UserProfileDeleteInput
-} from '@gmahechas/common-nestjs';
-
-import { UserProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/user-profile/client/grpc/user-profile-grpc.service'
-import { UserGrpcService } from '@api-gateway-nestjs/modules/ms400/user/client/grpc/user-grpc.service';
-import { ProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/profile/client/grpc/profile-grpc.service';
+} from '@api-gateway-nestjs/modules/ms400/user-profile/server/graphql/user-profile.input';
 
 @Resolver(() => UserProfileType)
 export class UserProfileResolver extends BaseResolver(

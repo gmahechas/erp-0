@@ -5,16 +5,20 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import {
-  EstateType, CountryType, CityType,
-  estateJoiSchema, ICountry, ICity, BaseResolver,
-  EstateCreateInput, EstateSearchInput,
-  EstateUpdateInput, EstateDeleteInput
-} from '@gmahechas/common-nestjs';
+import { estateJoiSchema, ICountry, ICity } from '@gmahechas/common-nestjs';
 
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
 import { EstateGrpcService } from '@api-gateway-nestjs/modules/ms100/estate/client/grpc/estate-grpc.service';
+import { EstateType } from '@api-gateway-nestjs/modules/ms100/estate/server/graphql/estate.type';
 import { CountryGrpcService } from '@api-gateway-nestjs/modules/ms100/country/client/grpc/country-grpc.service';
 import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
+import { CountryType } from '@api-gateway-nestjs/modules/ms100/country/server/graphql/country.type';
+import { CityType } from '@api-gateway-nestjs/modules/ms100/city/server/graphql/city.type';
+
+import {
+  EstateCreateInput, EstateSearchInput,
+  EstateUpdateInput, EstateDeleteInput
+} from '@api-gateway-nestjs/modules/ms100/estate/server/graphql/estate.input';
 
 @Resolver(() => EstateType)
 export class EstateResolver extends BaseResolver(

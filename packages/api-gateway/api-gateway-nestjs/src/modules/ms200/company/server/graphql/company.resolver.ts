@@ -5,17 +5,22 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
+import { companyJoiSchema, IOffice, IDepartment, ICity } from '@gmahechas/common-nestjs';
+
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
+import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/client/grpc/company-grpc.service'
+import { CompanyType } from '@api-gateway-nestjs/modules/ms200/company/server/graphql/company.type';
+import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
+import { CityType } from '@api-gateway-nestjs/modules/ms100/city/server/graphql/city.type';
+import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms200/office/client/grpc/office-grpc.service';
+import { OfficeType } from '@api-gateway-nestjs/modules/ms200/office/server/graphql/office.type';
+import { DepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/department/client/grpc/department-grpc.service';
+import { DepartmentType } from '@api-gateway-nestjs/modules/ms200/department/server/graphql/department.type';
+
 import {
-  CompanyType, OfficeType, DepartmentType, CityType,
-  companyJoiSchema, IOffice, IDepartment, ICity, BaseResolver,
   CompanyCreateInput, CompanySearchInput,
   CompanyUpdateInput, CompanyDeleteInput
-} from '@gmahechas/common-nestjs';
-
-import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/client/grpc/company-grpc.service'
-import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms200/office/client/grpc/office-grpc.service';
-import { DepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/department/client/grpc/department-grpc.service';
-import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
+} from '@api-gateway-nestjs/modules/ms200/company/server/graphql/company.input';
 
 @Resolver(() => CompanyType)
 export class CompanyResolver extends BaseResolver(

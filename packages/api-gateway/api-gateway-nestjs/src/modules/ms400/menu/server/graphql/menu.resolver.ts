@@ -5,15 +5,18 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
+import { menuJoiSchema, IProfileMenu } from '@gmahechas/common-nestjs';
+
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
+import { MenuGrpcService } from '@api-gateway-nestjs/modules/ms400/menu/client/grpc/menu-grpc.service';
+import { MenuType } from '@api-gateway-nestjs/modules/ms400/menu/server/graphql/menu.type';
+import { ProfileMenuGrpcService } from '@api-gateway-nestjs/modules/ms400/profile-menu/client/grpc/profile-menu-grpc.service';
+import { ProfileMenuType } from '@api-gateway-nestjs/modules/ms400/profile-menu/server/graphql/profile-menu.type';
+
 import {
-  MenuType, ProfileMenuType,
-  menuJoiSchema, IProfileMenu, BaseResolver,
   MenuCreateInput, MenuSearchInput,
   MenuUpdateInput, MenuDeleteInput
-} from '@gmahechas/common-nestjs';
-
-import { MenuGrpcService } from '@api-gateway-nestjs/modules/ms400/menu/client/grpc/menu-grpc.service'
-import { ProfileMenuGrpcService } from '@api-gateway-nestjs/modules/ms400/profile-menu/client/grpc/profile-menu-grpc.service';
+} from '@api-gateway-nestjs/modules/ms400/menu/server/graphql/menu.input';
 
 @Resolver(() => MenuType)
 export class MenuResolver extends BaseResolver(
