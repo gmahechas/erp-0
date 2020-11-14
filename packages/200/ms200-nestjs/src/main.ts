@@ -11,7 +11,7 @@ async function bootstrap() {
     options: {
       url: '0.0.0.0:'.concat(config.port),
       package: ['company', 'office', 'department', 'office_department'],
-      protoPath: join(__dirname, '../node_modules/@gmahechas/common-nestjs/src/grpc/protos/ms200/ms200.proto'),
+      protoPath: join(__dirname, '../node_modules/@gmahechas/common-nestjs/src/grpc/protos/200/200.proto'),
     },
   });
   await app.listen(() => console.log(`MS200 is listening on port ${config.port}`));

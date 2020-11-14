@@ -11,37 +11,37 @@ export const grpcAuth: Provider =
   });
 
 export const grpcMs100: Provider =
-  baseGrpc('MS100_PACKAGE', {
+  baseGrpc('100_PACKAGE', {
     options: {
       url: 'ms100-service.ms100-namespace.svc.cluster.local:50100',
       package: ['country', 'estate', 'city', 'address'],
-      protoPath: 'ms100/ms100.proto'
+      protoPath: '100/100.proto'
     }
   });
 
 export const grpcMs200: Provider =
-  baseGrpc('MS200_PACKAGE', {
+  baseGrpc('200_PACKAGE', {
     options: {
       url: 'ms200-service.ms200-namespace.svc.cluster.local:50200',
       package: ['company', 'office', 'department', 'office_department'],
-      protoPath: 'ms200/ms200.proto'
+      protoPath: '200/200.proto'
     }
   });
 
 export const grpcMs300: Provider =
-  baseGrpc('MS300_PACKAGE', {
+  baseGrpc('300_PACKAGE', {
     options: {
       url: 'ms300-service.ms300-namespace.svc.cluster.local:50300',
       package: ['type_person', 'type_identification', 'person'],
-      protoPath: 'ms300/ms300.proto'
+      protoPath: '300/300.proto'
     }
   });
 
 export const grpcMs400: Provider =
-  baseGrpc('MS400_PACKAGE', {
+  baseGrpc('400_PACKAGE', {
     options: {
       url: 'ms400-service.ms400-namespace.svc.cluster.local:50400',
       package: ['menu', 'profile', 'profile_menu', 'user', 'user_profile'],
-      protoPath: 'ms400/ms400.proto'
+      protoPath: '400/400.proto'
     }
   });
