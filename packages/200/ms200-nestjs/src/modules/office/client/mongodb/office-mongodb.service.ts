@@ -2,11 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { Model } from 'mongoose';
-import { OfficeDocument } from '@ms200/modules/office/client/mongodb/office.schema';
-
 import { Observable, from } from 'rxjs';
 
-import { IEntityMany, IOffice , BaseMongodbService } from '@gmahechas/common-nestjs';
+import { IEntityMany, IOffice , BaseMongodbService, OfficeDocument } from '@gmahechas/common-nestjs';
 
 @Injectable()
 export class OfficeMongodbService extends BaseMongodbService() {
@@ -16,12 +14,11 @@ export class OfficeMongodbService extends BaseMongodbService() {
   ) { super(entityModel); }
 
   searchMany(data: IEntityMany<IOffice>): Observable<IEntityMany<IOffice>> {
-    return from(this._searchManyAsync(data));
-  }
-
-  async _searchManyAsync(data: IEntityMany<IOffice>): Promise<IEntityMany<IOffice>> {
-    const dataEntities = data.entities ? data.entities : [{}];
-    return { entities: await this.entityModel.find({ $or: dataEntities }) };
+    const searchManyAsync = async(): Promise<IEntityMany<IOffice>> => {
+      const dataEntities = data.entities ? data.entities : [{}];
+      return { entities: await this.entityModel.find({ $or: dataEntities }) };
+    };
+    return from(searchManyAsync());
   }
 
 }

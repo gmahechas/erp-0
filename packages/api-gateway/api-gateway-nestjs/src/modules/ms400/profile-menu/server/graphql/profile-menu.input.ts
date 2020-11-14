@@ -11,7 +11,7 @@ export class ProfileMenuCreateInput implements Partial<IProfileMenu> {
 
 @InputType()
 export class ProfileMenuSearchInput implements Partial<IProfileMenu> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) profileMenuStatus: boolean;
   @Field({ nullable: true }) menuId: string;
   @Field({ nullable: true }) profileId: string;
@@ -19,7 +19,7 @@ export class ProfileMenuSearchInput implements Partial<IProfileMenu> {
 
 @InputType()
 export class ProfileMenuUpdateInput implements Partial<IProfileMenu> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) profileMenuStatus: boolean;
   @Field({ nullable: true }) menuId: string;
   @Field({ nullable: true }) profileId: string;
@@ -27,5 +27,5 @@ export class ProfileMenuUpdateInput implements Partial<IProfileMenu> {
 
 @InputType()
 export class ProfileMenuDeleteInput implements Partial<IProfileMenu> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

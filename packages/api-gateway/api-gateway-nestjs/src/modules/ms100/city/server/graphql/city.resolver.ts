@@ -5,8 +5,9 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { cityJoiSchema, IEstate, BaseResolver } from '@gmahechas/common-nestjs';
+import { cityJoiSchema, IEstate } from '@gmahechas/common-nestjs';
 
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
 import { CityGrpcService } from '@api-gateway-nestjs/modules/ms100/city/client/grpc/city-grpc.service';
 import { CityType } from '@api-gateway-nestjs/modules/ms100/city/server/graphql/city.type';
 import { EstateGrpcService } from '@api-gateway-nestjs/modules/ms100/estate/client/grpc/estate-grpc.service';

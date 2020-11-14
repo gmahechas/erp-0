@@ -1,26 +1,22 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SchemaDefinition } from 'mongoose';
 
-import { DepartmentDocument, DepartmentSchema } from '@ms200/modules/department/client/mongodb/department.schema';
+import { DepartmentDocument, departmentSchema } from '@gmahechas/common-nestjs';
 
 import { DepartmentGrpcController } from '@ms200/modules/department/server/grpc/department-grpc.controller';
 import { DepartmentMongodbService } from '@ms200/modules/department/client/mongodb/department-mongodb.service';
 
 @Module({
   imports: [
-    MongooseModule.forFeatureAsync([
+    MongooseModule.forFeature([
       {
         collection: 'department',
         name: DepartmentDocument.name,
-        useFactory: (): SchemaDefinition => {
-          const schema = DepartmentSchema;
-          return schema;
-        }
+        schema: departmentSchema
       }
     ])
   ],
   controllers: [DepartmentGrpcController],
   providers: [DepartmentMongodbService]
 })
-export class DepartmentModule {}
+export class DepartmentModule { }

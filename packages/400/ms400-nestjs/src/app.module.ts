@@ -17,4 +17,4 @@ import { UserProfileModule } from '@ms400/modules/user-profile/user-profile.modu
     UserProfileModule
   ]
 })
-export class AppModule {}
+export class AppModule { }

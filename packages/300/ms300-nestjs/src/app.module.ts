@@ -13,4 +13,4 @@ import { PersonModule } from '@ms300/modules/person/person.module';
     PersonModule,
   ]
 })
-export class AppModule {}
+export class AppModule { }

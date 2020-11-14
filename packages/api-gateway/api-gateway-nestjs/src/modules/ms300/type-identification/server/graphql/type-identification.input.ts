@@ -10,19 +10,19 @@ export class TypeIdentificationCreateInput implements Partial<ITypeIdentificatio
 
 @InputType()
 export class TypeIdentificationSearchInput implements Partial<ITypeIdentification> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) typeIdentificationDescription: string;
   @Field({ nullable: true }) typeIdentificationCode: string;
 }
 
 @InputType()
 export class TypeIdentificationUpdateInput implements Partial<ITypeIdentification> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) typeIdentificationDescription: string;
   @Field({ nullable: true }) typeIdentificationCode: string;
 }
 
 @InputType()
 export class TypeIdentificationDeleteInput implements Partial<ITypeIdentification> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

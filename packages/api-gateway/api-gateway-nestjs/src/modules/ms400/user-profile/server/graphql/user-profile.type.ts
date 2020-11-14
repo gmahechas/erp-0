@@ -6,7 +6,7 @@ import { ProfileType } from '@api-gateway-nestjs/modules/ms400/profile/server/gr
 
 @ObjectType()
 export class UserProfileType implements IUserProfile {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field() userProfileStatus: boolean;
   @Field() userId: string;
   @Field() profileId: string;

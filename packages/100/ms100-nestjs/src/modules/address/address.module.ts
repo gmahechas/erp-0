@@ -1,22 +1,18 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SchemaDefinition } from 'mongoose';
 
-import { AddressDocument, AddressSchema } from '@ms100/modules/address/client/mongodb/address.schema';
+import { AddressDocument, addressSchema } from '@gmahechas/common-nestjs';
 
 import { AddressGrpcController } from '@ms100/modules/address/server/grpc/address-grpc.controller';
 import { AddressMongodbService } from '@ms100/modules/address/client/mongodb/address-mongodb.service';
 
 @Module({
   imports: [
-    MongooseModule.forFeatureAsync([
+    MongooseModule.forFeature([
       {
         collection: 'address',
         name: AddressDocument.name,
-        useFactory: (): SchemaDefinition => {
-          const schema = AddressSchema;
-          return schema;
-        }
+        schema: addressSchema
       }
     ])
   ],

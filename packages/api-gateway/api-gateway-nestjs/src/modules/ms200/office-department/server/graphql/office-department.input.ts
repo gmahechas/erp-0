@@ -11,7 +11,7 @@ export class OfficeDepartmentCreateInput implements Partial<IOfficeDepartment> {
 
 @InputType()
 export class OfficeDepartmentSearchInput implements Partial<IOfficeDepartment> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) officeDepartmentStatus: boolean;
   @Field({ nullable: true }) officeId: string;
   @Field({ nullable: true }) departmentId: string;
@@ -19,7 +19,7 @@ export class OfficeDepartmentSearchInput implements Partial<IOfficeDepartment> {
 
 @InputType()
 export class OfficeDepartmentUpdateInput implements Partial<IOfficeDepartment> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) officeDepartmentStatus: boolean;
   @Field({ nullable: true }) officeId: string;
   @Field({ nullable: true }) departmentId: string;
@@ -27,5 +27,5 @@ export class OfficeDepartmentUpdateInput implements Partial<IOfficeDepartment> {
 
 @InputType()
 export class OfficeDepartmentDeleteInput implements Partial<IOfficeDepartment> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

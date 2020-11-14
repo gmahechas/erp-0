@@ -1,3 +1,3 @@
-export { ITypePerson } from './type-person.interface';
-export { ITypeIdentification } from './type-identification.interface';
-export { IPerson } from './person.interface';
+export * from './type-person';
+export * from './type-identification';
+export * from './person';

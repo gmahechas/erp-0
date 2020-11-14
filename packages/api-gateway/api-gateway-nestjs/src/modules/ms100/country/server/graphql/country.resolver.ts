@@ -5,8 +5,9 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { countryJoiSchema, IEstate, BaseResolver } from '@gmahechas/common-nestjs';
+import { countryJoiSchema, IEstate} from '@gmahechas/common-nestjs';
 
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
 import { CountryGrpcService } from '@api-gateway-nestjs/modules/ms100/country/client/grpc/country-grpc.service';
 import { CountryType } from '@api-gateway-nestjs/modules/ms100/country/server/graphql/country.type';
 import { EstateGrpcService } from '@api-gateway-nestjs/modules/ms100/estate/client/grpc/estate-grpc.service';
@@ -14,7 +15,7 @@ import { EstateType } from '@api-gateway-nestjs/modules/ms100/estate/server/grap
 
 import {
   CountryCreateInput, CountrySearchInput,
-  CountryUpdateInput, CountryDeleteInput
+  CountryUpdateInput, CountryDeleteInput,
 } from '@api-gateway-nestjs/modules/ms100/country/server/graphql/country.input';
 
 @Resolver(() => CountryType)

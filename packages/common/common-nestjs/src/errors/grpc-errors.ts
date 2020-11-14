@@ -1,4 +1,3 @@
-import { Observable, throwError } from 'rxjs'
 import { CustomError } from './custom.error'
 import { MicroserviceConnectionError } from './microservice-connection.error'
 import { RequestValidationError } from './request-validation.error'

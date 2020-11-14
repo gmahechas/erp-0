@@ -10,17 +10,17 @@ export class DepartmentCreateInput implements Partial<IDepartment> {
 
 @InputType()
 export class DepartmentSearchInput implements Partial<IDepartment> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) departmentName: string;
 }
 
 @InputType()
 export class DepartmentUpdateInput implements Partial<IDepartment> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) departmentName: string;
 }
 
 @InputType()
 export class DepartmentDeleteInput implements Partial<IDepartment> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

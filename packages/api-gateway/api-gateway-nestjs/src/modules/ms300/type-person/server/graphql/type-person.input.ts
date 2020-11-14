@@ -10,19 +10,19 @@ export class TypePersonCreateInput implements Partial<ITypePerson> {
 
 @InputType()
 export class TypePersonSearchInput implements Partial<ITypePerson> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) typePersonDescription: string;
   @Field({ nullable: true }) typePersonCode: string;
 }
 
 @InputType()
 export class TypePersonUpdateInput implements Partial<ITypePerson> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) typePersonDescription: string;
   @Field({ nullable: true }) typePersonCode: string;
 }
 
 @InputType()
 export class TypePersonDeleteInput implements Partial<ITypePerson> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

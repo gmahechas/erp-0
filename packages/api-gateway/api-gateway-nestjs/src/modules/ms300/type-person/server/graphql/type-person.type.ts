@@ -4,7 +4,7 @@ import { ITypePerson } from '@gmahechas/common-nestjs';
 
 @ObjectType()
 export class TypePersonType implements ITypePerson {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field() typePersonDescription: string;
   @Field() typePersonCode: string;
 }

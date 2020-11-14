@@ -10,18 +10,18 @@ export class ProfileCreateInput implements Partial<IProfile> {
 
 @InputType()
 export class ProfileSearchInput implements Partial<IProfile> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) profileName: string;
 }
 
 @InputType()
 export class ProfileUpdateInput implements Partial<IProfile> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) profileName: string;
   @Field({ nullable: true }) profileDescription: string;
 }
 
 @InputType()
 export class ProfileDeleteInput implements Partial<IProfile> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

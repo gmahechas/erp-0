@@ -5,8 +5,9 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { officeDepartmentJoiSchema, IOffice, IDepartment, BaseResolver } from '@gmahechas/common-nestjs';
+import { officeDepartmentJoiSchema, IOffice, IDepartment } from '@gmahechas/common-nestjs';
 
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
 import { OfficeDepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/office-department/client/grpc/office-department-grpc.service';
 import { OfficeDepartmentType } from '@api-gateway-nestjs/modules/ms200/office-department/server/graphql/office-department.type';
 import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms200/office/client/grpc/office-grpc.service';

@@ -13,7 +13,7 @@ async function bootstrap() {
     options: {
       url: '0.0.0.0:'.concat(config.port),
       package: ['country', 'estate', 'city', 'address'],
-      protoPath: join(__dirname, '../node_modules/@gmahechas/common-nestjs/protos/ms100/ms100.proto'),
+      protoPath: join(__dirname, '../node_modules/@gmahechas/common-nestjs/src/grpc/protos/ms100/ms100.proto'),
     },
   });
   app.useGlobalFilters(new GrpcExceptionFilter());

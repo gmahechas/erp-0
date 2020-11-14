@@ -1,4 +1,4 @@
-import { InputType, Field, ID } from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql';
 
 import { ICompany } from '@gmahechas/common-nestjs';
 
@@ -8,12 +8,11 @@ export class CompanyCreateInput implements Partial<ICompany> {
   @Field() companyIdentification: string;
   @Field() companyKey: string;
   @Field() cityId: string;
-  @Field() addressId: string;
 }
 
 @InputType()
 export class CompanySearchInput implements Partial<ICompany> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) companyName: string;
   @Field({ nullable: true }) companyIdentification: string;
   @Field({ nullable: true }) companyKey: string;
@@ -22,7 +21,7 @@ export class CompanySearchInput implements Partial<ICompany> {
 
 @InputType()
 export class CompanyUpdateInput implements Partial<ICompany> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) companyName: string;
   @Field({ nullable: true }) companyIdentification: string;
   @Field({ nullable: true }) companyKey: string;
@@ -31,5 +30,5 @@ export class CompanyUpdateInput implements Partial<ICompany> {
 
 @InputType()
 export class CompanyDeleteInput implements Partial<ICompany> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

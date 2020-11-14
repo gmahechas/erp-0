@@ -6,7 +6,7 @@ import { OfficeDepartmentType } from '@api-gateway-nestjs/modules/ms200/office-d
 
 @ObjectType()
 export class DepartmentType implements IDepartment {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field() departmentName: string;
   @Field() companyId: string;
   @Field(() => CompanyType) company: CompanyType;

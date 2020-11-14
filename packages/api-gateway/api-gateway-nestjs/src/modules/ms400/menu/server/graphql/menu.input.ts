@@ -13,13 +13,13 @@ export class MenuCreateInput implements Partial<IMenu> {
 
 @InputType()
 export class MenuSearchInput implements Partial<IMenu> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) menuName: string;
 }
 
 @InputType()
 export class MenuUpdateInput implements Partial<IMenu> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) menuName: string;
   @Field({ nullable: true }) menuDescription: string;
   @Field({ nullable: true }) menuUri: string;
@@ -29,5 +29,5 @@ export class MenuUpdateInput implements Partial<IMenu> {
 
 @InputType()
 export class MenuDeleteInput implements Partial<IMenu> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

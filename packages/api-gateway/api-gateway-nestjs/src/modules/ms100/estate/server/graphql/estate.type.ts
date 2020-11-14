@@ -1,4 +1,4 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 
 import { IEstate } from '@gmahechas/common-nestjs';
 import { CountryType } from '@api-gateway-nestjs/modules/ms100/country/server/graphql/country.type';
@@ -6,7 +6,7 @@ import { CityType } from '@api-gateway-nestjs/modules/ms100/city/server/graphql/
 
 @ObjectType()
 export class EstateType implements IEstate {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field() estateName: string;
   @Field() estateCode: string;
   @Field() countryId: string;

@@ -4,7 +4,7 @@ import { ITypeIdentification } from '@gmahechas/common-nestjs';
 
 @ObjectType()
 export class TypeIdentificationType implements ITypeIdentification {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field() typeIdentificationDescription: string;
   @Field() typeIdentificationCode: string;
 }

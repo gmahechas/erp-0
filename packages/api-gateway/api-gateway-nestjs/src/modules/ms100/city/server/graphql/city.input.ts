@@ -11,7 +11,7 @@ export class CityCreateInput implements Partial<ICity> {
 
 @InputType()
 export class CitySearchInput implements Partial<ICity> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) cityName: string;
   @Field({ nullable: true }) cityCode: string;
   @Field({ nullable: true }) estateId: string;
@@ -19,7 +19,7 @@ export class CitySearchInput implements Partial<ICity> {
 
 @InputType()
 export class CityUpdateInput implements Partial<ICity> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) cityName: string;
   @Field({ nullable: true }) cityCode: string;
   @Field({ nullable: true }) estateId: string;
@@ -27,5 +27,5 @@ export class CityUpdateInput implements Partial<ICity> {
 
 @InputType()
 export class CityDeleteInput implements Partial<ICity> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

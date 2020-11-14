@@ -1,4 +1,4 @@
-import { InputType, Field, ID } from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql';
 
 import { ICountry } from '@gmahechas/common-nestjs';
 
@@ -10,19 +10,19 @@ export class CountryCreateInput implements Partial<ICountry> {
 
 @InputType()
 export class CountrySearchInput implements Partial<ICountry> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) countryName: string;
   @Field({ nullable: true }) countryCode: string;
 }
 
 @InputType()
 export class CountryUpdateInput implements Partial<ICountry> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) countryName: string;
   @Field({ nullable: true }) countryCode: string;
 }
 
 @InputType()
 export class CountryDeleteInput implements Partial<ICountry> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

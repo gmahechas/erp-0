@@ -5,7 +5,7 @@ import { ProfileMenuType } from '@api-gateway-nestjs/modules/ms400/profile-menu/
 
 @ObjectType()
 export class ProfileType implements IProfile {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field() profileName: string;
   @Field() profileDescription: string;
   @Field(() => [ProfileMenuType], { nullable: 'itemsAndList' }) profileMenus: ProfileMenuType[];

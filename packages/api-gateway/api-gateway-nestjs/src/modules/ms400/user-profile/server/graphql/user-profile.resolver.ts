@@ -5,9 +5,10 @@ import { Resolver, ResolveField, Parent } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { userProfileJoiSchema, IUser, IProfile, BaseResolver } from '@gmahechas/common-nestjs';
+import { userProfileJoiSchema, IUser, IProfile } from '@gmahechas/common-nestjs';
 
-import { UserProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/user-profile/client/grpc/user-profile-grpc.service'
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
+import { UserProfileGrpcService } from '@api-gateway-nestjs/modules/ms400/user-profile/client/grpc/user-profile-grpc.service';
 import { UserProfileType } from '@api-gateway-nestjs/modules/ms400/user-profile/server/graphql/user-profile.type';
 import { UserGrpcService } from '@api-gateway-nestjs/modules/ms400/user/client/grpc/user-grpc.service';
 import { UserType } from '@api-gateway-nestjs/modules/ms400/user/server/graphql/user.type';

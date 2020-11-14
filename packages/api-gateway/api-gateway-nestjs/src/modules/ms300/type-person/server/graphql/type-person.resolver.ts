@@ -1,7 +1,8 @@
 import { Resolver } from '@nestjs/graphql';
 
-import { typePersonJoiSchema, BaseResolver } from '@gmahechas/common-nestjs';
+import { typePersonJoiSchema } from '@gmahechas/common-nestjs';
 
+import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
 import { TypePersonGrpcService } from '@api-gateway-nestjs/modules/ms300/type-person/client/grpc/type-person-grpc.service';
 import { TypePersonType } from '@api-gateway-nestjs/modules/ms300/type-person/server/graphql/type-person.type';
 

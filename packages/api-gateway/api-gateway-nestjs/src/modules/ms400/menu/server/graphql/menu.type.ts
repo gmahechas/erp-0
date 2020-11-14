@@ -5,7 +5,7 @@ import { ProfileMenuType } from '@api-gateway-nestjs/modules/ms400/profile-menu/
 
 @ObjectType()
 export class MenuType implements IMenu {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field() menuName: string;
   @Field() menuDescription: string;
   @Field() menuUri: string;

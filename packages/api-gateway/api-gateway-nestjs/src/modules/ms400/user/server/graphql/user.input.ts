@@ -11,14 +11,14 @@ export class UserCreateInput implements Partial<IUser> {
 
 @InputType()
 export class UserSearchInput implements Partial<IUser> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) userName: string;
   @Field({ nullable: true }) personId: string;
 }
 
 @InputType()
 export class UserUpdateInput implements Partial<IUser> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) userName: string;
   @Field({ nullable: true }) userPassword: string;
   @Field({ nullable: true }) personId: string;
@@ -26,5 +26,5 @@ export class UserUpdateInput implements Partial<IUser> {
 
 @InputType()
 export class UserDeleteInput implements Partial<IUser> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

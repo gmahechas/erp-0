@@ -11,7 +11,7 @@ async function bootstrap() {
     options: {
       url: '0.0.0.0:'.concat(config.port),
       package: ['type_person', 'type_identification', 'person'],
-      protoPath: join(__dirname, '../node_modules/@gmahechas/common-nestjs/protos/ms300/ms300.proto'),
+      protoPath: join(__dirname, '../node_modules/@gmahechas/common-nestjs/src/grpc/protos/ms300/ms300.proto'),
     },
   });
   await app.listen(() => console.log(`MS300 is listening on port ${config.port}`));

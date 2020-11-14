@@ -11,19 +11,19 @@ export class OfficeCreateInput implements Partial<IOffice> {
 
 @InputType()
 export class OfficeSearchInput implements Partial<IOffice> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) officeName: string;
   @Field({ nullable: true }) companyId: string;
 }
 
 @InputType()
 export class OfficeUpdateInput implements Partial<IOffice> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) officeName: string;
   @Field({ nullable: true }) companyId: string;
 }
 
 @InputType()
 export class OfficeDeleteInput implements Partial<IOffice> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }

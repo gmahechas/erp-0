@@ -11,7 +11,7 @@ export class EstateCreateInput implements Partial<IEstate> {
 
 @InputType()
 export class EstateSearchInput implements Partial<IEstate> {
-  @Field(() => ID, { nullable: true }) id: string;
+  @Field({ nullable: true }) id: string;
   @Field({ nullable: true }) estateName: string;
   @Field({ nullable: true }) estateCode: string;
   @Field({ nullable: true }) countryId: string;
@@ -19,7 +19,7 @@ export class EstateSearchInput implements Partial<IEstate> {
 
 @InputType()
 export class EstateUpdateInput implements Partial<IEstate> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
   @Field({ nullable: true }) estateName: string;
   @Field({ nullable: true }) estateCode: string;
   @Field({ nullable: true }) countryId: string;
@@ -27,5 +27,5 @@ export class EstateUpdateInput implements Partial<IEstate> {
 
 @InputType()
 export class EstateDeleteInput implements Partial<IEstate> {
-  @Field(() => ID) id: string;
+  @Field() id: string;
 }
