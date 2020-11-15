@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 
 import { GraphqlModule } from '@api-gateway-nestjs/graphql.module';
+import { AuthenticationModule } from '@api-gateway-nestjs/modules/auth/authentication/authentication.module';
 import { CountryModule } from '@api-gateway-nestjs/modules/ms100/country/country.module'; /* ms100 */
 import { EstateModule } from '@api-gateway-nestjs/modules/ms100/estate/estate.module';
 import { CityModule } from '@api-gateway-nestjs/modules/ms100/city/city.module';
@@ -21,6 +22,7 @@ import { UserProfileModule } from '@api-gateway-nestjs/modules/ms400/user-profil
 @Module({
   imports: [
     GraphqlModule,
+    AuthenticationModule, /* auth */
     CountryModule, /* ms100 */
     EstateModule,
     CityModule,

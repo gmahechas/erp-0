@@ -5,7 +5,7 @@ export const grpcAuth: Provider =
   baseGrpc('AUTH_PACKAGE', {
     options: {
       url: 'auth-service.auth-namespace.svc.cluster.local:50001',
-      package: [],
+      package: ['authentication'],
       protoPath: 'auth/auth.proto'
     }
   });
