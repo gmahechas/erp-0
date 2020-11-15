@@ -1,6 +1,0 @@
-syntax = "proto3";
-
-import public "modules/company.proto";
-import public "modules/office.proto";
-import public "modules/department.proto";
-import public "modules/office-department.proto";
