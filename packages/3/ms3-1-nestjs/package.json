@@ -1,7 +1,7 @@
 {
-  "name": "auth-nestjs",
-  "version": "0.0.2",
-  "description": "Auth Service",
+  "name": "ms3-1-nestjs",
+  "version": "0.0.0",
+  "description": "Microservice 3-1",
   "author": "gmahechas",
   "private": true,
   "license": "UNLICENSED",
@@ -75,7 +75,7 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "moduleNameMapper": {
-      "@auth/(.*)$": "<rootDir>/$1"
+      "@ms3-1/(.*)$": "<rootDir>/$1"
     }
   }
 }
