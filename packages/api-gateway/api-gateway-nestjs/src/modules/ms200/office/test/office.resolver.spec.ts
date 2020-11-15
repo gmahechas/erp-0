@@ -4,7 +4,6 @@ import { grpcMs100, grpcMs200 } from '@api-gateway-nestjs/utils/grpc.providers';
 import { OfficeResolver } from '@api-gateway-nestjs/modules/ms200/office/server/graphql/office.resolver';
 import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms200/office/client/grpc/office-grpc.service';
 import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms200/company/client/grpc/company-grpc.service';
-import { OfficeDepartmentGrpcService } from '@api-gateway-nestjs/modules/ms200/office-department/client/grpc/office-department-grpc.service';
 import { AddressGrpcService } from '@api-gateway-nestjs/modules/ms100/address/client/grpc/address-grpc.service';
 
 describe('OfficeResolver', () => {
@@ -18,7 +17,6 @@ describe('OfficeResolver', () => {
         OfficeResolver,
         OfficeGrpcService,
         CompanyGrpcService,
-        OfficeDepartmentGrpcService,
         AddressGrpcService
       ],
     }).compile();

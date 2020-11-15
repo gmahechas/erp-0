@@ -8,7 +8,6 @@ import { IEntityOne, ILoginRequest, ILoginResponse } from '@gmahechas/common-nes
 export class AuthenticationRedisService {
 
   validate(data: ILoginRequest): Observable<IEntityOne<ILoginResponse>> {
-    console.log(data);
     return of({ entity: { successAuthUser: false } });
   }
 

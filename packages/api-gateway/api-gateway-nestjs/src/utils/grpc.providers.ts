@@ -23,7 +23,7 @@ export const grpcMs200: Provider =
   baseGrpc('200_PACKAGE', {
     options: {
       url: 'ms200-service.ms200-namespace.svc.cluster.local:50200',
-      package: ['company', 'office', 'department', 'office_department'],
+      package: ['company', 'office'],
       protoPath: '200/200.proto'
     }
   });

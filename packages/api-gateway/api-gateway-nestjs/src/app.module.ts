@@ -8,8 +8,6 @@ import { CityModule } from '@api-gateway-nestjs/modules/ms100/city/city.module';
 import { AddressModule } from '@api-gateway-nestjs/modules/ms100/address/address.module';
 import { CompanyModule } from '@api-gateway-nestjs/modules/ms200/company/company.module'; /* ms200 */
 import { OfficeModule } from '@api-gateway-nestjs/modules/ms200/office/office.module';
-import { DepartmentModule } from '@api-gateway-nestjs/modules/ms200/department/department.module';
-import { OfficeDepartmentModule } from '@api-gateway-nestjs/modules/ms200/office-department/office-department.module';
 import { TypePersonModule } from '@api-gateway-nestjs/modules/ms300/type-person/type-person.module'; /* ms300 */
 import { TypeIdentificationModule } from '@api-gateway-nestjs/modules/ms300/type-identification/type-identification.module';
 import { PersonModule } from '@api-gateway-nestjs/modules/ms300/person/person.module';
@@ -29,8 +27,6 @@ import { UserProfileModule } from '@api-gateway-nestjs/modules/ms400/user-profil
     AddressModule,
     CompanyModule, /* ms200 */
     OfficeModule,
-    DepartmentModule,
-    OfficeDepartmentModule,
     TypePersonModule, /* ms300 */
     TypeIdentificationModule,
     PersonModule,
