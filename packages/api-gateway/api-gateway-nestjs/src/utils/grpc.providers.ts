@@ -15,7 +15,7 @@ export const grpcMs100: Provider =
     options: {
       url: 'ms100-service.ms100-namespace.svc.cluster.local:50100',
       package: ['country', 'estate', 'city', 'address'],
-      protoPath: '100/100.proto'
+      protoPath: '1/1.proto'
     }
   });
 
@@ -24,7 +24,7 @@ export const grpcMs200: Provider =
     options: {
       url: 'ms200-service.ms200-namespace.svc.cluster.local:50200',
       package: ['company', 'office'],
-      protoPath: '200/200.proto'
+      protoPath: '2/2.proto'
     }
   });
 
@@ -33,7 +33,7 @@ export const grpcMs300: Provider =
     options: {
       url: 'ms300-service.ms300-namespace.svc.cluster.local:50300',
       package: ['type_person', 'type_identification', 'person'],
-      protoPath: '300/300.proto'
+      protoPath: '3/3.proto'
     }
   });
 
@@ -42,6 +42,6 @@ export const grpcMs400: Provider =
     options: {
       url: 'ms400-service.ms400-namespace.svc.cluster.local:50400',
       package: ['menu', 'profile', 'profile_menu', 'user', 'user_profile'],
-      protoPath: '400/400.proto'
+      protoPath: '4/4.proto'
     }
   });
