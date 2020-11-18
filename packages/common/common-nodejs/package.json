@@ -4,7 +4,7 @@
   "description": "Common tools",
   "author": "gmahechas",
   "license": "UNLICENSED",
-  "private": true,
+  "private": false,
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "scripts": {
