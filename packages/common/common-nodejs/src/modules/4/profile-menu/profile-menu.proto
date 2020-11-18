@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package profile_menu;
+
+message ProfileMenu {
+  string id = 1;
+  bool profileMenuStatus = 2;
+  string menuId = 3;
+  string profileId = 4;
+}
+
+// *********** One ***********
+message IEntityOne {
+  ProfileMenu entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated ProfileMenu entities = 1;
+}
+
+service ProfileMenuService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package profile;
+
+message Profile {
+  string id = 1;
+  string profileName = 2;
+  string profileDescription = 3;
+}
+
+// *********** One ***********
+message IEntityOne {
+  Profile entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated Profile entities = 1;
+}
+
+service ProfileService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

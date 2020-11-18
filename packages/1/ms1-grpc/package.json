@@ -1,0 +1,22 @@
+{
+  "name": "ms1-grpc",
+  "version": "0.0.0",
+  "description": "Microservice 1",
+  "author": "gmahechas",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "start": "ts-node-dev --poll src/main.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.5",
+    "grpc": "^1.24.4"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.0.5"
+  }
+}

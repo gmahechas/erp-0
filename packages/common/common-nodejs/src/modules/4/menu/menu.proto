@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package menu;
+
+message Menu {
+  string id = 1;
+  string menuName = 2;
+  string menuDescription = 3;
+  string menuUri = 4;
+  string menuOrder = 5;
+  string menuIdParent = 6;
+}
+
+// *********** One ***********
+message IEntityOne {
+  Menu entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated Menu entities = 1;
+}
+
+service MenuService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

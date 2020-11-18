@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package person;
+
+message Person {
+  string id = 1;
+  string personIdentification = 2;
+  string personFirstName = 3;
+  string personSecondName = 4;
+  string personFirstSurname = 5;
+  string personSecondSurname = 6;
+  string personCompanyName = 7;
+  string companyId = 8;
+  string typePersonId = 9;
+  string typeIdentificationId = 10;
+}
+
+// *********** One ***********
+message IEntityOne {
+  Person entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated Person entities = 1;
+}
+
+service PersonService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}
