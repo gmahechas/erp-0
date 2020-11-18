@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package company;
+
+message Company {
+  string id = 1;
+  string companyName = 2;
+  string companyIdentification = 3;
+  string companyKey = 4;
+  string cityId = 5;
+  string addressId = 6;
+}
+
+// *********** One ***********
+message IEntityOne {
+  Company entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated Company entities = 1;
+}
+
+service CompanyService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

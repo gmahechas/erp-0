@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package city;
+
+message City {
+  string id = 1;
+  string cityName = 2;
+  string cityCode = 3;
+  string estateId = 4;
+}
+
+// *********** One ***********
+message IEntityOne {
+  City entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated City entities = 1;
+}
+
+service CityService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}
+

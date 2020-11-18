@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package type_person;
+
+message TypePerson {
+  string id = 1;
+  string typePersonDescription = 2;
+  string typePersonCode = 3;
+}
+
+// *********** One ***********
+message IEntityOne {
+  TypePerson entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated TypePerson entities = 1;
+}
+
+service TypePersonService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

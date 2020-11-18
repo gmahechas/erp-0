@@ -1,0 +1,4 @@
+syntax = "proto3";
+
+import public "company/company.proto";
+import public "office/office.proto";

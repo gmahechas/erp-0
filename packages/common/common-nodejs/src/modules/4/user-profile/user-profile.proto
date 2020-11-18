@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package user_profile;
+
+message UserProfile {
+  string id = 1;
+  bool userProfileStatus = 2;
+  string userId = 3;
+  string profileId = 4;
+}
+
+// *********** One ***********
+message IEntityOne {
+  UserProfile entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated UserProfile entities = 1;
+}
+
+service UserProfileService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}

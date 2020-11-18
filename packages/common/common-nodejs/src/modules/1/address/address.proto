@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package address;
+
+message Address {
+  string id = 1;
+  string addressLine1 = 2;
+  string addressLine2 = 3;
+  string addressZipCode = 4;
+  string addressFullName = 5;
+  string addressPhone = 6;
+  string cityId = 7;
+}
+
+// *********** One ***********
+message IEntityOne {
+  Address entity = 1;
+}
+
+// *********** Many ***********
+message IEntityMany {
+  repeated Address entities = 1;
+}
+
+service AddressService {
+  rpc CreateOne (IEntityOne) returns (IEntityOne) {}
+  rpc UpdateOne (IEntityOne) returns (IEntityOne) {}
+  rpc DeleteOne (IEntityOne) returns (IEntityOne) {}
+  rpc SearchById (IEntityOne) returns (IEntityOne) {}
+  rpc SearchMany (IEntityMany) returns (IEntityMany) {}
+}
+
