@@ -11,7 +11,7 @@ const packageDefinition = protoLoader.loadSync(path.join(__dirname, '..', 'node_
 });
 
 const packageObject = grpc.loadPackageDefinition(packageDefinition) as any;
-const client = new packageObject.country.CountryService('0.0.0.0:50051', grpc.credentials.createInsecure())
+const client = new packageObject.country.CountryService('0.0.0.0:50100', grpc.credentials.createInsecure())
 
 const bootstrap = async () => {
 

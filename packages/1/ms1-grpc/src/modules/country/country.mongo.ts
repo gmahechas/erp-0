@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-interface CountryCreateInput {
+interface CountryAttrs {
   countryName: string;
   countryCode: string;
 }
@@ -11,10 +11,10 @@ export interface CountryDocument extends mongoose.Document {
 }
 
 interface CountryModel extends mongoose.Model<CountryDocument> {
-  build(input: CountryCreateInput): CountryDocument;
+  build(attrs: CountryAttrs): CountryDocument;
 }
 
-const schemaCountry = new mongoose.Schema(
+const countrySchema = new mongoose.Schema(
   {
     countryName: {
       type: String,
@@ -24,20 +24,11 @@ const schemaCountry = new mongoose.Schema(
       type: String,
       required: true
     },
-  },
-  {
-    versionKey: false,
-    toObject: {
-      transform(doc, ret) {
-        ret.id = ret._id;
-        delete ret._id;
-      }
-    }
   }
 );
 
-schemaCountry.statics.build = (input: CountryCreateInput) => {
-  return new CountryMongo(input);
+countrySchema.statics.build = function (attrs: CountryAttrs) {
+  return new CountryMongo(attrs);
 };
 
-export const CountryMongo = mongoose.model<CountryDocument, CountryModel>('Country', schemaCountry, 'country');
+export const CountryMongo = mongoose.model<CountryDocument, CountryModel>('Country', countrySchema, 'country');
