@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
-import { ICountryCreate } from './country.input';
+
+interface CountryCreateInput {
+  countryName: string;
+  countryCode: string;
+}
 
 export interface CountryDocument extends mongoose.Document {
   countryName: string;
@@ -7,7 +11,7 @@ export interface CountryDocument extends mongoose.Document {
 }
 
 interface CountryModel extends mongoose.Model<CountryDocument> {
-  build(input: ICountryCreate): CountryDocument;
+  build(input: CountryCreateInput): CountryDocument;
 }
 
 const schemaCountry = new mongoose.Schema(
@@ -32,7 +36,7 @@ const schemaCountry = new mongoose.Schema(
   }
 );
 
-schemaCountry.statics.build = (input: ICountryCreate) => {
+schemaCountry.statics.build = (input: CountryCreateInput) => {
   return new CountryMongo(input);
 };
 

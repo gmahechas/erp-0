@@ -1,0 +1,1 @@
+export { JoiSchema } from './joi-schema.interface';

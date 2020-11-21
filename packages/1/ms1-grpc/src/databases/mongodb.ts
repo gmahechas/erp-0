@@ -10,8 +10,8 @@ export default async () => {
       useUnifiedTopology: true,
       useCreateIndex: true
     });
-    console.log('successful connection')
+    console.info('successful connection to database')
   } catch (error) {
-    console.log('error connecting to database:::', error);
+    console.error('error connecting to database:::', error);
   }
 }

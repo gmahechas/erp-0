@@ -8,7 +8,7 @@
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "scripts": {
-    "start": "ts-node-dev --poll src/main.ts",
+    "start:dev": "ts-node-dev --poll src/main.ts",
     "build": "tsc"
   },
   "dependencies": {
