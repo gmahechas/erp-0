@@ -1,6 +1,6 @@
 {
   "name": "ms1-grpc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Microservice 1",
   "author": "gmahechas",
   "license": "UNLICENSED",
@@ -12,7 +12,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@gmahechas/common-nodejs": "^0.0.1",
+    "@gmahechas/common-nodejs": "^0.0.2",
     "@grpc/proto-loader": "^0.5.5",
     "grpc": "^1.24.4",
     "mongoose": "^5.10.15"
