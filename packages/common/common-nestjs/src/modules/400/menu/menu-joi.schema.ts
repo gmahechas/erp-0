@@ -1,4 +1,4 @@
-import Joi, { object } from '@hapi/joi';
+import Joi, { object } from 'joi';
 import { JoiSchema } from '../../../utils/joi-schema.interface';
 
 const createMenuSchema = object({
