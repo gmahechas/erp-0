@@ -1,8 +1,13 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 import { IPerson } from './person.interface';
 
 export const personSchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   personIdentification: {
     type: String,
     required: true
@@ -44,7 +49,8 @@ export const personSchema = new Schema({
   }
 });
 
-export class PersonDocument extends Document implements Partial<IPerson> {
+export class PersonDocument extends Document implements IPerson {
+  id: string;
   personIdentification: string;
   personFirstName: string;
   personSecondName: string;

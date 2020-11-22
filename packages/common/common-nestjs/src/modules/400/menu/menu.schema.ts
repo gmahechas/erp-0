@@ -1,8 +1,13 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 import { IMenu } from './menu.interface';
 
 export const menuSchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   menuName: {
     type: String,
     required: true
@@ -29,7 +34,8 @@ export const menuSchema = new Schema({
   }
 });
 
-export class MenuDocument extends Document implements Partial<IMenu> {
+export class MenuDocument extends Document implements IMenu {
+  id: string;
   menuName: string;
   menuDescription: string;
   menuUri: string;

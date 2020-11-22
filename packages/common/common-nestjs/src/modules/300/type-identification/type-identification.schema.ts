@@ -1,8 +1,13 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ITypeIdentification } from './type-identification.interface';
 
 export const typeIdentificationSchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   typeIdentificationDescription: {
     type: String,
     required: true
@@ -21,7 +26,8 @@ export const typeIdentificationSchema = new Schema({
   }
 });
 
-export class TypeIdentificationDocument extends Document implements Partial<ITypeIdentification> {
+export class TypeIdentificationDocument extends Document implements ITypeIdentification {
+  id: string;
   typeIdentificationDescription: string;
   typeIdentificationCode: string;
 }

@@ -1,9 +1,14 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 import { Password } from '../../../utils/password';
 
 import { IUser } from './user.interface';
 
 export const userSchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   userName: {
     type: String,
     required: true
@@ -34,7 +39,8 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-export class UserDocument extends Document implements Partial<IUser> {
+export class UserDocument extends Document implements IUser {
+  id: string;
   userName: string;
   userPassword: string;
   personId: string;

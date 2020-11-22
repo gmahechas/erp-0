@@ -1,8 +1,13 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 import { IAddress } from './address.interface';
 
 export const addressSchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   addressLine1: {
     type: String,
     required: true
@@ -27,7 +32,8 @@ export const addressSchema = new Schema({
   }
 });
 
-export class AddressDocument extends Document implements Partial<IAddress> {
+export class AddressDocument extends Document implements IAddress {
+  id: string;
   addressLine1: string;
   addressLine2: string;
   addressZipCode: string;

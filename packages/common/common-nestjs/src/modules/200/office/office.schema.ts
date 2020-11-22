@@ -1,8 +1,13 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 import { IOffice } from './office.interface';
 
 export const officeSchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   officeName: {
     type: String,
     required: true
@@ -21,7 +26,8 @@ export const officeSchema = new Schema({
   }
 });
 
-export class OfficeDocument extends Document implements Partial<IOffice> {
+export class OfficeDocument extends Document implements IOffice {
+  id: string;
   officeName: string;
   companyId: string;
 }

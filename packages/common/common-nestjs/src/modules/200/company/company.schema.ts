@@ -1,8 +1,13 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ICompany } from './company.interface';
 
 export const companySchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   companyName: {
     type: String,
     required: true
@@ -29,7 +34,8 @@ export const companySchema = new Schema({
   }
 });
 
-export class CompanyDocument extends Document implements Partial<ICompany> {
+export class CompanyDocument extends Document implements ICompany {
+  id: string;
   companyName: string;
   companyIdentification: string;
   companyKey: string;

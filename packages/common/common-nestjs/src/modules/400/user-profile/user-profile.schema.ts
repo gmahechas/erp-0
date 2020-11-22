@@ -1,8 +1,13 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 import { IUserProfile } from './user-profile.interface';
 
 export const userProfileSchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   userProfileStatus: {
     type: Boolean,
     required: true
@@ -25,7 +30,8 @@ export const userProfileSchema = new Schema({
   }
 });
 
-export class UserProfileDocument extends Document implements Partial<IUserProfile> {
+export class UserProfileDocument extends Document implements IUserProfile {
+  id: string;
   userProfileStatus: boolean;
   userId: string;
   profileId: string;
