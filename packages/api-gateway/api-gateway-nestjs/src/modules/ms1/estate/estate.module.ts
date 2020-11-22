@@ -5,10 +5,6 @@ import { EstateResolver } from '@api-gateway-nestjs/modules/ms1/estate/server/gr
 import { EstateGrpcService } from '@api-gateway-nestjs/modules/ms1/estate/client/grpc/estate-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs100,
-    EstateResolver,
-    EstateGrpcService
-  ]
+  providers: [grpcMs100, EstateResolver, EstateGrpcService],
 })
-export class EstateModule { }
+export class EstateModule {}

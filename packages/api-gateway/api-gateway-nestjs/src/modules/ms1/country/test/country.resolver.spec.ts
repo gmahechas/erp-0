@@ -14,7 +14,7 @@ describe('CountryResolver', () => {
         grpcMs100,
         CountryResolver,
         CountryGrpcService,
-        EstateGrpcService
+        EstateGrpcService,
       ],
     }).compile();
     countryResolver = module.get<CountryResolver>(CountryResolver);
@@ -23,5 +23,4 @@ describe('CountryResolver', () => {
   it('should be defined', () => {
     expect(countryResolver).toBeDefined();
   });
-
 });

@@ -12,11 +12,11 @@ import { OfficeMongodbService } from '@ms2/modules/office/client/mongodb/office-
       {
         collection: 'office',
         name: OfficeDocument.name,
-        schema: officeSchema
-      }
-    ])
+        schema: officeSchema,
+      },
+    ]),
   ],
   controllers: [OfficeGrpcController],
-  providers: [OfficeMongodbService]
+  providers: [OfficeMongodbService],
 })
-export class OfficeModule { }
+export class OfficeModule {}

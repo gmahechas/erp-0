@@ -16,7 +16,7 @@ describe('EstateResolver', () => {
         EstateResolver,
         EstateGrpcService,
         CountryGrpcService,
-        CityGrpcService
+        CityGrpcService,
       ],
     }).compile();
     estateResolver = module.get<EstateResolver>(EstateResolver);
@@ -25,5 +25,4 @@ describe('EstateResolver', () => {
   it('should be defined', () => {
     expect(estateResolver).toBeDefined();
   });
-
 });

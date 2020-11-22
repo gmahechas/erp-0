@@ -12,14 +12,18 @@ describe('OfficeMongodbService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         OfficeMongodbService,
-        { provide: getModelToken(OfficeDocument.name), useValue: OfficeDocument },
+        {
+          provide: getModelToken(OfficeDocument.name),
+          useValue: OfficeDocument,
+        },
       ],
     }).compile();
-    officeMongodbService = module.get<OfficeMongodbService>(OfficeMongodbService);
+    officeMongodbService = module.get<OfficeMongodbService>(
+      OfficeMongodbService,
+    );
   });
 
   it('should be defined', () => {
     expect(officeMongodbService).toBeDefined();
   });
-
 });

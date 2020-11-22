@@ -10,14 +10,16 @@ import { LoginRequestInput } from '@api-gateway-nestjs/modules/auth/authenticati
 
 @Resolver()
 export class AuthenticationResolver {
-
   constructor(
-    private readonly authenticationGrpcService: AuthenticationGrpcService
-  ) { }
+    private readonly authenticationGrpcService: AuthenticationGrpcService,
+  ) {}
 
   @Query(() => LoginResponseType)
-  login(@Args('entity') entity: LoginRequestInput): Observable<Partial<ILoginResponse>> {
-    return this.authenticationGrpcService.login({entity}).pipe(pluck('entity'));
+  login(
+    @Args('entity') entity: LoginRequestInput,
+  ): Observable<Partial<ILoginResponse>> {
+    return this.authenticationGrpcService
+      .login({ entity })
+      .pipe(pluck('entity'));
   }
-
 }

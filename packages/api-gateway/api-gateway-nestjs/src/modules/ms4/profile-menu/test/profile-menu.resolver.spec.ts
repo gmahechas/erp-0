@@ -16,7 +16,7 @@ describe('ProfileMenuResolver', () => {
         ProfileMenuResolver,
         ProfileMenuGrpcService,
         ProfileGrpcService,
-        MenuGrpcService
+        MenuGrpcService,
       ],
     }).compile();
 

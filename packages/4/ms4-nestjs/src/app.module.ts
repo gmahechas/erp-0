@@ -14,7 +14,7 @@ import { UserProfileModule } from '@ms4/modules/user-profile/user-profile.module
     ProfileModule,
     ProfileMenuModule,
     UserModule,
-    UserProfileModule
-  ]
+    UserProfileModule,
+  ],
 })
-export class AppModule { }
+export class AppModule {}

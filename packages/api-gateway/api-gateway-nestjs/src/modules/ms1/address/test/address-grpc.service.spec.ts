@@ -8,10 +8,7 @@ describe('AddressGrpcService', () => {
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        grpcMs100,
-        AddressGrpcService
-      ],
+      providers: [grpcMs100, AddressGrpcService],
     }).compile();
     addressGrpcService = module.get<AddressGrpcService>(AddressGrpcService);
   });
@@ -19,5 +16,4 @@ describe('AddressGrpcService', () => {
   it('should be defined', () => {
     expect(addressGrpcService).toBeDefined();
   });
-
 });

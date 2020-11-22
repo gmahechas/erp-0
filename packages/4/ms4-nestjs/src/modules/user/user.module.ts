@@ -12,11 +12,11 @@ import { UserMongodbService } from '@ms4/modules/user/client/mongodb/user-mongod
       {
         collection: 'user',
         name: UserDocument.name,
-        schema: userSchema
-      }
-    ])
+        schema: userSchema,
+      },
+    ]),
   ],
   controllers: [UserGrpcController],
-  providers: [UserMongodbService]
+  providers: [UserMongodbService],
 })
-export class UserModule { }
+export class UserModule {}

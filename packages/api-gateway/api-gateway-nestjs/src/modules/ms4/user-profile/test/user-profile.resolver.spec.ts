@@ -16,7 +16,7 @@ describe('UserProfileResolver', () => {
         UserProfileResolver,
         UserProfileGrpcService,
         UserGrpcService,
-        ProfileGrpcService
+        ProfileGrpcService,
       ],
     }).compile();
 

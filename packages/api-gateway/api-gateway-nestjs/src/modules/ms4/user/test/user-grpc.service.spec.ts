@@ -8,10 +8,7 @@ describe('UserGrpcService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        grpcMs400,
-        UserGrpcService
-      ],
+      providers: [grpcMs400, UserGrpcService],
     }).compile();
 
     service = module.get<UserGrpcService>(UserGrpcService);

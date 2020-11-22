@@ -14,32 +14,43 @@ import { CityGrpcService } from '@api-gateway-nestjs/modules/ms1/city/client/grp
 import { CityType } from '@api-gateway-nestjs/modules/ms1/city/server/graphql/city.type';
 
 import {
-  AddressCreateInput, AddressSearchInput,
-  AddressUpdateInput, AddressDeleteInput
+  AddressCreateInput,
+  AddressSearchInput,
+  AddressUpdateInput,
+  AddressDeleteInput,
 } from '@api-gateway-nestjs/modules/ms1/address/server/graphql/address.input';
 
 @Resolver(() => AddressType)
-export class AddressResolver extends BaseResolver(
+export class AddressResolver
+  extends BaseResolver(
     AddressType,
-    AddressCreateInput, AddressSearchInput,
-    AddressUpdateInput, AddressDeleteInput,
-    'Address', addressJoiSchema
-  ) implements OnModuleInit {
-
+    AddressCreateInput,
+    AddressSearchInput,
+    AddressUpdateInput,
+    AddressDeleteInput,
+    'Address',
+    addressJoiSchema,
+  )
+  implements OnModuleInit {
   private cityGrpcService: CityGrpcService;
 
   constructor(
     private readonly addressGrpcService: AddressGrpcService,
-    private readonly moduleRef: ModuleRef
-  ) { super(addressGrpcService); }
+    private readonly moduleRef: ModuleRef,
+  ) {
+    super(addressGrpcService);
+  }
 
   onModuleInit(): void {
-    this.cityGrpcService = this.moduleRef.get(CityGrpcService, { strict: false });
+    this.cityGrpcService = this.moduleRef.get(CityGrpcService, {
+      strict: false,
+    });
   }
 
   @ResolveField(() => CityType)
   city(@Parent() entity: AddressType): Observable<Partial<ICity>> {
-    return this.cityGrpcService.searchById({ entity: { id: entity.cityId } }).pipe(pluck('entity'));
+    return this.cityGrpcService
+      .searchById({ entity: { id: entity.cityId } })
+      .pipe(pluck('entity'));
   }
-
 }

@@ -16,39 +16,54 @@ import { CountryType } from '@api-gateway-nestjs/modules/ms1/country/server/grap
 import { CityType } from '@api-gateway-nestjs/modules/ms1/city/server/graphql/city.type';
 
 import {
-  EstateCreateInput, EstateSearchInput,
-  EstateUpdateInput, EstateDeleteInput
+  EstateCreateInput,
+  EstateSearchInput,
+  EstateUpdateInput,
+  EstateDeleteInput,
 } from '@api-gateway-nestjs/modules/ms1/estate/server/graphql/estate.input';
 
 @Resolver(() => EstateType)
-export class EstateResolver extends BaseResolver(
+export class EstateResolver
+  extends BaseResolver(
     EstateType,
-    EstateCreateInput, EstateSearchInput,
-    EstateUpdateInput, EstateDeleteInput,
-    'Estate', estateJoiSchema
-  ) implements OnModuleInit {
-
+    EstateCreateInput,
+    EstateSearchInput,
+    EstateUpdateInput,
+    EstateDeleteInput,
+    'Estate',
+    estateJoiSchema,
+  )
+  implements OnModuleInit {
   private countryGrpcService: CountryGrpcService;
   private cityGrpcService: CityGrpcService;
 
   constructor(
     private readonly estateGrpcService: EstateGrpcService,
-    private readonly moduleRef: ModuleRef
-  ) { super(estateGrpcService); }
+    private readonly moduleRef: ModuleRef,
+  ) {
+    super(estateGrpcService);
+  }
 
   onModuleInit(): void {
-    this.countryGrpcService = this.moduleRef.get(CountryGrpcService, { strict: false });
-    this.cityGrpcService = this.moduleRef.get(CityGrpcService, { strict: false });
+    this.countryGrpcService = this.moduleRef.get(CountryGrpcService, {
+      strict: false,
+    });
+    this.cityGrpcService = this.moduleRef.get(CityGrpcService, {
+      strict: false,
+    });
   }
 
   @ResolveField(() => CountryType)
   country(@Parent() entity: EstateType): Observable<Partial<ICountry>> {
-    return this.countryGrpcService.searchById({ entity: { id: entity.countryId } }).pipe(pluck('entity'));
+    return this.countryGrpcService
+      .searchById({ entity: { id: entity.countryId } })
+      .pipe(pluck('entity'));
   }
 
   @ResolveField(() => [CityType])
   cities(@Parent() entity: EstateType): Observable<Partial<ICity>[]> {
-    return this.cityGrpcService.searchMany({ entities: [{ estateId: entity.id }] }).pipe(pluck('entities'));
+    return this.cityGrpcService
+      .searchMany({ entities: [{ estateId: entity.id }] })
+      .pipe(pluck('entities'));
   }
-
 }

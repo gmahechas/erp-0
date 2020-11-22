@@ -12,11 +12,13 @@ describe('TypeIdentificationResolver', () => {
       providers: [
         grpcMs300,
         TypeIdentificationResolver,
-        TypeIdentificationGrpcService
+        TypeIdentificationGrpcService,
       ],
     }).compile();
 
-    typeIdentificationTesolver = module.get<TypeIdentificationResolver>(TypeIdentificationResolver);
+    typeIdentificationTesolver = module.get<TypeIdentificationResolver>(
+      TypeIdentificationResolver,
+    );
   });
 
   it('should be defined', () => {

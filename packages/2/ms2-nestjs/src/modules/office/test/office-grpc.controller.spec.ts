@@ -11,15 +11,18 @@ describe('OfficeGrpcController', () => {
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [
-        OfficeGrpcController
-      ],
+      controllers: [OfficeGrpcController],
       providers: [
         OfficeMongodbService,
-        { provide: getModelToken(OfficeDocument.name), useValue: OfficeDocument },
+        {
+          provide: getModelToken(OfficeDocument.name),
+          useValue: OfficeDocument,
+        },
       ],
     }).compile();
-    officeGrpcController = module.get<OfficeGrpcController>(OfficeGrpcController);
+    officeGrpcController = module.get<OfficeGrpcController>(
+      OfficeGrpcController,
+    );
   });
 
   it('should be defined', () => {

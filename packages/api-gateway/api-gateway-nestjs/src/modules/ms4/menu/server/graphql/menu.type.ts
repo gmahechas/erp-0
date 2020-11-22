@@ -11,5 +11,6 @@ export class MenuType implements IMenu {
   @Field() menuUri: string;
   @Field() menuOrder: number;
   @Field() menuIdParent: string;
-  @Field(() => [ProfileMenuType], { nullable: 'itemsAndList' }) profilesMenu: ProfileMenuType[];
+  @Field(() => [ProfileMenuType], { nullable: 'itemsAndList' })
+  profilesMenu: ProfileMenuType[];
 }

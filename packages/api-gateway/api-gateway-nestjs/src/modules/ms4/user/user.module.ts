@@ -5,10 +5,6 @@ import { UserResolver } from '@api-gateway-nestjs/modules/ms4/user/server/graphq
 import { UserGrpcService } from '@api-gateway-nestjs/modules/ms4/user/client/grpc/user-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs400,
-    UserResolver,
-    UserGrpcService
-  ]
+  providers: [grpcMs400, UserResolver, UserGrpcService],
 })
 export class UserModule {}

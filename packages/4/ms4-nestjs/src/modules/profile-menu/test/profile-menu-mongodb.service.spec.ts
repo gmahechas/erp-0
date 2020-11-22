@@ -12,7 +12,10 @@ describe('ProfileMenuMongodbService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         ProfileMenuMongodbService,
-        { provide: getModelToken(ProfileMenuDocument.name), useValue: ProfileMenuDocument }
+        {
+          provide: getModelToken(ProfileMenuDocument.name),
+          useValue: ProfileMenuDocument,
+        },
       ],
     }).compile();
 

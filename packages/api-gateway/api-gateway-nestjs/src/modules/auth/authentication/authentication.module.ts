@@ -5,10 +5,6 @@ import { AuthenticationResolver } from '@api-gateway-nestjs/modules/auth/authent
 import { AuthenticationGrpcService } from '@api-gateway-nestjs/modules/auth/authentication/client/authentication-grpc.service';
 
 @Module({
-  providers: [
-    grpcAuth,
-    AuthenticationResolver,
-    AuthenticationGrpcService
-  ]
+  providers: [grpcAuth, AuthenticationResolver, AuthenticationGrpcService],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}

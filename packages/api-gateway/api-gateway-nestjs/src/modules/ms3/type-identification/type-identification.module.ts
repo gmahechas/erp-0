@@ -8,7 +8,7 @@ import { TypeIdentificationGrpcService } from '@api-gateway-nestjs/modules/ms3/t
   providers: [
     grpcMs300,
     TypeIdentificationResolver,
-    TypeIdentificationGrpcService
-  ]
+    TypeIdentificationGrpcService,
+  ],
 })
 export class TypeIdentificationModule {}

@@ -11,9 +11,7 @@ describe('CityGrpcController', () => {
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [
-        CityGrpcController
-      ],
+      controllers: [CityGrpcController],
       providers: [
         CityMongodbService,
         { provide: getModelToken(CityDocument.name), useValue: CityDocument },

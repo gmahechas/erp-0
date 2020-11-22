@@ -17,7 +17,7 @@ describe('OfficeResolver', () => {
         OfficeResolver,
         OfficeGrpcService,
         CompanyGrpcService,
-        AddressGrpcService
+        AddressGrpcService,
       ],
     }).compile();
     officeResolver = module.get<OfficeResolver>(OfficeResolver);
@@ -26,5 +26,4 @@ describe('OfficeResolver', () => {
   it('should be defined', () => {
     expect(officeResolver).toBeDefined();
   });
-
 });

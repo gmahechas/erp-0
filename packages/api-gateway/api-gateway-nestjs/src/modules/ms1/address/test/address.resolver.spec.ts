@@ -14,7 +14,7 @@ describe('AddressResolver', () => {
         grpcMs100,
         AddressResolver,
         AddressGrpcService,
-        CityGrpcService
+        CityGrpcService,
       ],
     }).compile();
     addressResolver = module.get<AddressResolver>(AddressResolver);
@@ -23,5 +23,4 @@ describe('AddressResolver', () => {
   it('should be defined', () => {
     expect(addressResolver).toBeDefined();
   });
-
 });

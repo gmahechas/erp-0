@@ -16,39 +16,56 @@ import { UserProfileGrpcService } from '@api-gateway-nestjs/modules/ms4/user-pro
 import { UserProfileType } from '@api-gateway-nestjs/modules/ms4/user-profile/server/graphql/user-profile.type';
 
 import {
-  UserCreateInput, UserSearchInput,
-  UserUpdateInput, UserDeleteInput
+  UserCreateInput,
+  UserSearchInput,
+  UserUpdateInput,
+  UserDeleteInput,
 } from '@api-gateway-nestjs/modules/ms4/user/server/graphql/user.input';
 
 @Resolver(() => UserType)
-export class UserResolver extends BaseResolver(
+export class UserResolver
+  extends BaseResolver(
     UserType,
-    UserCreateInput, UserSearchInput,
-    UserUpdateInput, UserDeleteInput,
-    'User', userJoiSchema
-  ) implements OnModuleInit {
-
+    UserCreateInput,
+    UserSearchInput,
+    UserUpdateInput,
+    UserDeleteInput,
+    'User',
+    userJoiSchema,
+  )
+  implements OnModuleInit {
   private personGrpcService: PersonGrpcService;
   private userProfileGrpcService: UserProfileGrpcService;
 
   constructor(
     private readonly userGrpcService: UserGrpcService,
-    private readonly moduleRef: ModuleRef
-  ) { super(userGrpcService); }
+    private readonly moduleRef: ModuleRef,
+  ) {
+    super(userGrpcService);
+  }
 
   onModuleInit(): void {
-    this.personGrpcService = this.moduleRef.get(PersonGrpcService, { strict: false });
-    this.userProfileGrpcService = this.moduleRef.get(UserProfileGrpcService, { strict: false });
+    this.personGrpcService = this.moduleRef.get(PersonGrpcService, {
+      strict: false,
+    });
+    this.userProfileGrpcService = this.moduleRef.get(UserProfileGrpcService, {
+      strict: false,
+    });
   }
 
   @ResolveField(() => PersonType)
   person(@Parent() entity: UserType): Observable<Partial<IPerson>> {
-    return this.personGrpcService.searchById({ entity: { id: entity.personId } }).pipe(pluck('entity'));
+    return this.personGrpcService
+      .searchById({ entity: { id: entity.personId } })
+      .pipe(pluck('entity'));
   }
 
   @ResolveField(() => [UserProfileType])
-  userProfiles(@Parent() entity: UserType): Observable<Partial<IUserProfile>[]> {
-    return this.userProfileGrpcService.searchMany({ entities: [{ userId: entity.id }] }).pipe(pluck('entities'));
+  userProfiles(
+    @Parent() entity: UserType,
+  ): Observable<Partial<IUserProfile>[]> {
+    return this.userProfileGrpcService
+      .searchMany({ entities: [{ userId: entity.id }] })
+      .pipe(pluck('entities'));
   }
-
 }

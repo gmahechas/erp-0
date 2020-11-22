@@ -11,15 +11,18 @@ describe('CountryGrpcController', () => {
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [
-        CountryGrpcController
-      ],
+      controllers: [CountryGrpcController],
       providers: [
         CountryMongodbService,
-        { provide: getModelToken(CountryDocument.name), useValue: CountryDocument },
+        {
+          provide: getModelToken(CountryDocument.name),
+          useValue: CountryDocument,
+        },
       ],
     }).compile();
-    countryGrpcController = module.get<CountryGrpcController>(CountryGrpcController);
+    countryGrpcController = module.get<CountryGrpcController>(
+      CountryGrpcController,
+    );
   });
 
   it('should be defined', () => {

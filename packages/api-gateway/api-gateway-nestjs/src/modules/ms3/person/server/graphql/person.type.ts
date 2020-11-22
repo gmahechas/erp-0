@@ -19,5 +19,6 @@ export class PersonType implements IPerson {
   @Field() typeIdentificationId: string;
   @Field(() => CompanyType) company: CompanyType;
   @Field(() => TypePersonType) typePerson: TypePersonType;
-  @Field(() => TypeIdentificationType) typeIdentification: TypeIdentificationType;
+  @Field(() => TypeIdentificationType)
+  typeIdentification: TypeIdentificationType;
 }

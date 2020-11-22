@@ -20,21 +20,21 @@ import { UserProfileModule } from '@api-gateway-nestjs/modules/ms4/user-profile/
 @Module({
   imports: [
     GraphqlModule,
-    AuthenticationModule, /* auth */
-    CountryModule, /* ms100 */
+    AuthenticationModule /* auth */,
+    CountryModule /* ms100 */,
     EstateModule,
     CityModule,
     AddressModule,
-    CompanyModule, /* ms200 */
+    CompanyModule /* ms200 */,
     OfficeModule,
-    TypePersonModule, /* ms300 */
+    TypePersonModule /* ms300 */,
     TypeIdentificationModule,
     PersonModule,
-    MenuModule, /* ms400 */
+    MenuModule /* ms400 */,
     ProfileModule,
     ProfileMenuModule,
     UserModule,
-    UserProfileModule
-  ]
+    UserProfileModule,
+  ],
 })
-export class AppModule { }
+export class AppModule {}

@@ -12,11 +12,11 @@ import { ProfileMongodbService } from '@ms4/modules/profile/client/mongodb/profi
       {
         collection: 'profile',
         name: ProfileDocument.name,
-        schema: profileSchema
-      }
-    ])
+        schema: profileSchema,
+      },
+    ]),
   ],
   controllers: [ProfileGrpcController],
-  providers: [ProfileMongodbService]
+  providers: [ProfileMongodbService],
 })
-export class ProfileModule { }
+export class ProfileModule {}

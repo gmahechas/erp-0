@@ -14,11 +14,16 @@ describe('UserProfileGrpc Controller', () => {
       controllers: [UserProfileGrpcController],
       providers: [
         UserProfileMongodbService,
-        { provide: getModelToken(UserProfileDocument.name), useValue: UserProfileDocument },
+        {
+          provide: getModelToken(UserProfileDocument.name),
+          useValue: UserProfileDocument,
+        },
       ],
     }).compile();
 
-    controller = module.get<UserProfileGrpcController>(UserProfileGrpcController);
+    controller = module.get<UserProfileGrpcController>(
+      UserProfileGrpcController,
+    );
   });
 
   it('should be defined', () => {

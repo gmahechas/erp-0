@@ -5,10 +5,11 @@ import { BaseGrpcController, menuJoiSchema } from '@gmahechas/common-nestjs';
 import { MenuMongodbService } from '@ms4/modules/menu/client/mongodb/menu-mongodb.service';
 
 @Controller()
-export class MenuGrpcController extends BaseGrpcController('MenuService', menuJoiSchema) {
-
-  constructor(
-    private readonly menuMongodbService: MenuMongodbService
-  ) { super(menuMongodbService); }
-
+export class MenuGrpcController extends BaseGrpcController(
+  'MenuService',
+  menuJoiSchema,
+) {
+  constructor(private readonly menuMongodbService: MenuMongodbService) {
+    super(menuMongodbService);
+  }
 }

@@ -11,5 +11,6 @@ export class UserType implements IUser {
   userPassword: string;
   @Field() personId: string;
   @Field(() => PersonType) person: PersonType;
-  @Field(() => [UserProfileType], { nullable: 'itemsAndList' }) userProfiles: UserProfileType[];
+  @Field(() => [UserProfileType], { nullable: 'itemsAndList' })
+  userProfiles: UserProfileType[];
 }

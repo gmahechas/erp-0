@@ -5,6 +5,6 @@ import { AuthenticationRedisService } from '@auth/modules/authentication/client/
 
 @Module({
   controllers: [AuthenticationGrpcController],
-  providers: [AuthenticationRedisService]
+  providers: [AuthenticationRedisService],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}

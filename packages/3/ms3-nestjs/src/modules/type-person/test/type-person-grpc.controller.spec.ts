@@ -11,16 +11,19 @@ describe('TypePersonGrpcController', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [
-        TypePersonGrpcController
-      ],
+      controllers: [TypePersonGrpcController],
       providers: [
         TypePersonMongodbService,
-        { provide: getModelToken(TypePersonDocument.name), useValue: TypePersonDocument },
+        {
+          provide: getModelToken(TypePersonDocument.name),
+          useValue: TypePersonDocument,
+        },
       ],
     }).compile();
 
-    typePersonGrpcController = module.get<TypePersonGrpcController>(TypePersonGrpcController);
+    typePersonGrpcController = module.get<TypePersonGrpcController>(
+      TypePersonGrpcController,
+    );
   });
 
   it('should be defined', () => {
