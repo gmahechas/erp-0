@@ -4,7 +4,7 @@ import { baseGrpc } from '@api-gateway-nestjs/utils/base.grpc';
 export const grpcAuth: Provider = baseGrpc('AUTH_PACKAGE', {
   options: {
     url: 'auth-service.auth-namespace.svc.cluster.local:50001',
-    package: ['authentication'],
+    package: ['user'],
     protoPath: 'auth/auth.proto',
   },
 });
@@ -36,7 +36,7 @@ export const grpcMs300: Provider = baseGrpc('300_PACKAGE', {
 export const grpcMs400: Provider = baseGrpc('400_PACKAGE', {
   options: {
     url: 'ms400-service.ms400-namespace.svc.cluster.local:50400',
-    package: ['menu', 'profile', 'profile_menu', 'user', 'user_profile'],
+    package: ['menu', 'profile', 'profile_menu', 'user_profile'],
     protoPath: '4/4.proto',
   },
 });

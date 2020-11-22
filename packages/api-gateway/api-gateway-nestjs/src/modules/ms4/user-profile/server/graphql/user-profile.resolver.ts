@@ -14,8 +14,8 @@ import {
 import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
 import { UserProfileGrpcService } from '@api-gateway-nestjs/modules/ms4/user-profile/client/grpc/user-profile-grpc.service';
 import { UserProfileType } from '@api-gateway-nestjs/modules/ms4/user-profile/server/graphql/user-profile.type';
-import { UserGrpcService } from '@api-gateway-nestjs/modules/ms4/user/client/grpc/user-grpc.service';
-import { UserType } from '@api-gateway-nestjs/modules/ms4/user/server/graphql/user.type';
+import { UserGrpcService } from '@api-gateway-nestjs/modules/auth/user/client/grpc/user-grpc.service';
+import { UserType } from '@api-gateway-nestjs/modules/auth/user/server/graphql/user.type';
 import { ProfileGrpcService } from '@api-gateway-nestjs/modules/ms4/profile/client/grpc/profile-grpc.service';
 import { ProfileType } from '@api-gateway-nestjs/modules/ms4/profile/server/graphql/profile.type';
 

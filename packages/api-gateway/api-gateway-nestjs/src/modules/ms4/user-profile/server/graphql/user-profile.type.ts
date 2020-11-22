@@ -1,7 +1,7 @@
 import { ObjectType, Field } from '@nestjs/graphql';
 
 import { IUserProfile } from '@gmahechas/common-nestjs';
-import { UserType } from '@api-gateway-nestjs/modules/ms4/user/server/graphql/user.type';
+import { UserType } from '@api-gateway-nestjs/modules/auth/user/server/graphql/user.type';
 import { ProfileType } from '@api-gateway-nestjs/modules/ms4/profile/server/graphql/profile.type';
 
 @ObjectType()

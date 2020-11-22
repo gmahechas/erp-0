@@ -8,8 +8,8 @@ import { pluck } from 'rxjs/operators';
 import { userJoiSchema, IPerson, IUserProfile } from '@gmahechas/common-nestjs';
 
 import { BaseResolver } from '@api-gateway-nestjs/utils/base.resolver';
-import { UserGrpcService } from '@api-gateway-nestjs/modules/ms4/user/client/grpc/user-grpc.service';
-import { UserType } from '@api-gateway-nestjs/modules/ms4/user/server/graphql/user.type';
+import { UserGrpcService } from '@api-gateway-nestjs/modules/auth/user/client/grpc/user-grpc.service';
+import { UserType } from '@api-gateway-nestjs/modules/auth/user/server/graphql/user.type';
 import { PersonGrpcService } from '@api-gateway-nestjs/modules/ms3/person/client/grpc/person-grpc.service';
 import { PersonType } from '@api-gateway-nestjs/modules/ms3/person/server/graphql/person.type';
 import { UserProfileGrpcService } from '@api-gateway-nestjs/modules/ms4/user-profile/client/grpc/user-profile-grpc.service';
@@ -20,7 +20,7 @@ import {
   UserSearchInput,
   UserUpdateInput,
   UserDeleteInput,
-} from '@api-gateway-nestjs/modules/ms4/user/server/graphql/user.input';
+} from '@api-gateway-nestjs/modules/auth/user/server/graphql/user.input';
 
 @Resolver(() => UserType)
 export class UserResolver

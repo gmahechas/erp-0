@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getModelToken } from '@nestjs/mongoose';
 
-import { UserDocument } from '@ms4/modules/user/client/mongodb/user.schema';
+import { UserDocument } from '@auth/modules/user/client/mongodb/user.schema';
 
-import { UserMongodbService } from '@ms4/modules/user/client/mongodb/user-mongodb.service';
+import { UserMongodbService } from '@auth/modules/user/client/mongodb/user-mongodb.service';
 
 describe('UserMongodbService', () => {
   let service: UserMongodbService;

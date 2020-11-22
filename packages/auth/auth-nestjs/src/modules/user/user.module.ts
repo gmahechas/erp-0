@@ -3,8 +3,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { UserDocument, userSchema } from '@gmahechas/common-nestjs';
 
-import { UserGrpcController } from '@ms4/modules/user/server/grpc/user-grpc.controller';
-import { UserMongodbService } from '@ms4/modules/user/client/mongodb/user-mongodb.service';
+import { UserGrpcController } from '@auth/modules/user/server/grpc/user-grpc.controller';
+import { UserMongodbService } from '@auth/modules/user/client/mongodb/user-mongodb.service';
 
 @Module({
   imports: [
