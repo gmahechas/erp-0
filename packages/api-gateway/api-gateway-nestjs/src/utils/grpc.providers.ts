@@ -4,7 +4,7 @@ import { baseGrpc } from '@api-gateway-nestjs/utils/base.grpc';
 export const grpcAuth: Provider = baseGrpc('AUTH_PACKAGE', {
   options: {
     url: 'auth-service.auth-namespace.svc.cluster.local:50001',
-    package: ['user'],
+    package: ['user', 'auth'],
     protoPath: 'auth/auth.proto',
   },
 });

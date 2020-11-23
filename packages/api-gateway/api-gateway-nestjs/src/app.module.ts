@@ -15,6 +15,7 @@ import { MenuModule } from '@api-gateway-nestjs/modules/ms4/menu/menu.module'; /
 import { ProfileModule } from '@api-gateway-nestjs/modules/ms4/profile/profile.module';
 import { ProfileMenuModule } from '@api-gateway-nestjs/modules/ms4/profile-menu/profile-menu.module';
 import { UserProfileModule } from '@api-gateway-nestjs/modules/ms4/user-profile/user-profile.module';
+import { AuthModule } from './modules/auth/auth/auth.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { UserProfileModule } from '@api-gateway-nestjs/modules/ms4/user-profile/
     ProfileModule,
     ProfileMenuModule,
     UserProfileModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

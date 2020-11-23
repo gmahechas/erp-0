@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package auth;
+
+
+message SingInRequest {
+  string userName = 1;
+  string userPassword = 2;
+}
+
+message SingInResponse{
+  bool successAuthUser = 1;
+}
+
+service AuthService {
+  rpc Signin (SingInRequest) returns (SingInResponse) {}
+}

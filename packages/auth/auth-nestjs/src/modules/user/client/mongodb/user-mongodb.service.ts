@@ -6,12 +6,9 @@ import { Observable, from } from 'rxjs';
 
 import {
   IEntityMany,
-  IEntityOne,
   IUser,
   BaseMongodbService,
   UserDocument,
-  ISigninRequest,
-  ISigninResponse,
 } from '@gmahechas/common-nestjs';
 
 @Injectable()
@@ -31,13 +28,7 @@ export class UserMongodbService extends BaseMongodbService() {
     return from(searchManyAsync());
   }
 
-  searchOneByUsername(
-    data: IEntityOne<ISigninRequest>,
-  ): Observable<IEntityOne<IUser>> {
-    const searchOneByUsernameAsync = async (): Promise<IEntityOne<IUser>> => {
-      const { userName } = data.entity;
-      return { entity: await this.entityModel.findOne({ userName }) };
-    };
-    return from(searchOneByUsernameAsync());
+  async searchOneByUsername(userName: string): Promise<IUser> {
+    return await this.entityModel.findOne({ userName });
   }
 }

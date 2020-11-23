@@ -18,5 +18,6 @@ import { UserMongodbService } from '@auth/modules/user/client/mongodb/user-mongo
   ],
   controllers: [UserGrpcController],
   providers: [UserMongodbService],
+  exports: [UserMongodbService],
 })
 export class UserModule {}
