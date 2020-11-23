@@ -12,8 +12,8 @@ import { CustomError } from '@gmahechas/common-nestjs';
       formatError: (error: GraphQLError): GraphQLFormattedError | any => {
         const originalError = error.originalError as CustomError;
         return originalError.serializeErrors();
-      }
-    })
-  ]
+      },
+    }),
+  ],
 })
-export class GraphqlModule { }
+export class GraphqlModule {}

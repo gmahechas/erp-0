@@ -12,11 +12,16 @@ describe('TypeIdentificationMongodbService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         TypeIdentificationMongodbService,
-        { provide: getModelToken(TypeIdentificationDocument.name), useValue: TypeIdentificationDocument },
+        {
+          provide: getModelToken(TypeIdentificationDocument.name),
+          useValue: TypeIdentificationDocument,
+        },
       ],
     }).compile();
 
-    service = module.get<TypeIdentificationMongodbService>(TypeIdentificationMongodbService);
+    service = module.get<TypeIdentificationMongodbService>(
+      TypeIdentificationMongodbService,
+    );
   });
 
   it('should be defined', () => {

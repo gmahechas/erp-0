@@ -8,5 +8,6 @@ export class ProfileType implements IProfile {
   @Field() id: string;
   @Field() profileName: string;
   @Field() profileDescription: string;
-  @Field(() => [ProfileMenuType], { nullable: 'itemsAndList' }) profileMenus: ProfileMenuType[];
+  @Field(() => [ProfileMenuType], { nullable: 'itemsAndList' })
+  profileMenus: ProfileMenuType[];
 }

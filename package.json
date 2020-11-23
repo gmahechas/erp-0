@@ -15,8 +15,5 @@
     "conventional-changelog": "^3.1.23",
     "git-cz": "^4.7.3",
     "lerna": "^3.22.1"
-  },
-  "dependencies": {
-    "@gmahechas/common-nestjs": "^0.0.1"
   }
 }

@@ -5,10 +5,6 @@ import { OfficeResolver } from '@api-gateway-nestjs/modules/ms2/office/server/gr
 import { OfficeGrpcService } from '@api-gateway-nestjs/modules/ms2/office/client/grpc/office-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs200,
-    OfficeResolver,
-    OfficeGrpcService
-  ]
+  providers: [grpcMs200, OfficeResolver, OfficeGrpcService],
 })
-export class OfficeModule { }
+export class OfficeModule {}

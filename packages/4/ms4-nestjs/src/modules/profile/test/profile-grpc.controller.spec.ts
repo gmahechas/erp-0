@@ -14,7 +14,10 @@ describe('ProfileGrpcController', () => {
       controllers: [ProfileGrpcController],
       providers: [
         ProfileMongodbService,
-        { provide: getModelToken(ProfileDocument.name), useValue: ProfileDocument },
+        {
+          provide: getModelToken(ProfileDocument.name),
+          useValue: ProfileDocument,
+        },
       ],
     }).compile();
 

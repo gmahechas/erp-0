@@ -14,7 +14,7 @@ describe('MenuResolver', () => {
         grpcMs400,
         MenuResolver,
         MenuGrpcService,
-        ProfileMenuGrpcService
+        ProfileMenuGrpcService,
       ],
     }).compile();
 

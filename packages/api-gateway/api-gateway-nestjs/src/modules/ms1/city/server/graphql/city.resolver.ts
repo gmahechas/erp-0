@@ -14,32 +14,43 @@ import { EstateGrpcService } from '@api-gateway-nestjs/modules/ms1/estate/client
 import { EstateType } from '@api-gateway-nestjs/modules/ms1/estate/server/graphql/estate.type';
 
 import {
-  CityCreateInput, CitySearchInput,
-  CityUpdateInput, CityDeleteInput
+  CityCreateInput,
+  CitySearchInput,
+  CityUpdateInput,
+  CityDeleteInput,
 } from '@api-gateway-nestjs/modules/ms1/city/server/graphql/city.input';
 
 @Resolver(() => CityType)
-export class CityResolver extends BaseResolver(
+export class CityResolver
+  extends BaseResolver(
     CityType,
-    CityCreateInput, CitySearchInput,
-    CityUpdateInput, CityDeleteInput,
-    'City', cityJoiSchema
-  ) implements OnModuleInit {
-
+    CityCreateInput,
+    CitySearchInput,
+    CityUpdateInput,
+    CityDeleteInput,
+    'City',
+    cityJoiSchema,
+  )
+  implements OnModuleInit {
   private estateGrpcService: EstateGrpcService;
 
   constructor(
     private readonly cityGrpcService: CityGrpcService,
-    private readonly moduleRef: ModuleRef
-  ) { super(cityGrpcService); }
+    private readonly moduleRef: ModuleRef,
+  ) {
+    super(cityGrpcService);
+  }
 
   onModuleInit(): void {
-    this.estateGrpcService = this.moduleRef.get(EstateGrpcService, { strict: false });
-  }
-  
-  @ResolveField(() => EstateType)
-  estate(@Parent() entity: CityType): Observable<Partial<IEstate>> {
-    return this.estateGrpcService.searchById({ entity: { id: entity.estateId } }).pipe(pluck('entity'));
+    this.estateGrpcService = this.moduleRef.get(EstateGrpcService, {
+      strict: false,
+    });
   }
 
+  @ResolveField(() => EstateType)
+  estate(@Parent() entity: CityType): Observable<Partial<IEstate>> {
+    return this.estateGrpcService
+      .searchById({ entity: { id: entity.estateId } })
+      .pipe(pluck('entity'));
+  }
 }

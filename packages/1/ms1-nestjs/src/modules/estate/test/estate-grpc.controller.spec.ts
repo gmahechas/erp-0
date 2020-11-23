@@ -11,15 +11,18 @@ describe('EstateGrpcController', () => {
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [
-        EstateGrpcController
-      ],
+      controllers: [EstateGrpcController],
       providers: [
         EstateMongodbService,
-        { provide: getModelToken(EstateDocument.name), useValue: EstateDocument },
+        {
+          provide: getModelToken(EstateDocument.name),
+          useValue: EstateDocument,
+        },
       ],
     }).compile();
-    estateGrpcController = module.get<EstateGrpcController>(EstateGrpcController);
+    estateGrpcController = module.get<EstateGrpcController>(
+      EstateGrpcController,
+    );
   });
 
   it('should be defined', () => {

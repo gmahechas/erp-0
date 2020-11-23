@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
 
 import { databasesModules } from '@auth/utils/database.modules';
-import { AuthenticationModule } from '@auth/modules/authentication/authentication.module';
+import { UserModule } from '@auth/modules/user/user.module';
+import { AuthModule } from '@auth/modules/auth/auth.module';
 
 @Module({
-  imports: [
-    ...databasesModules,
-    AuthenticationModule,
-  ]
+  imports: [...databasesModules, UserModule, AuthModule],
 })
 export class AppModule {}

@@ -12,14 +12,18 @@ describe('AddressMongodbService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         AddressMongodbService,
-        { provide: getModelToken(AddressDocument.name), useValue: AddressDocument },
+        {
+          provide: getModelToken(AddressDocument.name),
+          useValue: AddressDocument,
+        },
       ],
     }).compile();
-    addressMongodbService = module.get<AddressMongodbService>(AddressMongodbService);
+    addressMongodbService = module.get<AddressMongodbService>(
+      AddressMongodbService,
+    );
   });
 
   it('should be defined', () => {
     expect(addressMongodbService).toBeDefined();
   });
-
 });

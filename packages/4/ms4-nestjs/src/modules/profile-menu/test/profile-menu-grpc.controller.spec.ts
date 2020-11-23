@@ -14,11 +14,16 @@ describe('ProfileMenuGrpc Controller', () => {
       controllers: [ProfileMenuGrpcController],
       providers: [
         ProfileMenuMongodbService,
-        { provide: getModelToken(ProfileMenuDocument.name), useValue: ProfileMenuDocument },
+        {
+          provide: getModelToken(ProfileMenuDocument.name),
+          useValue: ProfileMenuDocument,
+        },
       ],
     }).compile();
 
-    controller = module.get<ProfileMenuGrpcController>(ProfileMenuGrpcController);
+    controller = module.get<ProfileMenuGrpcController>(
+      ProfileMenuGrpcController,
+    );
   });
 
   it('should be defined', () => {

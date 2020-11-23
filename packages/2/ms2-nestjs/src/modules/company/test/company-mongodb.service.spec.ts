@@ -12,14 +12,18 @@ describe('CompanyMongodbService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         CompanyMongodbService,
-        { provide: getModelToken(CompanyDocument.name), useValue: CompanyDocument },
+        {
+          provide: getModelToken(CompanyDocument.name),
+          useValue: CompanyDocument,
+        },
       ],
     }).compile();
-    companyMongodbService = module.get<CompanyMongodbService>(CompanyMongodbService);
+    companyMongodbService = module.get<CompanyMongodbService>(
+      CompanyMongodbService,
+    );
   });
 
   it('should be defined', () => {
     expect(companyMongodbService).toBeDefined();
   });
-
 });

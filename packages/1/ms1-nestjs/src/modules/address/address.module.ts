@@ -12,11 +12,11 @@ import { AddressMongodbService } from '@ms1/modules/address/client/mongodb/addre
       {
         collection: 'address',
         name: AddressDocument.name,
-        schema: addressSchema
-      }
-    ])
+        schema: addressSchema,
+      },
+    ]),
   ],
   controllers: [AddressGrpcController],
-  providers: [AddressMongodbService]
+  providers: [AddressMongodbService],
 })
-export class AddressModule { }
+export class AddressModule {}

@@ -11,16 +11,19 @@ describe('TypeIdentificationGrpcController', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [
-        TypeIdentificationGrpcController
-      ],
+      controllers: [TypeIdentificationGrpcController],
       providers: [
         TypeIdentificationMongodbService,
-        { provide: getModelToken(TypeIdentificationDocument.name), useValue: TypeIdentificationDocument },
+        {
+          provide: getModelToken(TypeIdentificationDocument.name),
+          useValue: TypeIdentificationDocument,
+        },
       ],
     }).compile();
 
-    typeIdentificationGrpcController = module.get<TypeIdentificationGrpcController>(TypeIdentificationGrpcController);
+    typeIdentificationGrpcController = module.get<
+      TypeIdentificationGrpcController
+    >(TypeIdentificationGrpcController);
   });
 
   it('should be defined', () => {

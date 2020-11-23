@@ -9,11 +9,7 @@ describe('TypePersonResolver', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        grpcMs300,
-        TypePersonResolver,
-        TypePersonGrpcService
-      ],
+      providers: [grpcMs300, TypePersonResolver, TypePersonGrpcService],
     }).compile();
 
     typePersonResolver = module.get<TypePersonResolver>(TypePersonResolver);

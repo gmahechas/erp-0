@@ -5,10 +5,6 @@ import { ProfileResolver } from '@api-gateway-nestjs/modules/ms4/profile/server/
 import { ProfileGrpcService } from '@api-gateway-nestjs/modules/ms4/profile/client/grpc/profile-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs400,
-    ProfileResolver,
-    ProfileGrpcService
-  ]
+  providers: [grpcMs400, ProfileResolver, ProfileGrpcService],
 })
 export class ProfileModule {}

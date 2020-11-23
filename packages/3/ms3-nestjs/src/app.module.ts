@@ -11,6 +11,6 @@ import { PersonModule } from '@ms3/modules/person/person.module';
     TypePersonModule,
     TypeIdentificationModule,
     PersonModule,
-  ]
+  ],
 })
-export class AppModule { }
+export class AppModule {}

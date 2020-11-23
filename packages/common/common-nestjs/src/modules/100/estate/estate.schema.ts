@@ -1,8 +1,13 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 import { IEstate } from './estate.interface';
 
 export const estateSchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   estateName: {
     type: String,
     required: true
@@ -25,7 +30,8 @@ export const estateSchema = new Schema({
   }
 });
 
-export class EstateDocument extends Document implements Partial<IEstate> {
+export class EstateDocument extends Document implements IEstate {
+  id: string;
   estateName: string;
   estateCode: string;
   countryId: string;

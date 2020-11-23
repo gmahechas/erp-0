@@ -1,4 +1,4 @@
-import { ObjectSchema } from '@hapi/joi';
+import { ObjectSchema } from 'joi';
 
 export interface JoiSchema {
   create: ObjectSchema,

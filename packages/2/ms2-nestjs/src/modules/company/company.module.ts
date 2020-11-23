@@ -12,11 +12,11 @@ import { CompanyMongodbService } from '@ms2/modules/company/client/mongodb/compa
       {
         collection: 'company',
         name: CompanyDocument.name,
-        schema: companySchema
-      }
-    ])
+        schema: companySchema,
+      },
+    ]),
   ],
   controllers: [CompanyGrpcController],
   providers: [CompanyMongodbService],
 })
-export class CompanyModule { }
+export class CompanyModule {}

@@ -7,20 +7,23 @@ import { TypePersonGrpcService } from '@api-gateway-nestjs/modules/ms3/type-pers
 import { TypePersonType } from '@api-gateway-nestjs/modules/ms3/type-person/server/graphql/type-person.type';
 
 import {
-  TypePersonCreateInput, TypePersonSearchInput,
-  TypePersonUpdateInput, TypePersonDeleteInput
+  TypePersonCreateInput,
+  TypePersonSearchInput,
+  TypePersonUpdateInput,
+  TypePersonDeleteInput,
 } from '@api-gateway-nestjs/modules/ms3/type-person/server/graphql/type-person.input';
 
 @Resolver(() => TypePersonType)
 export class TypePersonResolver extends BaseResolver(
-    TypePersonType,
-    TypePersonCreateInput, TypePersonSearchInput,
-    TypePersonUpdateInput, TypePersonDeleteInput,
-    'TypePerson', typePersonJoiSchema
-  ) {
-
-  constructor(
-    private readonly typePersonGrpcService: TypePersonGrpcService,
-  ) { super(typePersonGrpcService); }
-
+  TypePersonType,
+  TypePersonCreateInput,
+  TypePersonSearchInput,
+  TypePersonUpdateInput,
+  TypePersonDeleteInput,
+  'TypePerson',
+  typePersonJoiSchema,
+) {
+  constructor(private readonly typePersonGrpcService: TypePersonGrpcService) {
+    super(typePersonGrpcService);
+  }
 }

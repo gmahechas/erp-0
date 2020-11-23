@@ -12,11 +12,16 @@ describe('PersonMongodbService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         PersonMongodbService,
-        { provide: getModelToken(PersonDocument.name), useValue: PersonDocument },
+        {
+          provide: getModelToken(PersonDocument.name),
+          useValue: PersonDocument,
+        },
       ],
     }).compile();
 
-    personMongodbService = module.get<PersonMongodbService>(PersonMongodbService);
+    personMongodbService = module.get<PersonMongodbService>(
+      PersonMongodbService,
+    );
   });
 
   it('should be defined', () => {

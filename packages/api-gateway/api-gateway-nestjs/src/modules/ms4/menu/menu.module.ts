@@ -5,10 +5,6 @@ import { MenuResolver } from '@api-gateway-nestjs/modules/ms4/menu/server/graphq
 import { MenuGrpcService } from '@api-gateway-nestjs/modules/ms4/menu/client/grpc/menu-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs400,
-    MenuResolver,
-    MenuGrpcService
-  ]
+  providers: [grpcMs400, MenuResolver, MenuGrpcService],
 })
 export class MenuModule {}

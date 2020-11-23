@@ -1,14 +1,20 @@
 import { Controller } from '@nestjs/common';
 
-import { BaseGrpcController, typePersonJoiSchema } from '@gmahechas/common-nestjs';
+import {
+  BaseGrpcController,
+  typePersonJoiSchema,
+} from '@gmahechas/common-nestjs';
 
 import { TypePersonMongodbService } from '@ms3/modules/type-person/client/mongodb/type-person-mongodb.service';
 
 @Controller()
-export class TypePersonGrpcController extends BaseGrpcController('TypePersonService', typePersonJoiSchema) {
-
+export class TypePersonGrpcController extends BaseGrpcController(
+  'TypePersonService',
+  typePersonJoiSchema,
+) {
   constructor(
-    private readonly typePersonMongodbService: TypePersonMongodbService
-  ) { super(typePersonMongodbService); }
-
+    private readonly typePersonMongodbService: TypePersonMongodbService,
+  ) {
+    super(typePersonMongodbService);
+  }
 }

@@ -5,10 +5,6 @@ import { AddressResolver } from '@api-gateway-nestjs/modules/ms1/address/server/
 import { AddressGrpcService } from '@api-gateway-nestjs/modules/ms1/address/client/grpc/address-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs100,
-    AddressResolver,
-    AddressGrpcService
-  ]
+  providers: [grpcMs100, AddressResolver, AddressGrpcService],
 })
-export class AddressModule { }
+export class AddressModule {}

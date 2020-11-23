@@ -12,7 +12,7 @@ import { AddressModule } from '@ms1/modules/address/address.module';
     CountryModule,
     EstateModule,
     CityModule,
-    AddressModule
-  ]
+    AddressModule,
+  ],
 })
-export class AppModule { }
+export class AppModule {}

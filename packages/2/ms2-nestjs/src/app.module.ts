@@ -5,10 +5,6 @@ import { CompanyModule } from '@ms2/modules/company/company.module';
 import { OfficeModule } from '@ms2/modules/office/office.module';
 
 @Module({
-  imports: [
-    ...databasesModules,
-    CompanyModule,
-    OfficeModule
-  ]
+  imports: [...databasesModules, CompanyModule, OfficeModule],
 })
-export class AppModule { }
+export class AppModule {}

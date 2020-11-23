@@ -12,7 +12,10 @@ describe('UserProfileMongodbService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         UserProfileMongodbService,
-        { provide: getModelToken(UserProfileDocument.name), useValue: UserProfileDocument },
+        {
+          provide: getModelToken(UserProfileDocument.name),
+          useValue: UserProfileDocument,
+        },
       ],
     }).compile();
 

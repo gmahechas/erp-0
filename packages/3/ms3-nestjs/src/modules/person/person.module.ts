@@ -12,11 +12,11 @@ import { PersonMongodbService } from '@ms3/modules/person/client/mongodb/person-
       {
         collection: 'person',
         name: PersonDocument.name,
-        schema: personSchema
-      }
-    ])
+        schema: personSchema,
+      },
+    ]),
   ],
   controllers: [PersonGrpcController],
-  providers: [PersonMongodbService]
+  providers: [PersonMongodbService],
 })
-export class PersonModule { }
+export class PersonModule {}

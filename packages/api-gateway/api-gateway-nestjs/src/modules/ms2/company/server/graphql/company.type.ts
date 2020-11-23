@@ -12,5 +12,6 @@ export class CompanyType implements ICompany {
   @Field() companyKey: string;
   @Field() cityId: string;
   @Field(() => CityType) city: CityType;
-  @Field(() => [OfficeType], { nullable: 'itemsAndList' }) offices: OfficeType[];
+  @Field(() => [OfficeType], { nullable: 'itemsAndList' })
+  offices: OfficeType[];
 }

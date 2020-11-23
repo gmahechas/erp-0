@@ -12,11 +12,11 @@ import { EstateMongodbService } from '@ms1/modules/estate/client/mongodb/estate-
       {
         collection: 'estate',
         name: EstateDocument.name,
-        schema: estateSchema
-      }
-    ])
+        schema: estateSchema,
+      },
+    ]),
   ],
   controllers: [EstateGrpcController],
-  providers: [EstateMongodbService]
+  providers: [EstateMongodbService],
 })
-export class EstateModule { }
+export class EstateModule {}

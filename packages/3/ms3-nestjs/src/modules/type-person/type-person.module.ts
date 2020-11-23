@@ -12,11 +12,11 @@ import { TypePersonMongodbService } from '@ms3/modules/type-person/client/mongod
       {
         collection: 'typePerson',
         name: TypePersonDocument.name,
-        schema: typePersonSchema
-      }
-    ])
+        schema: typePersonSchema,
+      },
+    ]),
   ],
   controllers: [TypePersonGrpcController],
-  providers: [TypePersonMongodbService]
+  providers: [TypePersonMongodbService],
 })
-export class TypePersonModule { }
+export class TypePersonModule {}

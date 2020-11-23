@@ -14,7 +14,7 @@ describe('ProfileResolver', () => {
         grpcMs400,
         ProfileResolver,
         ProfileGrpcService,
-        ProfileMenuGrpcService
+        ProfileMenuGrpcService,
       ],
     }).compile();
 

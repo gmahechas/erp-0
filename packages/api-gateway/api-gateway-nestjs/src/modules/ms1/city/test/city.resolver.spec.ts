@@ -10,12 +10,7 @@ describe('CityResolver', () => {
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        grpcMs100,
-        CityResolver,
-        CityGrpcService,
-        EstateGrpcService
-      ],
+      providers: [grpcMs100, CityResolver, CityGrpcService, EstateGrpcService],
     }).compile();
     cityResolver = module.get<CityResolver>(CityResolver);
   });
@@ -23,5 +18,4 @@ describe('CityResolver', () => {
   it('should be defined', () => {
     expect(cityResolver).toBeDefined();
   });
-
 });

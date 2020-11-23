@@ -19,7 +19,7 @@ describe('CompanyResolver', () => {
         CompanyGrpcService,
         OfficeGrpcService,
         CityGrpcService,
-        AddressGrpcService
+        AddressGrpcService,
       ],
     }).compile();
     companyResolver = module.get<CompanyResolver>(CompanyResolver);
@@ -28,5 +28,4 @@ describe('CompanyResolver', () => {
   it('should be defined', () => {
     expect(companyResolver).toBeDefined();
   });
-
 });

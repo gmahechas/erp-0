@@ -7,20 +7,25 @@ import { TypeIdentificationGrpcService } from '@api-gateway-nestjs/modules/ms3/t
 import { TypeIdentificationType } from '@api-gateway-nestjs/modules/ms3/type-identification/server/graphql/type-identification.type';
 
 import {
-  TypeIdentificationCreateInput, TypeIdentificationSearchInput,
-  TypeIdentificationUpdateInput, TypeIdentificationDeleteInput
+  TypeIdentificationCreateInput,
+  TypeIdentificationSearchInput,
+  TypeIdentificationUpdateInput,
+  TypeIdentificationDeleteInput,
 } from '@api-gateway-nestjs/modules/ms3/type-identification/server/graphql/type-identification.input';
 
 @Resolver(() => TypeIdentificationType)
 export class TypeIdentificationResolver extends BaseResolver(
   TypeIdentificationType,
-  TypeIdentificationCreateInput, TypeIdentificationSearchInput,
-  TypeIdentificationUpdateInput, TypeIdentificationDeleteInput,
-  'TypeIdentification', typeIdentificationJoiSchema
+  TypeIdentificationCreateInput,
+  TypeIdentificationSearchInput,
+  TypeIdentificationUpdateInput,
+  TypeIdentificationDeleteInput,
+  'TypeIdentification',
+  typeIdentificationJoiSchema,
 ) {
-
   constructor(
     private readonly typeIdentificationGrpcService: TypeIdentificationGrpcService,
-  ) { super(typeIdentificationGrpcService); }
-
+  ) {
+    super(typeIdentificationGrpcService);
+  }
 }

@@ -1,3 +1,4 @@
 syntax = "proto3";
 
-import public "modules/authentication.proto";
+import public "modules/user.proto";
+import public "modules/auth.proto";

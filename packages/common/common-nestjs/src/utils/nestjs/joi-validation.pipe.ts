@@ -1,7 +1,7 @@
 import { Injectable, PipeTransform } from '@nestjs/common';
 import { RpcException } from '@nestjs/microservices';
 
-import { ObjectSchema, ValidationResult, } from '@hapi/joi';
+import { ObjectSchema, ValidationResult, } from 'joi';
 import { RequestValidationError } from '../../errors/request-validation.error';
 
 @Injectable()

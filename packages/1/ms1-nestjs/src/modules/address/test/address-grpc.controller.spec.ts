@@ -11,15 +11,18 @@ describe('AddressGrpcController', () => {
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [
-        AddressGrpcController
-      ],
+      controllers: [AddressGrpcController],
       providers: [
         AddressMongodbService,
-        { provide: getModelToken(AddressDocument.name), useValue: AddressDocument },
+        {
+          provide: getModelToken(AddressDocument.name),
+          useValue: AddressDocument,
+        },
       ],
     }).compile();
-    addressGrpcController = module.get<AddressGrpcController>(AddressGrpcController);
+    addressGrpcController = module.get<AddressGrpcController>(
+      AddressGrpcController,
+    );
   });
 
   it('should be defined', () => {

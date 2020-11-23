@@ -12,11 +12,11 @@ import { CityMongodbService } from '@ms1/modules/city/client/mongodb/city-mongod
       {
         collection: 'city',
         name: CityDocument.name,
-        schema: citySchema
-      }
-    ])
+        schema: citySchema,
+      },
+    ]),
   ],
   controllers: [CityGrpcController],
   providers: [CityMongodbService],
 })
-export class CityModule { }
+export class CityModule {}

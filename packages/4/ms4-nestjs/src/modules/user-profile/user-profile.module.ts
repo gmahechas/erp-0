@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { UserProfileDocument, userProfileSchema } from '@gmahechas/common-nestjs';
+import {
+  UserProfileDocument,
+  userProfileSchema,
+} from '@gmahechas/common-nestjs';
 
 import { UserProfileGrpcController } from '@ms4/modules/user-profile/server/grpc/user-profile-grpc.controller';
 import { UserProfileMongodbService } from '@ms4/modules/user-profile/client/mongodb/user-profile-mongodb.service';
@@ -12,11 +15,11 @@ import { UserProfileMongodbService } from '@ms4/modules/user-profile/client/mong
       {
         collection: 'userProfile',
         name: UserProfileDocument.name,
-        schema: userProfileSchema
-      }
-    ])
+        schema: userProfileSchema,
+      },
+    ]),
   ],
   controllers: [UserProfileGrpcController],
-  providers: [UserProfileMongodbService]
+  providers: [UserProfileMongodbService],
 })
-export class UserProfileModule { }
+export class UserProfileModule {}

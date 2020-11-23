@@ -12,14 +12,18 @@ describe('CountryMongodbService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         CountryMongodbService,
-        { provide: getModelToken(CountryDocument.name), useValue: CountryDocument },
+        {
+          provide: getModelToken(CountryDocument.name),
+          useValue: CountryDocument,
+        },
       ],
     }).compile();
-    countryMongodbService = module.get<CountryMongodbService>(CountryMongodbService);
+    countryMongodbService = module.get<CountryMongodbService>(
+      CountryMongodbService,
+    );
   });
 
   it('should be defined', () => {
     expect(countryMongodbService).toBeDefined();
   });
-
 });

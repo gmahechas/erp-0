@@ -8,5 +8,6 @@ export class CountryType implements ICountry {
   @Field() id: string;
   @Field() countryName: string;
   @Field() countryCode: string;
-  @Field(() => [EstateType], { nullable: 'itemsAndList' }) estates: EstateType[];
+  @Field(() => [EstateType], { nullable: 'itemsAndList' })
+  estates: EstateType[];
 }

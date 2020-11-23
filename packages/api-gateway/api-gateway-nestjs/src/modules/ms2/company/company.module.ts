@@ -5,10 +5,6 @@ import { CompanyResolver } from '@api-gateway-nestjs/modules/ms2/company/server/
 import { CompanyGrpcService } from '@api-gateway-nestjs/modules/ms2/company/client/grpc/company-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs200,
-    CompanyResolver,
-    CompanyGrpcService
-  ]
+  providers: [grpcMs200, CompanyResolver, CompanyGrpcService],
 })
 export class CompanyModule {}

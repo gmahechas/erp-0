@@ -12,11 +12,11 @@ import { MenuMongodbService } from '@ms4/modules/menu/client/mongodb/menu-mongod
       {
         collection: 'menu',
         name: MenuDocument.name,
-        schema: menuSchema
-      }
-    ])
+        schema: menuSchema,
+      },
+    ]),
   ],
   controllers: [MenuGrpcController],
-  providers: [MenuMongodbService]
+  providers: [MenuMongodbService],
 })
-export class MenuModule { }
+export class MenuModule {}

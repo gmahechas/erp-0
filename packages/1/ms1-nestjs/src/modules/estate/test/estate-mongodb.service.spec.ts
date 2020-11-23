@@ -12,14 +12,18 @@ describe('EstateMongodbService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         EstateMongodbService,
-        { provide: getModelToken(EstateDocument.name), useValue: EstateDocument },
+        {
+          provide: getModelToken(EstateDocument.name),
+          useValue: EstateDocument,
+        },
       ],
     }).compile();
-    estateMongodbService = module.get<EstateMongodbService>(EstateMongodbService);
+    estateMongodbService = module.get<EstateMongodbService>(
+      EstateMongodbService,
+    );
   });
 
   it('should be defined', () => {
     expect(estateMongodbService).toBeDefined();
   });
-
 });

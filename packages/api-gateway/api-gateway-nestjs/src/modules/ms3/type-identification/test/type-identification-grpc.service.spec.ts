@@ -8,13 +8,12 @@ describe('TypeIdentificationGrpcService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        grpcMs300,
-        TypeIdentificationGrpcService
-      ],
+      providers: [grpcMs300, TypeIdentificationGrpcService],
     }).compile();
 
-    typeIdentificationGrpcService = module.get<TypeIdentificationGrpcService>(TypeIdentificationGrpcService);
+    typeIdentificationGrpcService = module.get<TypeIdentificationGrpcService>(
+      TypeIdentificationGrpcService,
+    );
   });
 
   it('should be defined', () => {

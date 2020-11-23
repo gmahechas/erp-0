@@ -14,32 +14,45 @@ import { ProfileMenuGrpcService } from '@api-gateway-nestjs/modules/ms4/profile-
 import { ProfileMenuType } from '@api-gateway-nestjs/modules/ms4/profile-menu/server/graphql/profile-menu.type';
 
 import {
-  ProfileCreateInput, ProfileSearchInput,
-  ProfileUpdateInput, ProfileDeleteInput
+  ProfileCreateInput,
+  ProfileSearchInput,
+  ProfileUpdateInput,
+  ProfileDeleteInput,
 } from '@api-gateway-nestjs/modules/ms4/profile/server/graphql/profile.input';
 
 @Resolver(() => ProfileType)
-export class ProfileResolver extends BaseResolver(
+export class ProfileResolver
+  extends BaseResolver(
     ProfileType,
-    ProfileCreateInput, ProfileSearchInput,
-    ProfileUpdateInput, ProfileDeleteInput,
-    'Profile', profileJoiSchema
-  ) implements OnModuleInit { 
+    ProfileCreateInput,
+    ProfileSearchInput,
+    ProfileUpdateInput,
+    ProfileDeleteInput,
+    'Profile',
+    profileJoiSchema,
+  )
+  implements OnModuleInit {
+  private profileMenuGrpcService: ProfileMenuGrpcService;
 
-    private profileMenuGrpcService: ProfileMenuGrpcService;
-
-    constructor(
-      private readonly profileGrpcService: ProfileGrpcService,
-      private readonly moduleRef: ModuleRef
-    ) { super(profileGrpcService); }
-
-    onModuleInit(): void {
-      this.profileMenuGrpcService = this.moduleRef.get(ProfileMenuGrpcService, { strict: false });
-    }
-
-    @ResolveField(() => [ProfileMenuType])
-    profileMenus(@Parent() entity: ProfileType): Observable<Partial<IProfileMenu>[]> {
-      return this.profileMenuGrpcService.searchMany({ entities: [{ profileId: entity.id }] }).pipe(pluck('entities'));
-    }
-
+  constructor(
+    private readonly profileGrpcService: ProfileGrpcService,
+    private readonly moduleRef: ModuleRef,
+  ) {
+    super(profileGrpcService);
   }
+
+  onModuleInit(): void {
+    this.profileMenuGrpcService = this.moduleRef.get(ProfileMenuGrpcService, {
+      strict: false,
+    });
+  }
+
+  @ResolveField(() => [ProfileMenuType])
+  profileMenus(
+    @Parent() entity: ProfileType,
+  ): Observable<Partial<IProfileMenu>[]> {
+    return this.profileMenuGrpcService
+      .searchMany({ entities: [{ profileId: entity.id }] })
+      .pipe(pluck('entities'));
+  }
+}

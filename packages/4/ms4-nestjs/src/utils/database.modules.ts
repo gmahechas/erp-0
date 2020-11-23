@@ -10,7 +10,7 @@ export const databasesModules: DynamicModule[] = [
       user: await config.mongodb_user,
       pass: await config.mongodb_pass,
       useNewUrlParser: true,
-      useUnifiedTopology: true
-    })
-  })
+      useUnifiedTopology: true,
+    }),
+  }),
 ];

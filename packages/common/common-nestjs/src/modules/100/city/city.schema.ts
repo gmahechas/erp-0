@@ -1,8 +1,13 @@
 import { Schema, Document } from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ICity } from './city.interface';
 
 export const citySchema = new Schema({
+  _id: {
+    type: String,
+    default: uuidv4
+  },
   cityName: {
     type: String,
     required: true
@@ -25,7 +30,8 @@ export const citySchema = new Schema({
   }
 });
 
-export class CityDocument extends Document implements Partial<ICity> {
+export class CityDocument extends Document implements ICity {
+  id: string;
   cityName: string;
   cityCode: string;
   estateId: string;

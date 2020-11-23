@@ -5,10 +5,6 @@ import { TypePersonResolver } from '@api-gateway-nestjs/modules/ms3/type-person/
 import { TypePersonGrpcService } from '@api-gateway-nestjs/modules/ms3/type-person/client/grpc/type-person-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs300,
-    TypePersonResolver,
-    TypePersonGrpcService
-  ]
+  providers: [grpcMs300, TypePersonResolver, TypePersonGrpcService],
 })
 export class TypePersonModule {}

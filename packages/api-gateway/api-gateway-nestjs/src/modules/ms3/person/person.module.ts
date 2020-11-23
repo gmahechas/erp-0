@@ -5,10 +5,6 @@ import { PersonResolver } from '@api-gateway-nestjs/modules/ms3/person/server/gr
 import { PersonGrpcService } from '@api-gateway-nestjs/modules/ms3/person/client/grpc/person-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs300,
-    PersonResolver,
-    PersonGrpcService,
-  ]
+  providers: [grpcMs300, PersonResolver, PersonGrpcService],
 })
 export class PersonModule {}

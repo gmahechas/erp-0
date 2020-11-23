@@ -12,11 +12,11 @@ import { CountryMongodbService } from '@ms1/modules/country/client/mongodb/count
       {
         collection: 'country',
         name: CountryDocument.name,
-        schema: countrySchema
-      }
-    ])
+        schema: countrySchema,
+      },
+    ]),
   ],
   controllers: [CountryGrpcController],
-  providers: [CountryMongodbService]
+  providers: [CountryMongodbService],
 })
-export class CountryModule { }
+export class CountryModule {}

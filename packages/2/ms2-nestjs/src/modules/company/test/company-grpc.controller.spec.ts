@@ -11,15 +11,18 @@ describe('CompanyGrpcController', () => {
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [
-        CompanyGrpcController
-      ],
+      controllers: [CompanyGrpcController],
       providers: [
         CompanyMongodbService,
-        { provide: getModelToken(CompanyDocument.name), useValue: CompanyDocument },
+        {
+          provide: getModelToken(CompanyDocument.name),
+          useValue: CompanyDocument,
+        },
       ],
     }).compile();
-    companyGrpcController = module.get<CompanyGrpcController>(CompanyGrpcController);
+    companyGrpcController = module.get<CompanyGrpcController>(
+      CompanyGrpcController,
+    );
   });
 
   it('should be defined', () => {

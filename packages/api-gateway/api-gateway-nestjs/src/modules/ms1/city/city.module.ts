@@ -5,10 +5,6 @@ import { CityResolver } from '@api-gateway-nestjs/modules/ms1/city/server/graphq
 import { CityGrpcService } from '@api-gateway-nestjs/modules/ms1/city/client/grpc/city-grpc.service';
 
 @Module({
-  providers: [
-    grpcMs100,
-    CityResolver,
-    CityGrpcService
-  ]
+  providers: [grpcMs100, CityResolver, CityGrpcService],
 })
-export class CityModule { }
+export class CityModule {}

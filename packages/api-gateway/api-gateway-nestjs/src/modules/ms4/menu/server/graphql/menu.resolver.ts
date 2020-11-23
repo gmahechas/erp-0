@@ -14,32 +14,45 @@ import { ProfileMenuGrpcService } from '@api-gateway-nestjs/modules/ms4/profile-
 import { ProfileMenuType } from '@api-gateway-nestjs/modules/ms4/profile-menu/server/graphql/profile-menu.type';
 
 import {
-  MenuCreateInput, MenuSearchInput,
-  MenuUpdateInput, MenuDeleteInput
+  MenuCreateInput,
+  MenuSearchInput,
+  MenuUpdateInput,
+  MenuDeleteInput,
 } from '@api-gateway-nestjs/modules/ms4/menu/server/graphql/menu.input';
 
 @Resolver(() => MenuType)
-export class MenuResolver extends BaseResolver(
+export class MenuResolver
+  extends BaseResolver(
     MenuType,
-    MenuCreateInput, MenuSearchInput,
-    MenuUpdateInput, MenuDeleteInput,
-    'Menu', menuJoiSchema
-  ) implements OnModuleInit {
-
+    MenuCreateInput,
+    MenuSearchInput,
+    MenuUpdateInput,
+    MenuDeleteInput,
+    'Menu',
+    menuJoiSchema,
+  )
+  implements OnModuleInit {
   private profileMenuGrpcService: ProfileMenuGrpcService;
 
   constructor(
     private readonly menuGrpcService: MenuGrpcService,
-    private readonly moduleRef: ModuleRef
-  ) { super(menuGrpcService); }
+    private readonly moduleRef: ModuleRef,
+  ) {
+    super(menuGrpcService);
+  }
 
   onModuleInit(): void {
-    this.profileMenuGrpcService = this.moduleRef.get(ProfileMenuGrpcService, { strict: false });
+    this.profileMenuGrpcService = this.moduleRef.get(ProfileMenuGrpcService, {
+      strict: false,
+    });
   }
 
   @ResolveField(() => [ProfileMenuType])
-  profilesMenu(@Parent() entity: MenuType): Observable<Partial<IProfileMenu>[]> {
-    return this.profileMenuGrpcService.searchMany({ entities: [{ menuId: entity.id }] }).pipe(pluck('entities'));
+  profilesMenu(
+    @Parent() entity: MenuType,
+  ): Observable<Partial<IProfileMenu>[]> {
+    return this.profileMenuGrpcService
+      .searchMany({ entities: [{ menuId: entity.id }] })
+      .pipe(pluck('entities'));
   }
-  
 }

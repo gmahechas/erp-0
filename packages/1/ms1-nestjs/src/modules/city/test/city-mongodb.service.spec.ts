@@ -21,5 +21,4 @@ describe('CityMongodbService', () => {
   it('should be defined', () => {
     expect(cityMongodbService).toBeDefined();
   });
-
 });

@@ -19,7 +19,7 @@ describe('PersonResolver', () => {
         PersonGrpcService,
         TypePersonGrpcService,
         TypeIdentificationGrpcService,
-        CompanyGrpcService
+        CompanyGrpcService,
       ],
     }).compile();
 
